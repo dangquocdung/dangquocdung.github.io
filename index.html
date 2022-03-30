@@ -1,1 +1,32 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Reactivity</title>
+    <style>
+    body,h1,h2,p,span{margin:0;padding:0}
+    body{padding:10px}
+    h1{color:#005289;text-align:center;margin:10px;font-size:30px}
+    p{color:#00C9A7;text-align:center;font-family: monospace;font-size:24px}
+    </style>
+</head>
+<body>
+    <p>Reactivity: Vue2</p>
+    <h1 id='h1'>???</h1>
+<script>
+let info = {
+    msg:'send me to the H1 tag'// initial val & value storage
+}
+document.getElementById('h1').innerText = info.msg
+Object.defineProperty(info,'reactive_msg',{ // proxy for info.msg
+    get(){
+        return info.msg
+    },
+    set(newVal){
+        document.getElementById('h1').innerText = newVal
+        info.msg = newVal
+    }
+})
+</script>
+</body>
+</html>
