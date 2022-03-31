@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>
+    body,div,ul,li,p,h1,h2,h3{list-style:none;padding:0;margin:0;line-height:1.3;font-family:monospace;}
+    p{text-align:center;background:mediumvioletred;color:yellow;padding:5px;}
+    h1{background:cadetblue;color:yellow;padding:5px;text-align:center;margin-top:10px}
+    h2{font-family:monospace;font-size:26px;background:wheat;color:darkcyan;padding:3px;text-align:center;margin-top:10px}
+    button{margin-top:10px;font-size:18px}
+    .root{border:2px burlywood solid;padding:10px;margin:10px}
+</style>
+<body>
+    <div id='vue_app'>
+        <div class='root'>
+            <p>{{title}}</p>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vuex@4"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{ title:'VueX Modules: State & Getters' }},
+        computed:{
+            ...Vuex.mapState({
+                rootTitle:'title',
+                aTitle(state){ return state.a.title },
+                inner_aTitle(state){ return state.a.inner_a.title},
+                bTitle(state){ return state.b.title }
+            })
+        }
+    })
+    const moduleA = {
+        modules:{
+            inner_a:{
+                state(){return{
+                    title:'inner module of module a'
+                }}
+            }
+        },
+        state(){return{
+            title:'this is module a'
+        }},
+        getters:{
+            capTitle(state,getters,rootState){
+                //console.log(rootState)
+                return state.title.toUpperCase()
+            }
+        }
+    }
+    const moduleB = {
+        state(){return{
+            title:'this is module b'
+        }},
+        // getters:{
+        //     capTitle(state,getters,rootState){
+        //         return state.title.toUpperCase()
+        //     }
+        // }
+    }
+    const store = Vuex.createStore({
+        state(){return{
+            title:'root module'
+        }},
+        modules:{
+            a:moduleA,
+            b:moduleB
+        }
+    })
+    let vm = app.use(store).mount('#vue_app')
+    </script>
+</body>
+</html>

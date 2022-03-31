@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>
+    body,h1,h2,div{padding:0;margin:0}
+    h1{background:palevioletred;color:yellow;padding:5px;text-align:center}
+    h2{background:wheat;color:darkcyan;padding:3px;text-align:center;margin-top:10px}
+    .root{border:2px burlywood solid;padding:10px;margin:10px;}
+</style>
+<body>
+    <div id='vue_app'>
+        <div class='root'>
+            <h1>{{title}}</h1>
+            <h2>{{capTitle}}</h2>
+            <h2>
+                {{brand}} {{model}} {{age}}
+            </h2>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vuex@4"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{ title:'vuex state' }},
+        // computed:{
+        //     ...Vuex.mapState(['brand','model','year']),
+        //     capTitle(){return this.title.toUpperCase()}
+        // }
+        computed:Vuex.mapState({
+            brand:'brand',model:'model',model_alias:'model',year:'year',
+            capTitle(state){ return this.title.toUpperCase() },
+            age(state){
+                return new Date().getFullYear() - state.year
+            }
+        })
+    })
+    const store = Vuex.createStore({
+        state(){return{
+            brand:'Toyota',model:'Supra',year:2019
+        }}
+    })
+    let vm = app.use(store).mount('#vue_app')
+    </script>
+</body>
+</html>

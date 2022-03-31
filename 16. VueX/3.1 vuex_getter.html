@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>
+    body,div,ul,li,p,h1,h2,h3{list-style:none;padding:0;margin:0;line-height:1.3;font-family:monospace;}
+    h1{font-size:36px;text-align:center;background:darkcyan;color:yellow;padding:10px;}
+    ul{margin:10px;}
+    li{font-size:26px;margin-top:10px;padding:10px;border:3px burlywood dashed;}
+    h3{color:cadetblue;}
+    p{color:mediumslateblue;text-align:center;}
+</style>
+<body>
+    <div id='vue_app'>
+        <div class='root'>
+        <h1>{{capTitle}}</h1>
+        <ul><li v-for="(elem,index) in manualCar" :key='index'>
+            <h3>{{elem.brand}} {{elem.model}}</h3> 
+            <p>{{elem.engine}} {{elem.gearbox}} <b>{{elem.year}}</b></p> 
+        </ul></li>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vuex@4"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{ title:'VueX Getters' }},
+        computed:{
+            capTitle(){return this.title.toUpperCase()},
+            ...Vuex.mapState(['list']),
+            ...Vuex.mapGetters(['manualCar','manualCarTotal'])
+        }
+    })
+    const store = Vuex.createStore({
+        state(){return{
+            list:[
+                {id:0,brand:'Toyota',model:'Supra',engine:'Petrol',gearbox:'Auto',year:2021},
+                {id:1,brand:'Honda',model:'Civic',engine:'Diesel',gearbox:'Manual',year:1995},
+                {id:2,brand:'Nissan',model:'GT-R',engine:'Petrol',gearbox:'Manual',year:2001},
+                {id:3,brand:'Lexus',model:'LX570',engine:'Petrol',gearbox:'Auto',year:2019},
+                {id:4,brand:'Toyota',model:'Hilux',engine:'Diesel',gearbox:'Manual',year:2008}
+            ]
+        }},
+        getters:{
+            manualCar(state,getters){
+                return state.list.filter((elem)=>{
+                    return elem.gearbox == 'Manual'
+                })
+            },
+            manualCarTotal(state,getters){
+                return getters.manualCar.length
+            }
+        }
+    })
+    let vm = app.use(store).mount('#vue_app')
+    </script>
+</body>
+</html>

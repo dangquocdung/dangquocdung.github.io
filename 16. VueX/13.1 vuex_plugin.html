@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>
+    body,div,ul,li,p,h1,h2,h3{list-style:none;padding:0;margin:0;line-height:1.3;font-family:monospace;}
+    p{text-align:center;background:darkslateblue;color:yellow;padding:5px;}
+    h1{font-size:42px;background:cadetblue;color:yellow;padding:5px;text-align:center;margin-top:10px}
+    button{margin-top:10px;font-size:18px;margin-right:10px}
+    .root{border:2px burlywood solid;padding:10px;margin:10px}
+</style>
+<body>
+    <div id='vue_app'>
+        <div class='root'>
+            <p>{{title}}</p>
+            <h1>{{$store.state.num}}</h1>
+            <button @click='up'>+</button>
+            <button @click='down'>-</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vuex@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{ title:'VueX Plugins',step:5 }},
+        methods:{
+            up(){ this.$store.dispatch('increment',this.step) },
+            down(){ this.$store.dispatch('decrement',this.step) }
+        }
+    })
+    function p1(store){
+        console.log('myPlugin: P1')
+        let pre = _.cloneDeep(store.state)
+        let unsub = store.subscribe((mutation,state)=>{
+            let post = _.cloneDeep(state)
+            console.log(pre,post)
+            pre = post // do this at the END 
+            if(state.num>=50) unsub()
+        })
+    }
+    const store = Vuex.createStore({
+        plugins:[p1],
+        state(){return{ num:0 }},
+        mutations:{
+            numUp(state,step){ console.log('☣️ ⬆️numUp mutation'); state.num += step },
+            numDown(state,step){ console.log('☣️ ⬇️numDown mutation'); state.num -= step }
+        },
+        actions:{
+            increment(context,payload){
+                console.log('↗️ increment action');context.commit('numUp',payload)
+            },
+            decrement(context,payload){
+                console.log('↘️ decrement action');context.commit('numDown',payload)
+            }
+        }
+    })
+    let vm = app.use(store).mount('#vue_app')
+    </script>
+</body>
+</html>

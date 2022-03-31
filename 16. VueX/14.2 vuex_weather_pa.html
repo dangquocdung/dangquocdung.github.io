@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>
+    body,div,h1,h2,h3,button,hr,p{margin:0;padding:0}
+    p{text-align:center;background:firebrick;color:yellow;padding:5px;}
+    h1{background:cadetblue;color:yellow;padding:5px;text-align:center;margin-top:10px}
+    h2{font-family:monospace;font-size:26px;background:wheat;color:darkcyan;padding:3px;text-align:center;margin-top:10px}
+    .root{border:2px burlywood solid;padding:10px;margin:10px;}
+    button{margin-right:10px;margin-top:10px;padding:2px}
+</style>
+<body>
+    <div id='vue_app'>
+        <div class='root'>
+            <p>{{title}}</p>
+            <h1>{{city}}</h1>
+            <h2>{{description}}</h2>
+            <button @click='change(`London`)'>London</button>
+            <button @click='change(`Newcastle upon Tyne`)'>Newcastle</button>
+            <button @click='change(`Manchester`)'>Manchester</button>
+            <button @click='change(`Glasgow`)'>Glasgow</button>
+            <button @click='change(`Leeds`)'>Leeds</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vuex@4"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{ title:'VueX Weather App.'}},
+        methods:{
+            change(newCity){
+                this.$store.commit('changeCity',newCity)
+                this.$store.dispatch('query')
+            }
+        },
+        created(){
+            this.$store.dispatch('query')
+        },
+        computed:{...Vuex.mapState(['city','description'])}
+    })
+//'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+key
+    
+    function p1(store){
+        store.subscribeAction({
+            error:(action,state,error)=>{
+                console.log('error action')
+            }
+        })
+    }
+    function updateDescription(store){
+        store.subscribeAction({
+            before(action,state){
+                state.description = '⏳ loading info'
+            },
+            after(action,state){
+                console.log(state.description)
+            }
+        })
+    }
+    const store = Vuex.createStore({
+        plugins:[updateDescription],
+        state(){return{
+            city:'London',description:'⏳ loading info',
+            key:'810ff4cc192a6075b75696db89aab81c'
+        }},
+        mutations:{
+            changeCity(state,newCity){
+                state.city = newCity
+                //state.description = '⏳ loading info'
+            },
+            updateWeather(state,newVal){
+                state.description = newVal
+            }
+        },
+        getters:{
+            api(state){
+                return 'https://api.openweathermap.org/data/2.5/weather?q='+state.city+'&appid='+state.key
+            }
+        },
+        actions:{
+            async query(context){
+                try{
+                    let result = await axios.get(context.getters.api)
+                    console.log(context.state.city+' '+result.data.weather[0].description)
+                    context.commit('updateWeather',result.data.weather[0].description)
+                }catch(err){
+                    console.log('Err: '+err.message)
+                }
+            }
+        }
+    })
+    let vm = app.use(store).mount('#vue_app')
+    </script>
+</body>
+</html>
