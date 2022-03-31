@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>
+.parent{border:3px solid #34495E;color:#34495E;padding:15px;}
+.child{border: 2px dashed #3CB881;color:#3CB881;padding:5px;}
+p{color:#0059A7;;font-size:24px;text-align:center;padding:2px;}
+</style>
+<body>
+    <div id='vue_app'>
+        <div class='parent'>
+            <h2>{{title}}</h2>
+            <!-- <child-comp ref='cc' v-bind:mail='msg'></child-comp> -->
+            <child-comp ref='cc' v-bind:mail='1984'></child-comp>
+        </div>
+    </div>
+    <template id='temp_id'>
+        <div class='child'>
+            <h3>{{title}}</h3>
+            <p>{{mail}}</p>
+            <p>{{cap_mail}}</p>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            data(){return{
+                title:'Root Comp.', msg:[1,2,3]//true//1984//'message from Root Comp.'
+            }}
+        })
+        app.component('childComp',{
+            beforeCreate(){
+                console.log(this.$props)
+                console.log(typeof this.mail)
+            },
+            props:['mail'],
+            watch:{
+                mail(newVal,preVal){
+                    console.log(preVal+' -> '+newVal)
+                }
+            },
+            computed:{
+                cap_mail(){
+                    if(typeof this.mail == 'string'){
+                        return this.mail.toUpperCase()
+                    }else{
+                        return this.mail
+                    }
+                }
+            },
+            template:'#temp_id',
+            name:'child_comp',
+            data(){return{
+                title:'Child Comp.'
+            }},
+        })
+        let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

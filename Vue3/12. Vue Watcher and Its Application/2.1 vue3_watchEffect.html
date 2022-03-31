@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>
+    h2{text-align:center;color:#0081CF;font-family:Verdana, Geneva, Tahoma, sans-serif;font-weight:bold}
+</style>
+<body>
+<h2>Vue.watchEffect()</h2>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+let city = Vue.ref('London')
+
+let list = Vue.reactive(['apple','orange','peach']) 
+
+let car = Vue.reactive({
+    brand:'Toyota',model:'Supra',year:2021
+})
+
+let stop = Vue.watchEffect(
+    (onInvalidate)=>{
+        let target = car.brand//list[0]//list.length//[...list]//city.value
+        console.log(target)
+        console.log('watchEffect: 2nd side effect')
+        onInvalidate(()=>{
+            console.log('onInvalidate: 1st side effect')
+        })
+    },
+    {
+        flush:'pre' // flush ONLY
+    }
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

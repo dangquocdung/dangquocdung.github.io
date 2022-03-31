@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>
+.root{ border: #34495E 3px solid;text-align:center;padding:10px;margin:5px}
+.root button {margin:0px 10px 0px 10px;}
+.childOne{
+    border: #3CB881 3px dashed;text-align:center;color:#3CB881;
+    padding:5px;margin:5px;
+}
+.childTwo{
+    border: red 3px dotted;text-align:center;color:crimson;
+    padding:5px;margin:5px;
+}
+.childThree{
+    border: navy 3px dotted;text-align:center;color:navy;
+    padding:5px;margin:5px;
+}
+.childFour{
+    border: orange 3px dotted;text-align:center;color:orange;
+    padding:5px;margin:5px;
+}
+</style>  
+</head>
+<body>
+    <div id='root'>
+        <div class='root'>
+            <h2>{{title}}</h2><hr>
+            <!-- <keep-alive max=2> FIFO: first in, first out-->
+            <!-- <keep-alive include='c1,c3'> -->
+            <!-- <keep-alive exclude='c4'> -->
+            <!-- <keep-alive :include='list'> -->
+                <component v-bind:is='c'></component>
+            <!-- </keep-alive> -->
+            <hr>
+            <button @click='c=`c1`'>C1</button><button @click='c=`c2`'>C2</button>
+            <button @click='c=`c3`'>C3</button><button @click='c=`c4`'>C4</button>
+        </div>
+    </div>
+    <template id='child_1'>
+        <div class='childOne'><h3>{{title}}</h3></div>
+    </template>
+    <template id='child_2'>
+        <div class='childTwo'><h3>{{title}}</h3></div>
+    </template>
+    <template id='child_3'>
+        <div class='childThree'><h3>{{title}}</h3></div>
+    </template>
+    <template id='child_4'>
+        <div class='childFour'><h3>{{title}}</h3></div>
+    </template>    
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){ return { title:'ROOT Comp.',c:'c1', list:['c1','c2'] } }
+    })
+    app.component('c1',{
+        name:'c1',
+        template:'#child_1',
+        data(){ return {title:'Child Comp. ONE'} },
+        unmounted(){ console.log(this.title+' unmounted...')}
+    })
+    app.component('c2',{
+        name:'c2',
+        template:'#child_2',
+        data(){ return {title:'Child Comp. TWO'} },
+        unmounted(){ console.log(this.title+' unmounted...')}
+    })
+    app.component('c3',{
+        name:'c3',
+        template:'#child_3',
+        data(){ return {title:'Child Comp. THREE'} },
+        unmounted(){ console.log(this.title+' unmounted...')}
+    })
+    app.component('c4',{
+        name:'c4',
+        template:'#child_4',
+        data(){ return {title:'Child Comp. FOUR'} },
+        unmounted(){ console.log(this.title+' unmounted...')}
+    })
+    let vm = app.mount('#root')
+    </script>
+</body>
+</html>

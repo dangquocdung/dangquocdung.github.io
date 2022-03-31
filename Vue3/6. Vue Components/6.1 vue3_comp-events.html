@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>
+input{font-size:26px;width:90%}
+.bgOne{border:#34495E 3px solid;color:#34495E;padding:15px;}
+.bgTwo{border:#3CB881 3px dashed;color:#3CB881;padding:10px;}
+</style>
+<body>
+    <div id='vue_app'>
+        <div class='bgOne'>
+            <h1>{{msg}}</h1>
+            <child-comp ref='cc' @relay='msg=$event.toUpperCase()'></child-comp>
+        </div>
+    </div>
+    <template id='temp_id'>
+        <div class='bgTwo'>
+            <h2>{{msg}}</h2><hr>
+            <input type="text" v-model='msg' @input='send'>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            data(){
+                return{msg:'msg from root component.'}
+            }
+        })
+        app.component('childComp',{
+            emits:['relay'],
+            methods:{
+                send(){
+                    this.$emit('relay',this.msg)
+                }
+            },
+            data(){
+                return {msg:'msg from child component'}
+            },
+            name:'child_comp',
+            template:'#temp_id'
+        })
+        let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>
+.root{border: #34495E 3px solid;padding:15px;margin:15px;}
+.child{border: #3CB881 3px dashed;text-align:center;color:#3CB881;padding:10px;font-family:Verdana, Geneva, Tahoma, sans-serif;}
+</style>
+</head>
+<body>  
+    <div id='vue_app'>
+        <div class='root'>
+            <h2>Root Component</h2>
+            <child_comp ref='cc'>
+                <!-- <i>{{msg}}</i> -->
+                <template v-slot:city>
+                    <b>{{city}}</b>
+                </template>
+                <template #default>
+                    <span>another element</span>
+                </template>
+            </child_comp>
+        </div>
+    </div>
+    <template id='child_comp'>
+        <div class='child'>
+            <slot name='city' ref='city_slot'></slot>
+            <h3>Child Component</h3>
+            <slot></slot>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{
+            msg:'msg from ROOT Comp.', city:'London'
+        }}
+    })
+    app.component('child_comp',{
+        template:'#child_comp',
+        data(){return{
+            nation:'United Kingdom'
+        }}
+    })
+    let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

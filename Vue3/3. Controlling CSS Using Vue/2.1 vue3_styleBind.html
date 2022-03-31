@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 3 Demo</title>
+    <style>
+        .bgOne{
+            background-color: #3CB881;text-align:center;padding:10px;margin:5px;
+        }
+        .bgTwo{
+            background-color: #34495E;text-align:center;padding:10px;margin:5px;
+        }
+        .textOne{
+            color:wheat;font-size:24px;font-family:cursive;
+        }
+        .textTwo{
+            color:white;font-size:24px;font-family:Impact;
+        }
+    </style>
+</head>
+<body>
+    <div id='vue_app'>
+        <!-- <div style='background-color:#34495E;color:#3CB881;font-size:25px'> -->
+        <!-- <div v-bind:style="{backgroundColor:bgColor}"> -->
+        <div :style='[styleObj,{fontSize:fontSize+`px`},ovStyle]'>
+            <span>{{msg}}</span>
+        </div>
+        <button @click='fontSize+=1'>+</button>
+        <button @click='fontSize-=1'>-</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            data(){
+                return {
+                    msg:'control CSS & Style Using Vue3',
+                    bgColor:'#34495E',
+                    styleObj:{
+                        backgroundColor:'#34495E',
+                        color:'#3CB881',
+                        //fontSize:'25px'
+                        //fontSize:30
+                    },
+                    fontSize:25,
+                    ovStyle:{
+                        color:'red'
+                    }
+                }
+            }
+        })
+        let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

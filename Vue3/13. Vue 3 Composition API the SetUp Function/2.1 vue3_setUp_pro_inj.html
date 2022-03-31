@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>
+    .parent{border:#34495E 4px solid;color:#34495E;padding:15px;}
+    .child{border:3px dashed #3CB881;color:#3CB881;padding:10px;}
+    p{
+        border:3px dotted orchid;color:orchid;padding:10px;margin:10px;
+        text-align:center;font-family:monospace;
+        font-size:30px;
+    }
+</style>  
+</head>
+<body>
+    <div id='root'>
+        <div class='parent'>
+            <h1>{{title}}</h1>
+            <child ref='cc'></child>
+        </div>
+    </div>
+    <template id='child'>
+        <div class='child'>
+            <h2>{{title}}</h2>
+            <h3>{{city}} {{nation}}</h3>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{ title:'Root Comp.' }},
+        setup(props,context){
+            let city = Vue.ref('London')
+            let nation = Vue.ref('UK')
+            Vue.provide('city',city)
+            Vue.provide('nation',nation)
+            return{
+                city, nation
+            }
+        }
+    })
+    app.component('child',{
+        setup(props,context){
+            let city = Vue.inject('city')
+            let nation = Vue.inject('nation')
+            return {
+                city, nation
+            }
+        },
+        template:'#child',
+        //inject:['city','nation'],
+        data(){return{ title:'Child Comp.' }}
+    })
+    let vm = app.mount('#root')
+    </script>
+</body>
+</html>

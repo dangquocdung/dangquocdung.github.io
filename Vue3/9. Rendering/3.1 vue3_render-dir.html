@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>
+.item{font-size: 32px;color:navy}
+.error{font-size:36px;color:navy;background-color: tomato;text-align:center}
+</style>  
+</head>
+<body>
+    <div id='root'>
+        <ul v-if='list.length'>
+            <li class='item' v-for='(elem,index) in list' :key='index'>
+                {{elem}}
+            </li>
+        </ul>
+        <p class='error' v-else>No Item Found.</p>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{
+            list:['London','Manchester','Newcastle']
+        }},
+        render(){
+            if(this.list.length){
+                // ul
+                return Vue.h('ul',{},this.list.map((elem,index)=>{
+                    return Vue.h('li',{class:'item',key:index,title:index},elem)
+                }))
+            }else{
+                return Vue.h('p',{class:'error'},'No Item Found.')
+            }
+        }
+    })
+    let vm = app.mount('#root')
+    </script>
+</body>
+</html>

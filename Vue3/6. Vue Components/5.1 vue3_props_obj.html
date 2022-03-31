@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>
+.parent{border:3px solid #34495E;color:#34495E;padding:10px;}
+.child{border: 2px dashed #3CB881;color:#3CB881;padding:5px;margin:5px;}
+p{color:#0059A7;font-size:32px;text-align:center;padding:3px;font-family:monospace}
+</style>
+<body>
+    <div id='vue_app'>
+        <div class='parent'>
+            <h1 v-bind:title='msg'>{{title}}</h1>
+            <p>{{msg}}</p>
+            <child-comp ref='cc' v-bind:mail='msg' ></child-comp>
+        </div>
+    </div>
+    <template id='child_temp'>
+        <div class='child'>
+            <h2>{{title}}</h2>
+            <p>{{mail}}</p>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            data(){return{
+                title:'Root Comp.',msg:'root comp. msg'
+            }},
+            errorCaptured: (err, vm, info) => {
+                console.log(err)
+                console.log(vm)
+                console.log(info)
+                return false
+            },
+        })
+        app.component('childComp',{
+            beforeCreate(){ console.log(this.$props);throw new Error('error') },
+            props:{
+                mail:{
+                    default:'default primitive value',
+                    // factory pattern for reference-type values
+                    type:[String,Number,Boolean,Array,Object,Function,Date,Symbol],
+                    validator(val){
+                        console.log('validator: '+val)
+                        //console.log(this)
+                        //throw new Error('validator error')
+                        return true
+                    }
+                }
+            },
+            name:'child_comp',
+            template:'#child_temp',
+            data(){return{
+                title:'Child Comp.'
+            }},
+        })
+        let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

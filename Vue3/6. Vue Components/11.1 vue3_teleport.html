@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>
+.notice{text-align:center;background:tomato;color:white;font-size:28px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif}
+.root{border: #34495E 3px solid;padding:15px;margin:15px;}
+.child{border: #3CB881 3px dashed;text-align:center;color:#3CB881;padding:10px;font-family:Verdana, Geneva, Tahoma, sans-serif;}
+</style>
+</head>
+<body>
+    <div id='notification'></div>
+    <div id='vue_app'>      
+        <div class='root'>
+            <h2>Root Component</h2>
+            
+            <teleport to='#notification'>
+                <p class='notice' v-if='display'>{{msg}}</p>
+                <child_comp ref='cc' v-if='display'></child_comp>
+            </teleport>
+            <button @click='display=!display'>Show Notification</button>
+        </div>
+    </div>
+    <template id='child_comp'>
+        <div class='child'>
+            <h3>Child Component</h3>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{
+            msg:'msg from Root Comp.',display:false
+        }}
+    })
+    app.component('child_comp',{
+        template:'#child_comp',
+        data(){return{ msg:'msg from Child Comp.' }}
+    })
+    let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

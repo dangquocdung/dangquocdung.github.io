@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>
+button{font-size:32px}
+.initialStyle{
+    width:200px;height:200px;background:green;
+    transition:all 2s ease
+}
+.newStyle{
+    background:red;
+    transform:translateX(300px) translateY(300px) rotate(720deg) scale(0.5)
+}
+</style>  
+</head>
+<body>
+    <div id='root'>
+        <button @click='display=!display'>Display</button><hr>
+        <div class='initialStyle' :class='{newStyle:display}'></div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return {
+            display:false
+        }}
+    })
+    let vm = app.mount('#root')
+    </script>
+</body>
+</html>

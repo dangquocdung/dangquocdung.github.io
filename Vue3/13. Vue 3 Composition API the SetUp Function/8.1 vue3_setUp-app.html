@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>
+    h3{margin:0;background:#3CB881;color:white;padding:5px;text-align:center}
+    b{background:#3CB881;color:white;padding:5px;margin-left:5px;}
+</style></head>
+<body>
+    <div id='root'>
+        <div>
+            <h3>{{title}}</h3><hr>
+            <button @click='increment'>Click</button>
+            <b>{{num}}</b>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+    let app = Vue.createApp({
+        setup(){
+            let num = Vue.ref(0)
+            let step = 5 // step is protected...
+            function increment(){
+                num.value+=step
+            }
+            return {
+                num,increment
+            }
+        },
+        data(){return{
+            title:'Vue Counter App',
+            //num:0
+        }},
+        // methods:{
+        //     increment(){
+        //         this.num++
+        //     }
+        // }
+    })
+    let vm = app.mount('#root')
+    </script>
+</body>
+</html>

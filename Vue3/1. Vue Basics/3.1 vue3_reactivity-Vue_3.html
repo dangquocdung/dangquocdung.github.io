@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Reactivity</title>
+    <style>
+    body,h1,h2,p,span{margin:0;padding:0}
+    body{padding:10px}
+    h1{color:#008F7A;text-align:center;margin:10px;font-size:30px}
+    p{color:#2C73D2;text-align:center;font-family: monospace;font-size:24px}
+    </style>
+</head>
+<body>
+    <p>Reactivity: Vue3</p>
+    <h1 id='h1'>???</h1>
+<script>
+let info = {
+    msg:'send me to the H1 tag',num:10,
+    test(){
+        console.log(this.msg)
+    }
+}
+document.getElementById('h1').innerText = info.msg
+
+let info_proxy = new Proxy(info,{
+    get(target,prop,receiver){
+        if(typeof target[prop] == `string`){
+            target[prop] = target[prop]+' returned by proxy getter'
+        }
+        return Reflect.get(...arguments)
+    },
+    set(target,prop,newVal,receiver){
+        if(typeof target[prop] == `string`){
+            newVal = newVal+' set by proxy setter'
+        }
+        document.getElementById('h1').innerText = newVal
+        Reflect.set(...arguments)
+    }
+})
+
+</script>
+</body>
+</html>

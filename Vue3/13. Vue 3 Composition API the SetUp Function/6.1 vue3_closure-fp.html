@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>h2{background:navy;color:wheat;padding:5px;text-align:center}</style>
+<body><h2>Closure & Factory Pattern</h2>
+<script>
+function outer(){
+    let msg = 'hello'
+    return function inner(){
+        return msg
+    }
+}
+
+// send msg out?
+
+function fp(){
+    return{
+        title:'factory pattern'
+    }
+}
+
+let a = fp()
+let b = fp()
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

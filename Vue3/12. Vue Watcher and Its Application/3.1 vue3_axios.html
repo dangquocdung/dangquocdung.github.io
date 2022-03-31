@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>h1{background:wheat;color:navy;text-align:center;padding:3px;}</style>
+</head>
+<body>
+<h1>axios & cancellation</h1>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+let key = '810ff4cc192a6075b75696db89aab81c'
+
+function query_factory(){
+    let source = axios.CancelToken.source()
+    async function query(city){
+        let api = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+key
+        try{
+            let result = await axios.get(api,{
+                cancelToken:source.token
+            })
+            console.log(city+' '+result.data.weather[0].description)
+        }catch(err){
+            console.log('Err: '+err.message)
+        }
+    }
+    return {source,query}
+}
+
+let a = query_factory()
+let b = query_factory()
+
+a.query('London')
+// a.source.cancel('cancel query for London')
+b.query('Durham')
+b.source.cancel('cancel query for Durham')
+
+
+
+
+
+</script>
+</body>
+</html>

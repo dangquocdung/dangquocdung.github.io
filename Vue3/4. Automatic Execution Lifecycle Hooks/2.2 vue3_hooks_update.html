@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>
+.root{border:3px dashed #3CB881;padding:10px;margin:15px;}
+h1{color:#34495E;text-align:center} 
+h2{color:#3CB881;text-align:center}   
+</style>
+<body>
+    <div id='vue_app'>
+        <div class='root'>
+            <h1 ref='h1' id='h1'>{{title}}</h1>
+            <h2 :title='city'>{{hooks}}</h2>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{
+            title:'Vue3 Lifecycle HOOKS',
+            hooks:'beforeUpdate & update',city:'London'
+        }},
+        beforeUpdate(){
+            console.log('beforeUpdate')
+            console.log(this.title)
+            console.log(this.$refs.h1)
+            console.log(this.$refs.h1.innerText)
+            this.$nextTick(()=>{
+                console.log('nextTick: '+this.$refs.h1.innerText)
+            })
+        },
+        updated(){
+            alert(this.title)
+            console.log('updated')
+            console.log(this.title)
+            console.log(this.$refs.h1)
+            console.log(this.$refs.h1.innerText)
+        }
+    })
+    let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

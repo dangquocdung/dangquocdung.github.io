@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>h2{background:navy;color:wheat;padding:5px;text-align:center}</style>
+<body>
+    <h2>Closure & Factory Pattern App.</h2><hr>
+    <button id='button'>Click</button>
+    <b id='b'>counter app</b>
+<script>
+function counter_factory(start,step){
+    let num = start
+    function increment(){
+        num = num + step
+        return num
+    }
+    function read(){
+        return num
+    }
+    return{
+        num,
+        read,
+        increment
+    }
+}
+
+let co = counter_factory(10,5)
+document.getElementById('b').innerText=co.num
+document.getElementById('button').addEventListener('click',()=>{
+    document.getElementById('b').innerText=co.increment()
+})
+
+
+
+
+
+</script>
+</body>
+</html>

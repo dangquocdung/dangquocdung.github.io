@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>
+    .parent{border:#34495E 4px solid;color:#34495E;padding:15px;}
+    .child{border:#3CB881 3px solid;color:#3CB881;padding:10px;}
+    h3{
+        border:2px dashed orchid;color:orchid;padding:10px;margin:10px;
+        text-align:center;font-family:monospace;font-size:30px;
+    }
+    b{background:#3CB881;color:white;padding-left:15px;padding-right:15px}
+</style>  
+</head>
+<body>
+    <div id='root'>
+        <div class='parent'>
+            <h1>{{title}}</h1>
+            <child ref='cc' :mail='msg' :title='info'>
+                <template v-slot:city>
+                    <p>London</p>
+                    <p>Newcastle upon Tyne</p>
+                </template>
+                <template v-slot:nation>
+                    <p>UK</p>
+                </template>
+            </child>
+        </div>
+    </div>
+    <template id='child'>
+        <div class='child'>
+            <h2>{{title}}</h2>
+            <slot name='city'></slot>
+            <slot name='nation'></slot>
+            <h3>{{mail}}</h3>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{
+            title:'Root Comp.',msg:'msg from root comp.',info:'hello'
+        }}
+    })
+    app.component('child',{
+        setup(props,context){
+            console.log(props)
+            console.log(context.slots.city())
+            console.log(context.slots.nation())
+        },
+        props:['mail'],
+        template:'#child',
+        data(){return{
+            title:'child comp.'
+        }}
+    })
+    let vm = app.mount('#root')
+    </script>
+</body>
+</html>

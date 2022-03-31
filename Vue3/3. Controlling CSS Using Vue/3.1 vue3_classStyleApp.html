@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 3 Demo</title>
+    <style>
+        .bgOne{
+            background-color: #3CB881;text-align:center;padding:2px;margin:5px;
+        }
+        .bgTwo{
+            background-color: #34495E;text-align:center;padding:2px;margin:5px;
+        }
+        .textOne{
+            color:wheat;font-size:24px;font-family:cursive;
+        }
+        .textTwo{
+            color:white;font-size:24px;font-family:Impact;
+        }
+        .bgSelected{
+            background-color:darkcyan
+        }
+        .textSelected{
+            color:tomato
+        }
+    </style>
+</head>
+<body>
+    <div id='vue_app'>
+        <ul>
+            <li v-for='(elem,index) in cities' :key='index'
+            v-bind:class='{
+                bgOne:index%2==0,bgTwo:index%2==1,
+                bgSelected:selected_cities.includes(elem)
+            }'
+            >
+                <span
+                v-bind:class='{
+                    textOne:index%2==0,textTwo:index%2==1,
+                    
+                }'
+                v-bind:style='{color:selected_cities.includes(elem)?`tomato`:undefined}'
+                >
+                    {{elem}}
+                </span>
+                <input type="checkbox" :value='elem' v-model='selected_cities'>
+            </li>
+        </ul>
+        <hr>
+        <p>{{selected_cities}}</p>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            data(){
+                return {
+                    cities:['London','Newcastle','Durham','Sunderland','Fenham',
+                    'Jesmond','Heaton','Gosforth','Gateshead','Tynemouth',
+                    'North Shields','Ponteland'],
+                    selected_cities:['London']
+                }
+            }
+        })
+        let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

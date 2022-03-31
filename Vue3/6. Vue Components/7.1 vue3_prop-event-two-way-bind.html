@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title></head>
+<style>
+input{font-size:26px;width:90%}
+.bgOne{border:#34495E 3px solid;color:#34495E;padding:15px;}
+.bgTwo{border:#3CB881 3px dashed;color:#3CB881;padding:10px;}
+</style>
+<body>
+    <div id='vue_app'>
+        <div class='bgOne'>
+            <h1>{{title}}</h1>
+            <input type="text" v-model='msg'>
+            <hr>
+            <child :mail='msg' @relay='msg=$event'></child>
+        </div>
+    </div>
+    <template id='child'>
+        <div class='bgTwo'>
+            <h2>{{title}}</h2> 
+            <input type="text" :value='mail' @input='send'>  
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            data(){return{
+                title:'Root Comp.', msg:'root comp. input tag'
+            }}
+        })
+        app.component('child',{
+            props:['mail'],
+            emits:['relay'],
+            methods:{
+                send($event){
+                    this.$emit('relay',$event.target.value)
+                }
+            },
+            template:'#child',
+            data(){return{
+                title:'Child Comp.'
+            }}
+        })
+        const vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

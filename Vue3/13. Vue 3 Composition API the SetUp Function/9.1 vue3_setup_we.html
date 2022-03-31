@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title><style>h2{background:wheat;color:navy;text-align:center;padding:3px;}</style></head>
+<body>
+    <div id='vue_app'>
+        <h2>{{city}} {{description}}</h2><hr>
+        <button @click='change(`London`)' ref='b1'>London</button>
+        <button @click='change(`Newcastle upon Tyne`)' ref='b2'>Newcastle</button>
+        <button @click='change(`Durham`)' ref='b3'>Durham</button>
+        <button @click='change(`Sunderland`)' ref='b4'>Sunderland</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    let app = Vue.createApp({
+        setup(){
+            let key = '810ff4cc192a6075b75696db89aab81c'
+            function query_factory(){
+                let source = axios.CancelToken.source()
+                async function query(city){
+                    console.log('query '+city)
+                    let api = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+key
+                    try{
+                        let result = await axios.get(api,{
+                            cancelToken:source.token
+                        })
+                        console.log(city+' '+result.data.weather[0].description)
+                        return result.data.weather[0].description
+                    }catch(err){
+                        console.log('Err: '+err.message)
+                    }
+                }
+                return {source,query}
+            }
+            return {query_factory}
+        },
+        data(){return{
+            city:'',description:'',source:''
+        }},
+        created(){
+            this.city = 'London'
+            Vue.watchEffect(async (onInvalidate)=>{
+                onInvalidate(()=>{
+                    this.source.cancel('cancel query prior to '+this.city)
+                })
+                console.log('watchEffect')
+                let obj = this.query_factory()
+                this.source = obj.source
+                this.description = await obj.query(this.city)
+            },{flush:'pre'})
+        },
+        methods:{
+            race(){
+                setTimeout(()=>{this.$refs.b1.click()},400)
+                setTimeout(()=>{this.$refs.b2.click()},200)
+                setTimeout(()=>{this.$refs.b3.click()},300)
+                setTimeout(()=>{this.$refs.b4.click()},100)
+            },
+            change(city){
+                console.log('change city from '+this.city+' to '+city)
+                this.city = city
+                this.description = 'loading info'
+            },
+        }
+    })
+    let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title><style>h2{background:wheat;color:navy;text-align:center;padding:3px;}</style></head>
+<body>
+    <div id='vue_app'>
+        <h2>{{city}} {{description}}</h2><hr>
+        <button @click='change(`London`)' ref='b1'>London</button>
+        <button @click='change(`Newcastle upon Tyne`)' ref='b2'>Newcastle</button>
+        <button @click='change(`Durham`)' ref='b3'>Durham</button>
+        <button @click='change(`Sunderland`)' ref='b4'>Sunderland</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{
+            key:'810ff4cc192a6075b75696db89aab81c',
+            city:'',description:'',source:''
+        }},
+        created(){
+            this.city = 'London'
+            Vue.watchEffect((onInvalidate)=>{
+                onInvalidate(()=>{
+                    this.source.cancel('cancel query prior to '+this.city)
+                })
+                console.log('watchEffect')
+                this.query(this.city)
+            },{flush:'pre'})
+        },
+        methods:{
+            race(){
+                setTimeout(()=>{this.$refs.b1.click()},400)
+                setTimeout(()=>{this.$refs.b2.click()},200)
+                setTimeout(()=>{this.$refs.b3.click()},300)
+                setTimeout(()=>{this.$refs.b4.click()},100)
+            },
+            change(city){
+                console.log('change city from '+this.city+' to '+city)
+                this.city = city
+                this.description = 'loading info'
+            },
+            async query(city){
+                this.source = axios.CancelToken.source()
+                let api = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+this.key
+                try{
+                    let result = await axios.get(api,{
+                        cancelToken:this.source.token
+                    })
+                    this.description = result.data.weather[0].description
+                    console.log(this.city+' '+this.description)
+                }catch(err){
+                    console.log('Err: '+err.message)
+                }
+            }
+        }
+    })
+    let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

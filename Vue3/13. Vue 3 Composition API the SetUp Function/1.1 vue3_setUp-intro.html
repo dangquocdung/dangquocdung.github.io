@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>
+    .parent{border:#34495E 4px solid;color:#34495E;padding:15px;}
+    h2{
+        border:3px dashed #3CB881;color:#3CB881;padding:15px;
+        text-align:center;font-family:Arial, Helvetica, sans-serif;
+        font-size:36px;
+    }
+    h3{
+        border:3px dotted orchid;color:orchid;padding:10px;margin:10px;
+        text-align:center;font-family:monospace;
+        font-size:30px;
+    }
+</style>  
+</head>
+<body>
+    <div id='root'>
+        <div class='parent'>
+            <h1>{{title}}</h1>
+            <h2>{{city}}</h2>
+            <h3>{{capCity}}</h3>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{
+            title:'Root Comp.',
+        }},
+        setup(props,context){
+            // avoid using THIS
+            let city = Vue.ref('London')
+            let capCity = Vue.computed({
+                get(){
+                    return city.value.toUpperCase()
+                },
+                set(v){
+                    city.value = v
+                }
+            })
+            return {
+                city, capCity
+            }
+        },
+        beforeCreate(){ console.log('beforeCreate') }
+    })
+    let vm = app.mount('#root')
+    </script>
+</body>
+</html>

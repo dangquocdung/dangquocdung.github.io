@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 3 Demo</title>
+    <style>
+        .bgOne{
+            background-color: #3CB881;text-align:center;padding:10px;margin:5px;
+        }
+        .bgTwo{
+            background-color: #34495E;text-align:center;padding:10px;margin:5px;
+        }
+        .textOne{
+            color:wheat;font-size:24px;font-family:cursive;
+        }
+        .textTwo{
+            color:white;font-size:24px;font-family:Impact;
+        }
+    </style>
+</head>
+<body>
+    <div id='vue_app'>
+        <!-- <div v-bind:class='{bgOne:bg,bgTwo:!bg,textOne:text,textTwo:!text}'> -->
+        <!-- <div v-bind:class='theme'> -->
+        <div v-bind:class='[{bgOne:bg,bgTwo:!bg},textTwoCls]'>
+            <span>{{msg}}</span>
+        </div>
+        <button @click='bg=!bg'>Change Bg Color</button>
+        <button @click='text=!text'>Change Text Color</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            data(){
+                return {
+                    msg:'control CSS & Style Using Vue3',
+                    bg:true,text:true,
+                    // theme:{
+                    //     bgOne:true,textOne:true
+                    // }
+                    theme:['bgOne','textOne'],
+                    bgOneCls:'bgOne',bgTwoCls:'bgTwo',
+                    textOneCls:'textOne',textTwoCls:'textTwo'
+                }
+            }
+        })
+        let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

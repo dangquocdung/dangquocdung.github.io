@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>h2{background:wheat;color:navy;text-align:center;padding:3px;}</style>
+</head>
+<body>
+    <div id='vue_app'>
+        <h2>{{city}} {{description}}</h2>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{
+            key:'810ff4cc192a6075b75696db89aab81c',
+            city:'',description:'',source:''
+        }},
+        created(){
+            this.query('London')
+        },
+        methods:{
+            test(){
+                this.query('Leeds')
+                this.cancel()
+                this.query('Durham')
+                this.cancel()
+            },
+            cancel(){this.source.cancel('query cancelled')},
+            async query(city){
+                this.source = axios.CancelToken.source()
+                let api = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+this.key
+                try{
+                    let result = await axios.get(api,{
+                        cancelToken:this.source.token
+                    })
+                    this.city = city
+                    this.description = result.data.weather[0].description
+                    console.log(this.city+' '+this.description)
+                }catch(err){
+                    console.log('Err: '+err.message)
+                }
+            }
+        }
+    })
+    let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>
