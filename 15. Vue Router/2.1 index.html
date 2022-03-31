@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>
+body,div,p,span,a,h1,h2,h3{padding:0px;margin:0px;}
+body{text-align:center;}
+h1{background:wheat;color:navy;padding:15px}
+h3{font-size:26px;margin:15px;font-family:monospace}
+a{font-size:26px;text-decoration: none}
+button{font-size:26px;margin-right:15px;padding:3px;}
+.navi{background:paleturquoise;padding:15px;margin:15px;text-align:left}
+.page{
+    border: 4px dashed navy;margin:15px;
+    padding-top:55px;padding-bottom:55px;
+    padding-left:15px;padding-right:15px;
+    font-size:46px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.page p{font-size:32px;color:#34495E;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif}
+</style></head>
+<body>
+    <div id='vue_app'>
+        <h1>{{title}}</h1>
+        <div class='navi'>
+            <button><router-link to='/'>🏡 Home</router-link></button>
+            <button><router-link to='/about'>📋 About</router-link></button>
+            <button><router-link to='/user'>👤 User</router-link></button>
+        </div>
+        <router-view></router-view>
+    </div>
+    <template id='page_temp'><!--shared template for Home, About, and User-->
+        <div class='page' :style='styleObj'>
+            <h2>{{title}}</h2>
+            <h3>{{msg}}</h3>
+            <p>Vue Router Intro.</p>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{
+            title:'Vue Router Intro.',comp_name:'Home'
+        }}
+    })
+    let Home = {
+        name:'home',
+        template:'#page_temp',
+        data(){return{
+            title:'🏡 Home Page',
+            msg:'Created by the Home Comp.',
+            styleObj:{color:'burlywood',borderColor:'burlywood'}
+        }},
+        created(){console.log(this.title+': created.')},
+        mounted(){console.log(this.title+': mounted.')},
+        unmounted(){console.log(this.title+': unmounted.')}
+    }
+    let About = {
+        name:'about',
+        template:'#page_temp',
+        data(){return{
+            title:'📋 About Page',
+            msg:'Created by the About Comp.',
+            styleObj:{color:'#3CB881',borderColor:'#3CB881'}
+        }},
+        created(){console.log(this.title+': created.')},
+        mounted(){console.log(this.title+': mounted.')},
+        unmounted(){console.log(this.title+': unmounted.')}
+    }
+    let User = {
+        name:'user',
+        template:'#page_temp',
+        data(){return{
+            title:'👤 User Page',
+            msg:'Created by the User Comp.',
+            styleObj:{color:'#34495E',borderColor:'#34495E'}
+        }},
+        created(){console.log(this.title+': created.')},
+        mounted(){console.log(this.title+': mounted.')},
+        unmounted(){console.log(this.title+': unmounted.')}
+    }
+    let routes = [
+        {path:'/',component:Home},
+        {path:'/about',component:About},
+        {path:'/user',component:User}
+    ]
+    let router = VueRouter.createRouter({
+        history:VueRouter.createWebHistory('/apple/'),
+        routes
+    })
+    app.use(router)
+    let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>
