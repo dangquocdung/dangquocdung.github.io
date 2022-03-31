@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+<style>
+body,div,p,span,a,h1,h2,h3{padding:0px;margin:0px;}
+body{text-align:center;}
+h1{background:wheat;color:navy;padding:15px}
+h3{font-size:26px;margin:15px;font-family:monospace}
+a{font-size:24px;padding:12px;text-decoration:none}
+button{font-size:26px;margin-right:15px;padding:3px;}
+.navi{background:paleturquoise;padding:15px;margin:15px;text-align:left}
+.home_page{
+    border: 4px solid burlywood;margin:15px;
+    color:burlywood;
+    padding-top:55px;padding-bottom:55px;
+    font-size:46px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.home_page p{font-size:32px;font-family: sans-serif}
+.city_page{
+    border: 4px solid cadetblue;margin:15px;
+    color:cadetblue;
+    padding-top:55px;padding-bottom:55px;
+    font-size:46px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.city_page p{font-size:32px;font-family: sans-serif}
+.user_page{
+    border: 4px solid cornflowerblue;margin:15px;
+    color:cornflowerblue;
+    padding-top:55px;padding-bottom:55px;
+    font-size:46px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.user_page p{font-size:32px;font-family: sans-serif}
+.err_page{
+    border: 4px solid grey;margin:15px;
+    color:grey;
+    padding-top:55px;padding-bottom:55px;
+    font-size:46px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.err_page p{font-size:32px;font-family: sans-serif}
+</style>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+</head>
+<body>
+    <div id='vue_app'>
+        <h1>{{title}}</h1>
+        <div class='navi'>
+            <button><router-link :to="{name:'home'}">🏠 Home</router-link></button>
+            <button><router-link :to="{name:'city',params:{city_name:'London',nation_name:'UK'}}">🌇 City</router-link></button>
+            <button><router-link :to="{name:'user',params:{name:'Tom',id:100}}">👤 User</router-link></button>
+        </div>
+        <router-view v-slot="{ Component, route }">
+            <transition mode='out-in'
+            enter-active-class="animate__animated animate__bounceInLeft"
+            leave-active-class="animate__animated animate__bounceOutRight"
+            >
+              <keep-alive>
+                <component :is="Component" />
+              </keep-alive>
+            </transition>
+        </router-view>
+    </div>
+    <template id='home_temp'>
+        <div class='home_page'>
+            <h2>{{title}}</h2>
+            <h3>{{msg}}</h3>
+            <p>🎉 $route 🎉</p>
+        </div>
+    </template>
+    <template id='city_temp'>
+        <div class='city_page'>
+            <h2>{{title}}</h2>
+            <h3>{{msg}}</h3>
+            <p>{{$route.params.city_name}} {{$route.params.nation_name}}</p>
+        </div>
+    </template>
+    <template id='user_temp'>
+        <div class='user_page'>
+            <h2>{{title}}</h2>
+            <h3>{{msg}}</h3>
+            <p>{{$route.params.name}} <b>{{$route.params.id}}</b></p>
+        </div>
+    </template>
+    <template id='err_temp'>
+        <div class='err_page'>
+            <h2>{{title}}</h2><!--Page 404-->
+            <h3>{{msg}}</h3><!--vm.$route.fullPath cannot be recognized.-->
+            <p><router-link :to="{name:'home'}">Back to Home Page</router-link></p>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <script>
+    let app = Vue.createApp({
+        data(){return{
+            title:'Dynamic Routes',
+        }}
+    })
+    let Home = {
+        name:'home',
+        template:'#home_temp',
+        data(){return{
+            title:'🏠 Home Page', msg:'Created by the Home Comp.',
+        }},
+        created(){console.log(this.title+': created.')},
+        mounted(){console.log(this.title+': mounted.')},
+        unmounted(){console.log(this.title+': unmounted.')}
+    }
+    let City = {
+        name:'city',
+        template:'#city_temp',
+        data(){return{
+            title:'🌇 City Page', msg:'Created by the City Comp.',
+        }},
+        created(){console.log(this.title+': created.')},
+        mounted(){console.log(this.title+': mounted.')},
+        unmounted(){console.log(this.title+': unmounted.')}
+    }
+    let User = {
+        name:'user',
+        template:'#user_temp',
+        data(){return{
+            title:'👤 User Page',msg:'Created by the User Comp.',
+        }},
+        created(){console.log(this.title+': created.')},
+        mounted(){console.log(this.title+': mounted.')},
+        unmounted(){console.log(this.title+': unmounted.')}
+    }
+    let Err = {
+        name:'err_page',
+        template:'#err_temp',
+        data(){return{
+            title:'Page 404'
+        }},
+        computed:{
+            msg(){
+                return this.$route.fullPath+' cannot be recognized.'
+            }
+        }
+    }
+    let routes = [
+        {
+            path: '/', 
+            component: Home, name: 'home'
+        },
+        {
+            path: '/city/:city_name/nation/:nation_name',
+            component:City,name:'city'
+        },
+        {
+            path: '/user/:name/uid/:id(\\d{1,3})', 
+            component: User, name: 'user'
+        },
+        {path:'/:err(.*)*',component:Err,name:'err_page'}
+    ]
+    let router = VueRouter.createRouter({
+        history:VueRouter.createWebHashHistory(),
+        routes
+    })
+    app.use(router)
+    let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

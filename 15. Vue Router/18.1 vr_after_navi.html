@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Vue 3 Demo</title>
+    <style>
+    body,div,p,span,a,h1,h2,h3{padding:0px;margin:0px;}
+    body{text-align:center;}
+    h1{background:wheat;color:navy;padding:15px}
+    h3{font-size:26px;margin:15px;font-family:monospace}
+    a{font-size:24px;padding:12px;text-decoration:none}
+    button{font-size:26px;margin-right:15px;padding:3px;}
+    .navi{background:paleturquoise;padding:15px;margin:15px;text-align:left}
+    .home_page{
+        border: 4px solid burlywood;margin:15px;
+        color:burlywood;
+        padding-top:55px;padding-bottom:55px;
+        font-size:46px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+    .home_page p{font-size:32px;font-family: sans-serif}
+    .city_page{
+        border: 4px solid cadetblue;margin:15px;
+        color:cadetblue;
+        padding-top:55px;padding-bottom:55px;
+        font-size:46px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+    .city_page p{font-size:32px;font-family: sans-serif}
+    .user_page{
+        border: 4px solid cornflowerblue;margin:15px;
+        color:cornflowerblue;
+        padding-top:55px;padding-bottom:55px;
+        font-size:46px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+    .user_page p{font-size:32px;font-family: sans-serif}
+    .err_page{
+        border: 4px solid grey;margin:15px;
+        color:grey;
+        padding-top:55px;padding-bottom:55px;
+        font-size:46px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+    .err_page p{font-size:32px;font-family: sans-serif}
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    </head>
+    <body>
+        <div id='vue_app'>
+            <h1>{{title}}</h1>
+            <div class='navi'>
+                <button><router-link :to="{name:'home'}">🏠 Home</router-link></button>
+                <button><router-link :to="{name:'city',params:{city:'London'}}">🌇 London</router-link></button>
+                <button><router-link :to="{name:'city',params:{city:'Tokyo'}}">🌁 Tokyo</router-link></button>
+                <button><router-link :to="{name:'city',params:{city:'Sydney'}}">🏙 Sydney</router-link></button>
+            </div>
+            <router-view v-slot="{ Component, route }">
+                <transition mode='out-in'
+                :enter-active-class="
+                    route.meta.enter_cls?route.meta.enter_cls:
+                    `animate__animated animate__fadeIn`
+                "
+                :leave-active-class="
+                    route.meta.leave_cls?route.meta.leave_cls:
+                    `animate__animated animate__fadeOut`
+                "
+                >
+                    <keep-alive>
+                        <component :is="Component"/>
+                        <!-- <component :is="Component" :key='route.params.city'/> -->
+                    </keep-alive>
+                </transition>
+            </router-view>
+        </div>
+        <template id='home_temp'>
+            <div class='home_page'>
+                <h2>{{title}}</h2>
+                <h3>{{msg}}</h3>
+                <p>☀️ 🌤 ⛅️ 🌥 ☁️ 🌦 🌧 ⛈ 🌩 🌨 ❄️ 💨</p>
+            </div>
+        </template>
+        <template id='city_temp'>
+            <div class='city_page'>
+                <h2>{{$route.params.city}}</h2>
+                <h3>{{weather_info}}</h3>
+            </div>
+        </template>
+        <template id='err_temp'>
+            <div class='err_page'>
+                <h2>{{title}}</h2><!--Page 404-->
+                <h3>{{msg}}</h3><!--vm.$route.fullPath cannot be recognized.-->
+                <p><router-link :to="{name:'home'}">Back to Home Page</router-link></p>
+            </div>
+        </template>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="https://unpkg.com/vue-router@4"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+        let app = Vue.createApp({
+            data(){return{
+                title:'Weather App With Vue Router & Transition',
+            }}
+        })
+        let Home = {
+            name:'home',
+            template:'#home_temp',
+            data(){return{
+                title:'📡 Weather App', 
+                msg:'Fetching Data Before & After Navigation',
+            }},
+            created(){console.log(this.title+': created.')},
+            mounted(){console.log(this.title+': mounted.')},
+            unmounted(){console.log(this.title+': unmounted.')}
+        }
+        let City = {
+            name:'city',
+            template:'#city_temp',
+            data(){return{
+                title:'🌇 City Page',
+                weather_info:'⏳ loading info'
+            }},
+            methods:{
+                async getWeather(city){
+                    if(!city){
+                        this.weather_info='back to home page'
+                        return
+                    }
+                    let key = '810ff4cc192a6075b75696db89aab81c'
+                    let api = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+key
+                    try{
+                        let result = await axios.get(api)
+                        this.weather_info=result.data.weather[0].description
+                        console.log(city+' '+result.data.weather[0].description)
+                    }catch(err){
+                        console.log('Err: '+err.message)
+                        window.alert(err.message)
+                        this.$router.push('/')
+                    }
+                }
+            },
+            created(){
+                console.log(this.title+': created.')
+                this.$watch(
+                    ()=>{return this.$route.params.city},
+                    (newVal,preVal)=>{
+                        console.log(preVal+' -> '+newVal)
+                        this.weather_info='⏳ loading info'
+                        this.getWeather(newVal)
+                    },
+                    {immediate:true}
+                )
+            },
+            mounted(){console.log(this.title+': mounted.')},
+            unmounted(){console.log(this.title+': unmounted.')}
+        }
+        let Err = {
+            name:'err_page',
+            template:'#err_temp',
+            data(){return{
+                title:'Page 404'
+            }},
+            computed:{
+                msg(){
+                    return this.$route.fullPath+' cannot be recognized.'
+                }
+            }
+        }
+        let routes = [
+            {
+                path: '/', 
+                component: Home, name: 'home',
+                meta:{
+                    enter_cls:'animate__animated animate__bounceInLeft',
+                    leave_cls:'animate__animated animate__bounceOutRight'
+                }
+            },
+            {
+                path: '/city/:city',
+                component:City,name:'city'
+            },
+            {path:'/:err(.*)*',component:Err,name:'err_page'}
+        ]
+        let router = VueRouter.createRouter({
+            history:VueRouter.createWebHashHistory(),
+            routes
+        })
+        app.use(router)
+        let vm = app.mount('#vue_app')
+        </script>
+    </body>
+    </html>
