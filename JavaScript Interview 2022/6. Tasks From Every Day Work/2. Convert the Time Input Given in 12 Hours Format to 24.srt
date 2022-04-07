@@ -1,0 +1,479 @@
+1
+00:00:00,360 --> 00:00:03,900
+Here's one more task, which requires a little bit of thinking.
+
+2
+00:00:04,290 --> 00:00:10,320
+And as you can see, we must try to function, which can convert the time input given in 12 hours format
+
+3
+00:00:10,320 --> 00:00:11,970
+to 24 hours format.
+
+4
+00:00:12,240 --> 00:00:14,040
+And here we have use cases.
+
+5
+00:00:14,310 --> 00:00:18,450
+This is why it is easier for us to check if we covered everything correctly.
+
+6
+00:00:18,750 --> 00:00:20,640
+So let's try to create this function.
+
+7
+00:00:20,640 --> 00:00:24,900
+And once again, this is not a function that you can solve in 30 seconds.
+
+8
+00:00:25,080 --> 00:00:27,870
+So you can take your time and think about it a little bit.
+
+9
+00:00:31,360 --> 00:00:37,430
+So let's create here, convert to 24 hour format, and we're getting hit time text.
+
+10
+00:00:37,940 --> 00:00:43,270
+And actually what they want to do here first, I want to convert it to lowercase because actually here
+
+11
+00:00:43,270 --> 00:00:48,040
+we will get AM and PM, and we want to be sure that they are lowercase.
+
+12
+00:00:48,370 --> 00:00:51,220
+This is why here we can try time text lower.
+
+13
+00:00:51,550 --> 00:00:55,210
+And here we want to call time text to lowercase.
+
+14
+00:00:55,540 --> 00:00:59,290
+The second thing that I want to do is get hours and minutes separately.
+
+15
+00:00:59,440 --> 00:01:06,670
+So what I want to write here is time text lower split and we want to split it by column because actually
+
+16
+00:01:06,670 --> 00:01:13,030
+we have Colin in every single case and on the left we have ours and on the right we have minutes.
+
+17
+00:01:13,270 --> 00:01:17,820
+And actually, here, I want to make it a structured an assignment here directly.
+
+18
+00:01:17,830 --> 00:01:21,490
+I want to get first of all hours and secondly minutes.
+
+19
+00:01:21,760 --> 00:01:24,490
+In this case, we're creating two local variables.
+
+20
+00:01:24,790 --> 00:01:30,100
+If you don't want to write like this, you can name it with some temporary variable and then just read
+
+21
+00:01:30,100 --> 00:01:33,040
+this temporary variable that hours and minutes.
+
+22
+00:01:33,340 --> 00:01:35,320
+But here we come to difficult stuff.
+
+23
+00:01:35,560 --> 00:01:41,650
+As you can see, sometimes we have just a single digit and sometimes we have two digits, but also we
+
+24
+00:01:41,650 --> 00:01:43,970
+have a case where we have zero at the beginning.
+
+25
+00:01:44,170 --> 00:01:49,840
+And here we also have one more case that we need to cover if we have here 12 hours.
+
+26
+00:01:50,020 --> 00:01:52,420
+Then we must convert it to zero zero.
+
+27
+00:01:52,600 --> 00:01:55,180
+This is why I want to write exactly this logic.
+
+28
+00:01:55,190 --> 00:02:02,710
+So if time ticks lower dot and with and actually end with is a really nice function in JavaScript,
+
+29
+00:02:02,710 --> 00:02:05,590
+which has shaken the toast string you send in with something.
+
+30
+00:02:05,800 --> 00:02:11,770
+And here we can check for AM because actually we know that here we have 12 a.m. and it means that we
+
+31
+00:02:11,770 --> 00:02:13,510
+must convert it to two zeros.
+
+32
+00:02:13,810 --> 00:02:16,930
+This is why here I want to write hours equals.
+
+33
+00:02:17,140 --> 00:02:23,260
+And here we are checking if our hours equals 12 and 12 as Austrian, because here we are, split in
+
+34
+00:02:23,260 --> 00:02:26,470
+Austria and then we want here to get zero.
+
+35
+00:02:26,710 --> 00:02:28,990
+In neither case, where get in here hours?
+
+36
+00:02:29,260 --> 00:02:33,220
+And as you can see, first of all, I wrote here a single zero and not two zeros.
+
+37
+00:02:33,400 --> 00:02:34,750
+And this is also important.
+
+38
+00:02:35,020 --> 00:02:40,930
+And here I just directly assigned ours, which actually means we covered this logic to get a single
+
+39
+00:02:40,930 --> 00:02:41,320
+zero.
+
+40
+00:02:41,560 --> 00:02:44,800
+And in all other cases, we just get whatever we get.
+
+41
+00:02:45,040 --> 00:02:49,300
+If it is five baguette and five if it is zero one, we will get zero one.
+
+42
+00:02:49,600 --> 00:02:51,500
+So recovered our AM case.
+
+43
+00:02:51,540 --> 00:02:53,350
+Now I want to cover PM Case.
+
+44
+00:02:53,380 --> 00:02:58,720
+This is way here we can write owls and even may be elusive because we want to check for PM.
+
+45
+00:02:59,020 --> 00:03:02,470
+And here we can write time, text, lower dot and ways.
+
+46
+00:03:02,620 --> 00:03:04,450
+And here we get getting our PM.
+
+47
+00:03:04,810 --> 00:03:07,630
+And in this case, we want to apply different logic.
+
+48
+00:03:07,720 --> 00:03:14,530
+We want to sign here hours and we want to check if our hours equals 12th because this is again another
+
+49
+00:03:14,530 --> 00:03:14,980
+case.
+
+50
+00:03:15,130 --> 00:03:22,810
+In this case, we want to apply here hours or we want to write history in and inside plus hours plus
+
+51
+00:03:22,810 --> 00:03:23,260
+12.
+
+52
+00:03:23,710 --> 00:03:29,060
+But this code is doing a toll, as you can see here, I wrote plus hours what it does.
+
+53
+00:03:29,110 --> 00:03:31,480
+Actually, we're getting our hours as a stream.
+
+54
+00:03:31,690 --> 00:03:35,230
+So let's say that we're getting here 12 now, if I will, right here.
+
+55
+00:03:35,230 --> 00:03:37,620
+Plus, at the beginning, we're getting here directly.
+
+56
+00:03:37,660 --> 00:03:41,500
+No from a stream, which actually means we're converging this two number.
+
+57
+00:03:41,710 --> 00:03:43,640
+And then we make +12.
+
+58
+00:03:43,660 --> 00:03:44,410
+Why is that?
+
+59
+00:03:44,590 --> 00:03:49,540
+Because let's say here where checking PM, for example, this case with zero one.
+
+60
+00:03:49,840 --> 00:03:50,500
+And here we are.
+
+61
+00:03:50,500 --> 00:03:56,380
+Chicken, OK, hours equals 12 now and then we want to make zero one plus 12.
+
+62
+00:03:56,560 --> 00:03:58,240
+Let's check the South how it will be.
+
+63
+00:03:58,390 --> 00:04:00,280
+So we're getting here zero one.
+
+64
+00:04:00,430 --> 00:04:02,410
+And actually it is converted to one.
+
+65
+00:04:02,560 --> 00:04:08,280
+And now after this, we're getting +12 and we're getting to 10, which actually means by adding 12,
+
+66
+00:04:08,410 --> 00:04:11,110
+we're converting it to the correct PM time.
+
+67
+00:04:11,350 --> 00:04:15,910
+And if we have 12 pm like this, then we simply leave it like 12.
+
+68
+00:04:16,060 --> 00:04:20,170
+So actually here we could write 12 over could just take our hours.
+
+69
+00:04:20,410 --> 00:04:24,260
+So what I want to do now, I want to check what we're getting inside hours.
+
+70
+00:04:24,310 --> 00:04:28,930
+So here I want to console.log our convert to 24 hour format.
+
+71
+00:04:29,200 --> 00:04:32,440
+And here is our time text and our hours.
+
+72
+00:04:32,710 --> 00:04:36,610
+And now I want to copy all these cases and just run them.
+
+73
+00:04:36,760 --> 00:04:39,430
+In this case, we can check that they're working correctly.
+
+74
+00:04:39,700 --> 00:04:43,420
+I'm not allowed in the page and where I get an assignment to constant variable.
+
+75
+00:04:43,690 --> 00:04:46,720
+And as you can see here, we're trying to override ours.
+
+76
+00:04:46,870 --> 00:04:48,250
+And of course, it's forbidden.
+
+77
+00:04:48,490 --> 00:04:51,460
+This is where whoever must write, Let, let's check this out.
+
+78
+00:04:51,700 --> 00:04:58,300
+I am delighted and we are getting 412 zero four five five 12 12 zero one 13.
+
+79
+00:04:58,390 --> 00:05:05,470
+Here we have PM 11 to three and 10 22, which actually means our logic for hours is correct.
+
+80
+00:05:05,770 --> 00:05:09,520
+After this, we must add a leading zero in this whole cases.
+
+81
+00:05:09,610 --> 00:05:15,280
+And as you can see, sometimes we don't need it and sometimes we must edit and we can easily solve it
+
+82
+00:05:15,280 --> 00:05:17,530
+with one more plain JavaScript function.
+
+83
+00:05:17,740 --> 00:05:20,740
+We can write here hours dot pads tired.
+
+84
+00:05:21,040 --> 00:05:23,200
+And here we can provide to zero.
+
+85
+00:05:23,350 --> 00:05:28,990
+And what it does is you can see here it pads the current screen with another screen multiple times,
+
+86
+00:05:28,990 --> 00:05:29,560
+if needed.
+
+87
+00:05:29,980 --> 00:05:34,900
+Which actually means here we're providing tool, which means we will have two symbols and here we have
+
+88
+00:05:34,900 --> 00:05:39,700
+zero, which actually means if we don't have a symbol there, then we will put zero inside.
+
+89
+00:05:39,850 --> 00:05:45,700
+And actually now I want to copy this part and just put inside our console.log to check if it's working.
+
+90
+00:05:46,000 --> 00:05:49,510
+I am reloading the page and as you can see now, we're getting the correct time.
+
+91
+00:05:49,690 --> 00:05:54,100
+So here we have two zero zero five and then all our correct numbers.
+
+92
+00:05:54,370 --> 00:05:58,150
+Now we must implement our minutes and actually it is much easier.
+
+93
+00:05:58,390 --> 00:06:04,180
+First of all, just to remind you, inside minutes, we'll also have P, M and M, and we must get rid
+
+94
+00:06:04,180 --> 00:06:04,480
+of it.
+
+95
+00:06:04,810 --> 00:06:08,470
+This is where we can write here directly means dots lies.
+
+96
+00:06:08,740 --> 00:06:11,080
+And here we are using zero minus two.
+
+97
+00:06:11,290 --> 00:06:16,510
+In this case, we will get rid of two symbols AM or PM and we will get just minutes here.
+
+98
+00:06:16,720 --> 00:06:22,240
+And after this, I want to use pets tired just like we did previously, and here will be also two and
+
+99
+00:06:22,240 --> 00:06:22,630
+zero.
+
+100
+00:06:22,810 --> 00:06:28,300
+In this case, we will check, okay, if we have here eight, then we must get here zero eight and if
+
+101
+00:06:28,300 --> 00:06:31,240
+we will have here two digits, then it is totally fine.
+
+102
+00:06:31,690 --> 00:06:34,780
+Now we can just remove this console.log, but don't need it anymore.
+
+103
+00:06:34,960 --> 00:06:38,800
+And actually, here in every single case, I want to write console.log.
+
+104
+00:06:39,310 --> 00:06:41,020
+This is why let's change this now.
+
+105
+00:06:41,020 --> 00:06:44,290
+I want to write here console.log, then open it.
+
+106
+00:06:44,410 --> 00:06:45,880
+And here we have convert.
+
+107
+00:06:46,120 --> 00:06:46,990
+And let's close.
+
+108
+00:06:46,990 --> 00:06:47,710
+It was break it.
+
+109
+00:06:47,950 --> 00:06:49,510
+Now we have all our cases.
+
+110
+00:06:49,510 --> 00:06:55,000
+Let's check them out, aim to load in the page and we're getting our time and it is looking totally
+
+111
+00:06:55,000 --> 00:06:55,870
+fine actually.
+
+112
+00:06:55,870 --> 00:07:01,300
+Here, for example, we have minute zero zero three three five two five zero eight and so on.
+
+113
+00:07:01,540 --> 00:07:05,080
+But the problem is that we forgot to put a colon between them.
+
+114
+00:07:05,350 --> 00:07:10,060
+This is where human must write plus and between them just put a strain with the colon.
+
+115
+00:07:10,390 --> 00:07:14,290
+And as you can see now, we get a nice time in 24 hours format.
+
+116
+00:07:14,560 --> 00:07:19,810
+And actually, from my point of view, this is difficult to solve this task in five or ten minutes.
+
+117
+00:07:20,050 --> 00:07:26,020
+You really need to sit there like maybe 15 minutes or half of an hour to check different cases, how
+
+118
+00:07:26,020 --> 00:07:27,700
+you want to solve it and so on.
+
+119
+00:07:28,000 --> 00:07:33,790
+So this is a nice task to check how you can convert different things between them with different logic,
+
+120
+00:07:34,000 --> 00:07:37,330
+but it is not something that you can solve in one or two minutes.

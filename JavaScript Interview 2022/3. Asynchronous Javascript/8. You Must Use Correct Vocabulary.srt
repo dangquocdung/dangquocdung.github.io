@@ -1,0 +1,63 @@
+1
+00:00:00,150 --> 00:00:05,620
+One more important thing to remember is quite tricky, and people are not talking about it a lot and
+
+2
+00:00:05,620 --> 00:00:09,840
+then talking here about your program in vocabulary, what they mean by that.
+
+3
+00:00:10,020 --> 00:00:14,190
+Actually, there are lots of words that you can use when you are talking about programming.
+
+4
+00:00:14,370 --> 00:00:19,470
+So person, understand you better word list correctly and you should not mix them.
+
+5
+00:00:19,650 --> 00:00:24,720
+And as a beginner, it might be really difficult for you because you don't know all this terms or you
+
+6
+00:00:24,720 --> 00:00:30,150
+are not really sure what you want to say, but you need to keep it in mind and try to improve with time.
+
+7
+00:00:30,360 --> 00:00:33,140
+For example, you must really understand what you are saying.
+
+8
+00:00:33,150 --> 00:00:39,690
+For example, I showed a function or I created a method inside my class, or this is an instance of
+
+9
+00:00:39,690 --> 00:00:40,290
+the class.
+
+10
+00:00:40,590 --> 00:00:42,930
+You must use all this terms correctly.
+
+11
+00:00:43,110 --> 00:00:47,520
+If you see a function but you are calling its method or maybe your column, it's something else.
+
+12
+00:00:47,730 --> 00:00:49,080
+This is not correct.
+
+13
+00:00:49,260 --> 00:00:55,110
+And then you will get lots of additional questions or you will be seen as a bad developer and you of
+
+14
+00:00:55,110 --> 00:00:56,100
+course, don't want that.
+
+15
+00:00:56,310 --> 00:01:01,740
+This is why you need to think a little bit what words you are using and try to use them correctly when
+
+16
+00:01:01,740 --> 00:01:03,960
+you are describing some program and stuff.

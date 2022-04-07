@@ -1,0 +1,347 @@
+1
+00:00:00,270 --> 00:00:06,060
+Here is one more example of a synchronous question, but a little bit more advanced, as you can see
+
+2
+00:00:06,060 --> 00:00:12,210
+here, we have a question execute the given list of asynchronous functions in parallel and return.
+
+3
+00:00:12,220 --> 00:00:14,610
+The result is in the race to the callback.
+
+4
+00:00:14,940 --> 00:00:19,680
+As you can see here, we already have three functions and this is given with the task.
+
+5
+00:00:19,950 --> 00:00:24,570
+So each function have here inside the callback, which returns one, two and three.
+
+6
+00:00:24,600 --> 00:00:29,670
+Most important, but here that first function is three seconds, then two seconds, then one second.
+
+7
+00:00:29,970 --> 00:00:36,120
+And then we must write the function async parallel where inside were throwing an array of asynchronous
+
+8
+00:00:36,120 --> 00:00:39,690
+functions, which means every single function has a callback.
+
+9
+00:00:39,690 --> 00:00:43,470
+Enter the second parameter we have here own callback for a single parallel.
+
+10
+00:00:43,740 --> 00:00:49,440
+Here we are getting our result and we are console.log in it here and we must get in this case, one
+
+11
+00:00:49,440 --> 00:00:55,560
+two three because it must print results or feature asynchronous function in order, which actually means
+
+12
+00:00:55,560 --> 00:01:00,210
+where execute executing three functions in parallel, and we're waiting for all of them to complete.
+
+13
+00:01:00,510 --> 00:01:06,180
+And after this, we have the correct order of the results, which actually means we are getting results
+
+14
+00:01:06,180 --> 00:01:11,280
+of every single function and actually we're using parallel fetch and, for example, quite a lot every
+
+15
+00:01:11,280 --> 00:01:16,700
+day because we want, for example, to fetch three different requests simultaneously and then get all
+
+16
+00:01:16,720 --> 00:01:19,230
+data in one place and merge it somehow.
+
+17
+00:01:22,480 --> 00:01:27,670
+This is why let's build dysfunctional, but it's not easy, and we really need to think what we are
+
+18
+00:01:27,670 --> 00:01:28,210
+doing here.
+
+19
+00:01:28,510 --> 00:01:33,970
+So we want to implement a sink parallel function and actually here we get getting first of all and a
+
+20
+00:01:33,970 --> 00:01:38,700
+ray of asynchronous functions so we can right here, I think thanks.
+
+21
+00:01:39,070 --> 00:01:41,110
+And the second parameter is our callback.
+
+22
+00:01:41,290 --> 00:01:47,050
+And importantly, this is a callback for a sink parallel, not for the specific async func function.
+
+23
+00:01:47,170 --> 00:01:51,700
+And first of all, here I want to create an array variable, put our results.
+
+24
+00:01:51,940 --> 00:01:54,490
+So here I can write a result array.
+
+25
+00:01:54,730 --> 00:01:59,470
+And here we want to write new array and inside async functions dot length.
+
+26
+00:01:59,890 --> 00:02:03,640
+In this case, we are preparing the empty array with three elements.
+
+27
+00:02:03,700 --> 00:02:09,490
+And obviously it is three only for our case, and it can be any length of our asynchronous functions.
+
+28
+00:02:09,640 --> 00:02:15,700
+After this, I want to create a result counter and by default it will be zero until the length of our
+
+29
+00:02:15,700 --> 00:02:16,150
+array.
+
+30
+00:02:16,390 --> 00:02:17,370
+Why do we need that?
+
+31
+00:02:17,380 --> 00:02:23,320
+Because actually every single asynchronous function can be ended in random time, and we must wait for
+
+32
+00:02:23,320 --> 00:02:24,730
+all this function to complete.
+
+33
+00:02:24,910 --> 00:02:30,310
+This means that we must count how many functions are already completed until we are rich in length.
+
+34
+00:02:30,670 --> 00:02:33,280
+This is why here let's create our result.
+
+35
+00:02:33,460 --> 00:02:36,310
+Count them, and by default, it will be zero.
+
+36
+00:02:36,490 --> 00:02:39,570
+And now we want to look through our asynchronous functions.
+
+37
+00:02:39,580 --> 00:02:46,720
+So here are some funnels dot for each and really using follow up here and we get an access for every
+
+38
+00:02:46,720 --> 00:02:48,310
+single asynchronous function.
+
+39
+00:02:48,460 --> 00:02:54,610
+And we also need here an index because we need to store the results also in the same correct order.
+
+40
+00:02:54,730 --> 00:02:58,150
+Now inside for each, we must call our asynchronous function.
+
+41
+00:02:58,240 --> 00:03:03,610
+Most importantly, we don't know at all what this function is doing, but we know that this function
+
+42
+00:03:03,610 --> 00:03:04,690
+gets a callback.
+
+43
+00:03:04,960 --> 00:03:07,330
+This is why here we can write our callback.
+
+44
+00:03:07,600 --> 00:03:10,480
+So we're calling a single function without any arguments.
+
+45
+00:03:10,630 --> 00:03:14,450
+And inside were providing our comic if this callback is triggered.
+
+46
+00:03:14,470 --> 00:03:20,680
+This means that we are ready with our asynchronous function and now we want to write the result inside
+
+47
+00:03:20,680 --> 00:03:21,520
+our brain.
+
+48
+00:03:21,790 --> 00:03:25,270
+This is where here actually, we're getting in our callback value.
+
+49
+00:03:25,510 --> 00:03:29,170
+And as you can see here, inside every single callback, we're getting a value.
+
+50
+00:03:29,260 --> 00:03:33,010
+And this is exactly the value that we're getting inside our callback here.
+
+51
+00:03:33,280 --> 00:03:36,790
+Number one to store this value inside our result today.
+
+52
+00:03:36,970 --> 00:03:38,890
+So here we can write results, right?
+
+53
+00:03:39,070 --> 00:03:42,160
+And here will be our index equals value.
+
+54
+00:03:42,370 --> 00:03:47,440
+And just to remind you, whichever index here, this is why we know that was stored it correctly.
+
+55
+00:03:47,530 --> 00:03:51,130
+For example, this is the third function and it will be triggered first.
+
+56
+00:03:51,340 --> 00:03:53,230
+Then we will write it on the index.
+
+57
+00:03:53,680 --> 00:03:58,840
+After this, we must increase our result counter to know that one of the functions is done.
+
+58
+00:03:59,020 --> 00:04:02,980
+And last but not least, we want to check if this function was the last one.
+
+59
+00:04:03,220 --> 00:04:08,860
+So here we can check if our result counter bigger or equal async function.
+
+60
+00:04:09,070 --> 00:04:12,490
+Then we want to call our callback for a single parallel.
+
+61
+00:04:12,700 --> 00:04:17,370
+So here we can simply write, callback and inside were provided our result array.
+
+62
+00:04:17,860 --> 00:04:19,570
+So once again, what we are doing here?
+
+63
+00:04:19,780 --> 00:04:22,960
+First of all, we are preparing an empty array and our content.
+
+64
+00:04:23,260 --> 00:04:27,730
+Well, looping through our asynchronous functions and we're calling every single function.
+
+65
+00:04:28,030 --> 00:04:30,700
+And here we are, providing in every function, a callback.
+
+66
+00:04:30,940 --> 00:04:36,730
+And when we're getting success with, first of all, store our result in result index.
+
+67
+00:04:36,850 --> 00:04:38,500
+And then we increase our content.
+
+68
+00:04:38,680 --> 00:04:43,800
+In this case, we know that this logic will return us callback for a simple parallel when we're ready
+
+69
+00:04:43,810 --> 00:04:46,150
+and when all our functions are completed.
+
+70
+00:04:46,450 --> 00:04:50,140
+So here we are, calling our callback with results right now.
+
+71
+00:04:50,140 --> 00:04:56,380
+Actually, we must move this function before our call async parallel because we must write it in Wisconsin
+
+72
+00:04:56,500 --> 00:04:57,970
+and let's check if it's working.
+
+73
+00:04:58,000 --> 00:05:02,680
+I'm relied in the page and we're getting an error assignment to constant variable.
+
+74
+00:05:02,950 --> 00:05:03,910
+Let's check the result.
+
+75
+00:05:04,150 --> 00:05:08,710
+Yes, as you can see, the result counter can be increased because it is const.
+
+76
+00:05:08,950 --> 00:05:12,020
+So here we can write led and then it should work.
+
+77
+00:05:12,040 --> 00:05:12,880
+Let's check the sound.
+
+78
+00:05:13,160 --> 00:05:15,640
+I'm reloading the page with don't have any errors.
+
+79
+00:05:15,880 --> 00:05:21,400
+Now, three seconds passed and we're getting our array was one to three, which actually means here
+
+80
+00:05:21,400 --> 00:05:22,000
+are a sync.
+
+81
+00:05:22,000 --> 00:05:26,410
+Parallel waits for every single asynchronous function to be completed.
+
+82
+00:05:26,590 --> 00:05:33,400
+And then we generate as a callback our result here and now we can use our array in the correct order.
+
+83
+00:05:33,580 --> 00:05:36,940
+And this is completely fine if you can build this function fast.
+
+84
+00:05:37,150 --> 00:05:42,010
+Most importantly, if you are doing it in the interview, you must always say out loud what you are
+
+85
+00:05:42,010 --> 00:05:46,720
+doing and how you are thinking, because normally on the interview, it's not that important.
+
+86
+00:05:46,900 --> 00:05:52,510
+If you solve this task fully or not, you must show your way of thinking and how you want to solve this
+
+87
+00:05:52,510 --> 00:05:53,410
+specific task.

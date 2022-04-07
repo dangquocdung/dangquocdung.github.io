@@ -1,0 +1,247 @@
+1
+00:00:00,330 --> 00:00:07,140
+You might also get a question like this, implement a click on to the item as fast as possible and as
+
+2
+00:00:07,140 --> 00:00:11,130
+you can see here inside indexes Timo, we have such markup.
+
+3
+00:00:11,250 --> 00:00:15,180
+So we have a you have a list and inside with just heavenly elements.
+
+4
+00:00:18,530 --> 00:00:21,020
+So typically, you can solve it differently.
+
+5
+00:00:21,140 --> 00:00:25,520
+And here we have two typical solutions, but one is much better than another.
+
+6
+00:00:25,820 --> 00:00:32,110
+So actually what we can do here, we can find items with document and here we're using quite a select
+
+7
+00:00:32,130 --> 00:00:32,660
+to all.
+
+8
+00:00:32,900 --> 00:00:37,700
+And here, as you can see, you know, indexes HTML, we're heavily riskless item.
+
+9
+00:00:37,850 --> 00:00:43,310
+So here I can find by class our item and here where I get in a list of our items.
+
+10
+00:00:43,430 --> 00:00:46,310
+After this, we can loop through this list of dominos.
+
+11
+00:00:46,460 --> 00:00:49,640
+And for every single element, we can attach a listener.
+
+12
+00:00:49,850 --> 00:00:52,340
+So here we can write items dot for each.
+
+13
+00:00:52,550 --> 00:00:55,250
+Here we have our item, which is a Donald.
+
+14
+00:00:55,460 --> 00:00:58,730
+And inside we can write Item Dot, Edu and listener.
+
+15
+00:00:58,940 --> 00:01:00,560
+Here we have our click event.
+
+16
+00:01:00,740 --> 00:01:02,260
+And here is our handle.
+
+17
+00:01:02,480 --> 00:01:07,940
+So what we want to do when we're clicking on the item at least tried some text regarding our item.
+
+18
+00:01:08,120 --> 00:01:11,720
+And actually inside we have just a value of this is where we can right here.
+
+19
+00:01:11,930 --> 00:01:14,210
+You clicked on item.
+
+20
+00:01:14,420 --> 00:01:18,260
+And here we can just write plus item dot in a text.
+
+21
+00:01:18,500 --> 00:01:24,440
+So first of all, we found the list of all items and then for every single item in the loop, we added
+
+22
+00:01:24,440 --> 00:01:25,280
+event listener.
+
+23
+00:01:25,520 --> 00:01:27,500
+Let's check the time to load in the page.
+
+24
+00:01:27,500 --> 00:01:29,570
+We see our list of items now.
+
+25
+00:01:29,570 --> 00:01:32,760
+We're clicking on one item and we're getting a nice console.
+
+26
+00:01:32,760 --> 00:01:34,880
+Look with the content of this item.
+
+27
+00:01:35,120 --> 00:01:37,940
+We're clicking on another and we're getting console.log.
+
+28
+00:01:38,240 --> 00:01:44,180
+And actually, it is working and it is all fine, but we have a task to build it as fast as possible.
+
+29
+00:01:44,390 --> 00:01:45,290
+And actually here.
+
+30
+00:01:45,290 --> 00:01:51,410
+The problem is, if we have a super huge list, then it's not performant enough because actually here
+
+31
+00:01:51,410 --> 00:01:55,220
+we have four each for all our items, which means that we have here.
+
+32
+00:01:55,220 --> 00:01:59,750
+A list of 1000 items were added in here, 1000 listeners.
+
+33
+00:01:59,930 --> 00:02:02,030
+And this is super bad for our performance.
+
+34
+00:02:02,300 --> 00:02:05,510
+This is why this is not the best solution for our task.
+
+35
+00:02:05,870 --> 00:02:12,530
+What we can do we can find the parent off our list and as you can see here, we have the URL with glass
+
+36
+00:02:12,530 --> 00:02:13,310
+to the app.
+
+37
+00:02:13,550 --> 00:02:14,310
+This is way here.
+
+38
+00:02:14,330 --> 00:02:20,930
+Let's find an element and we can use here document query selector and we know that the class is our
+
+39
+00:02:20,930 --> 00:02:21,920
+To-Do app.
+
+40
+00:02:22,370 --> 00:02:26,810
+Now inside, we can attach just a single listener for our app element.
+
+41
+00:02:27,020 --> 00:02:30,320
+So App Advent listener, here we have our click.
+
+42
+00:02:30,500 --> 00:02:33,910
+And here is our listener and then right in here event.
+
+43
+00:02:33,920 --> 00:02:38,090
+So we have access to our event and actually what we want to do inside.
+
+44
+00:02:38,090 --> 00:02:43,790
+We want to check what element we are targeting because we can click here on our container or we can
+
+45
+00:02:43,790 --> 00:02:45,440
+click on any item inside.
+
+46
+00:02:45,590 --> 00:02:48,590
+And actually, we're interested on the clicking on the item.
+
+47
+00:02:48,800 --> 00:02:54,590
+This is why here we can vote, OK, if we have here event Typekit, which means we clicked and we want
+
+48
+00:02:54,590 --> 00:02:58,430
+to check if our event target has a class of the item.
+
+49
+00:02:58,670 --> 00:03:00,950
+Then this means that we hated our leap.
+
+50
+00:03:01,190 --> 00:03:02,240
+This is why here we can.
+
+51
+00:03:02,420 --> 00:03:10,550
+The event Typekit Dot G+ list and here contains so actually class list property inside the node has
+
+52
+00:03:10,550 --> 00:03:13,800
+a function contains to check if we have such class.
+
+53
+00:03:13,820 --> 00:03:17,060
+In our case, we're checking if we clicked on our item.
+
+54
+00:03:17,330 --> 00:03:22,910
+If this is done, then we can copy our console, look here inside and just change it a little bit.
+
+55
+00:03:23,090 --> 00:03:24,100
+So we're living here.
+
+56
+00:03:24,110 --> 00:03:30,510
+I was three and you clicked on item and here instead of Item Dot in a text, we can write Event Dot
+
+57
+00:03:30,510 --> 00:03:34,610
+Daljit Dot in a text and it will work exactly the same.
+
+58
+00:03:34,880 --> 00:03:36,950
+Let's check the SA time to load in the page.
+
+59
+00:03:37,180 --> 00:03:40,910
+I'm hitting here on some items and we're getting nice.
+
+60
+00:03:40,910 --> 00:03:45,650
+You clicked and actually, if we will click somewhere outside, it doesn't do anything.
+
+61
+00:03:45,890 --> 00:03:51,980
+But the main difference is this code is much faster because we have here just a single listener for
+
+62
+00:03:51,980 --> 00:03:57,980
+our parent, and we're not generating hundreds or thousands of listeners for every single item.

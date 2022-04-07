@@ -1,0 +1,415 @@
+1
+00:00:00,120 --> 00:00:06,060
+Here's another synchronous task, which is a little bit complex, so you need some time to solve it
+
+2
+00:00:06,210 --> 00:00:09,240
+and you can't really solve it like in three or five minutes.
+
+3
+00:00:09,510 --> 00:00:16,170
+As you can see here, we must design a utility which takes a euro and a value for attempts which will
+
+4
+00:00:16,170 --> 00:00:17,970
+attempt to make fetch request.
+
+5
+00:00:18,150 --> 00:00:22,470
+If we have a failure, then this function will try again to fetch some data.
+
+6
+00:00:22,710 --> 00:00:28,970
+With increasing delay for number of times which user has requested, which actually means we must create
+
+7
+00:00:28,980 --> 00:00:33,000
+a function which will fetch a specific euro that we will provide.
+
+8
+00:00:33,330 --> 00:00:39,600
+And we also have some amount of attempts and we want to refresh this data again and again for several
+
+9
+00:00:39,600 --> 00:00:42,150
+times if we didn't get a success message.
+
+10
+00:00:42,390 --> 00:00:48,030
+And actually, this is a really common problem because sometimes our API is not working or data are
+
+11
+00:00:48,030 --> 00:00:50,190
+not there and we want to try it again.
+
+12
+00:00:53,450 --> 00:00:59,000
+So let's try and create this function, and they want to name it, for example, request management.
+
+13
+00:00:59,360 --> 00:01:05,090
+And actually, here we will get our URL because we want to fetch something from the outside and every
+
+14
+00:01:05,090 --> 00:01:06,210
+time something new.
+
+15
+00:01:06,440 --> 00:01:09,470
+And here we have some options for our George Howell.
+
+16
+00:01:09,620 --> 00:01:14,450
+And the last parameter will be attempts, and by default, it may be three, for example.
+
+17
+00:01:14,450 --> 00:01:17,060
+So we're trying to refresh some stuff three times.
+
+18
+00:01:17,360 --> 00:01:18,890
+And this is how we will use this.
+
+19
+00:01:19,100 --> 00:01:25,030
+So we have here request manager and are provided some URL, and they will use here some URL, which
+
+20
+00:01:25,050 --> 00:01:26,000
+does not exist.
+
+21
+00:01:26,150 --> 00:01:27,710
+In this case, we will refer to it.
+
+22
+00:01:28,010 --> 00:01:32,030
+So we have food dot com and this function must return for a promise.
+
+23
+00:01:32,060 --> 00:01:36,170
+This is why here we have then and here we have success and error.
+
+24
+00:01:36,500 --> 00:01:40,550
+This is why here we're waiting some response and we can just write.
+
+25
+00:01:40,550 --> 00:01:44,390
+Console.log, for example, responds to check if it's working.
+
+26
+00:01:44,660 --> 00:01:50,030
+So this is how we will typically use this function will want to fetch some URL and we simply have it
+
+27
+00:01:50,030 --> 00:01:50,360
+then.
+
+28
+00:01:50,540 --> 00:01:56,540
+And obviously, here we can pass some options, for example, method post and somebody or amount of
+
+29
+00:01:56,540 --> 00:01:58,160
+attempts if we want to change it.
+
+30
+00:01:58,370 --> 00:02:01,370
+If we didn't pass anything, then here we don't have any options.
+
+31
+00:02:01,520 --> 00:02:03,230
+And our attempt is three.
+
+32
+00:02:03,590 --> 00:02:08,690
+Now the question is what we want to return here and the most important point understand how we will
+
+33
+00:02:08,690 --> 00:02:09,170
+build it.
+
+34
+00:02:09,350 --> 00:02:15,110
+We will run this function recursively because this is an easy way to call this function several times.
+
+35
+00:02:15,380 --> 00:02:21,650
+And the idea is that we will call in the cage request manager again here, and we will simply provide
+
+36
+00:02:21,650 --> 00:02:25,730
+here inside your real options and then attempts.
+
+37
+00:02:25,910 --> 00:02:29,510
+We will decrease, which means at the beginning we have three attempts.
+
+38
+00:02:29,630 --> 00:02:34,670
+Now, the next time it will be two, then one, and then we will throw an error because we don't have
+
+39
+00:02:34,670 --> 00:02:36,020
+any remaining attempts.
+
+40
+00:02:36,230 --> 00:02:41,120
+So first of all, we must return here a promise because this is what we are waiting outside.
+
+41
+00:02:41,360 --> 00:02:47,120
+This is why here were returning your promise, and here we have our resolve and rechecked.
+
+42
+00:02:47,270 --> 00:02:52,460
+Now, inside this function, we want to try and fetch our data and we will simply use here for each
+
+43
+00:02:52,460 --> 00:02:57,830
+function because it is available for us natively and inside were passing the first to follow as usual.
+
+44
+00:02:58,010 --> 00:02:59,540
+And secondly, options.
+
+45
+00:02:59,750 --> 00:03:03,740
+And now here we have our then and we have catch and actually on.
+
+46
+00:03:03,740 --> 00:03:10,040
+Then we can simply call our resolve and this will pass the success data directly inside resolved because
+
+47
+00:03:10,040 --> 00:03:11,120
+it was always a function.
+
+48
+00:03:11,450 --> 00:03:13,250
+And here we also want to catch.
+
+49
+00:03:13,550 --> 00:03:16,400
+So here inside the cage, we want to do our magic.
+
+50
+00:03:16,400 --> 00:03:20,900
+So here we are getting our error and we want to call our request manager again.
+
+51
+00:03:21,320 --> 00:03:24,650
+But here we must know when a temp is the last one.
+
+52
+00:03:24,660 --> 00:03:26,450
+So here I want to create a property.
+
+53
+00:03:26,660 --> 00:03:28,370
+Is last a temp?
+
+54
+00:03:28,610 --> 00:03:32,090
+And here we can just check if our a temp equals one.
+
+55
+00:03:32,300 --> 00:03:37,520
+In this case of a note, OK, this is the last time when we can call our request manager, and after
+
+56
+00:03:37,520 --> 00:03:44,180
+this we are checking if this is a last attempt, then we want to return reject error, which actually
+
+57
+00:03:44,180 --> 00:03:48,890
+means we're just rejecting our promise because we can't continue anymore.
+
+58
+00:03:49,430 --> 00:03:55,070
+And after this, if we don't have is lust a temp, then we want to make that timeout because actually
+
+59
+00:03:55,070 --> 00:03:58,100
+we want to call this function only after some time.
+
+60
+00:03:58,250 --> 00:04:03,350
+It doesn't make any sense to call it directly after, because maybe API is still down.
+
+61
+00:04:03,620 --> 00:04:06,980
+So here I will write a timeout, for example, with three seconds.
+
+62
+00:04:07,130 --> 00:04:13,130
+And obviously, we can also implement an argument to past the interval to call data and insights at
+
+63
+00:04:13,130 --> 00:04:13,670
+timeout.
+
+64
+00:04:13,670 --> 00:04:15,440
+We want to request our data again.
+
+65
+00:04:15,440 --> 00:04:19,220
+So here Google calls request manager and we're passing here as well.
+
+66
+00:04:19,340 --> 00:04:26,150
+Now, options and the last one will be a temps minus one, which actually means we don't stop at temps
+
+67
+00:04:26,150 --> 00:04:26,720
+anywhere.
+
+68
+00:04:26,900 --> 00:04:32,390
+We simply provide recursively in request manager decreased amount of attempts.
+
+69
+00:04:32,750 --> 00:04:37,100
+This is why here on the first time it is three, then we'll come in here in a timeout.
+
+70
+00:04:37,110 --> 00:04:43,970
+It is two one and then we check this a temp equals one and we're hit inside thisif and were rejecting
+
+71
+00:04:43,970 --> 00:04:44,150
+it.
+
+72
+00:04:44,330 --> 00:04:45,790
+So let's check if it's working.
+
+73
+00:04:45,800 --> 00:04:51,170
+I'm reloading browser and as you can see, I get and get and an error because the year does not exist
+
+74
+00:04:51,410 --> 00:04:57,230
+and we're getting attempts is not define it on Line 13 inside our set timeout.
+
+75
+00:04:57,500 --> 00:05:00,560
+And actually, the name of that argument here is not correct.
+
+76
+00:05:00,710 --> 00:05:04,070
+It's not a temp, but attempts because we have several of them.
+
+77
+00:05:04,280 --> 00:05:08,000
+And also here it should be a temps equal one and not a temp.
+
+78
+00:05:08,360 --> 00:05:09,580
+Let's reload it again.
+
+79
+00:05:09,590 --> 00:05:11,330
+As you can see where get in, get terror.
+
+80
+00:05:11,570 --> 00:05:16,400
+Then after three seconds, we're getting this request again because we try it again and then again,
+
+81
+00:05:16,640 --> 00:05:17,540
+and here we haven't.
+
+82
+00:05:17,540 --> 00:05:21,140
+An error failed to fetch, which actually means here we must try it.
+
+83
+00:05:21,140 --> 00:05:27,320
+Not only then, but also catch because here we will get an error if we can't fetch data and here we
+
+84
+00:05:27,320 --> 00:05:30,020
+can just write console.log error.
+
+85
+00:05:30,140 --> 00:05:32,150
+And here we want to see our error.
+
+86
+00:05:32,420 --> 00:05:38,240
+But as you can see, we still get an error and code type error failed to fetch, which means our code
+
+87
+00:05:38,240 --> 00:05:39,860
+is not 100 percent correct.
+
+88
+00:05:40,070 --> 00:05:45,230
+And actually, the problem is here that this is our first call of request manager and we're handling
+
+89
+00:05:45,230 --> 00:05:47,120
+it outside with then and catch.
+
+90
+00:05:47,420 --> 00:05:49,070
+But here inserts a timeout.
+
+91
+00:05:49,070 --> 00:05:51,980
+We have request manager, but we don't have then.
+
+92
+00:05:52,020 --> 00:05:57,630
+And, Ketch, this is why it is breaking, so we have an error in our third call and this is here,
+
+93
+00:05:57,630 --> 00:05:59,970
+but we didn't specify what will happen, was it?
+
+94
+00:06:00,270 --> 00:06:02,430
+This is by whoever must try it then.
+
+95
+00:06:02,640 --> 00:06:08,250
+And here we want to resolve it with data and also catch and catch with simpler one to reject.
+
+96
+00:06:08,430 --> 00:06:10,410
+In this case, it will work correctly.
+
+97
+00:06:10,650 --> 00:06:12,750
+Let's try the the time to load in the page.
+
+98
+00:06:13,120 --> 00:06:19,080
+We're getting through errors and now our error is bubbled outside and we see it a pair of failed to
+
+99
+00:06:19,080 --> 00:06:19,500
+fetch.
+
+100
+00:06:19,710 --> 00:06:21,810
+So in this case, it is working correctly.
+
+101
+00:06:21,900 --> 00:06:27,510
+So you should not forget to babble our inner request manager outside with then and catch.
+
+102
+00:06:27,750 --> 00:06:30,780
+So I might say this function is quite complicated.
+
+103
+00:06:30,780 --> 00:06:36,150
+So if you receive something like this on interview, you really must take your time to solve it correctly.
+
+104
+00:06:36,300 --> 00:06:39,540
+You can't really design such function in a matter of minutes.

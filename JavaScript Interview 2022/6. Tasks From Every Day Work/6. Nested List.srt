@@ -1,0 +1,607 @@
+1
+00:00:00,210 --> 00:00:04,680
+You might also get a question like this transform flat list, a nested list.
+
+2
+00:00:04,890 --> 00:00:10,830
+And this is some super real stuff typically from the back and you're getting old data as a flat list.
+
+3
+00:00:11,130 --> 00:00:16,650
+And typically, this data can have children from one another, rejection it means for us in the front
+
+4
+00:00:16,650 --> 00:00:19,350
+end, it is not comfortable to render this data.
+
+5
+00:00:19,530 --> 00:00:22,860
+We can simply go with for loop because we have children.
+
+6
+00:00:22,860 --> 00:00:25,710
+We need, first of all, to render on the root levels.
+
+7
+00:00:25,890 --> 00:00:29,910
+And then for every single element, find its children and render them.
+
+8
+00:00:30,090 --> 00:00:35,640
+This is where typically you want to transform your data from flat lists a nested list on LUGUENTZ.
+
+9
+00:00:35,820 --> 00:00:38,400
+And this is exactly what we must do in this video.
+
+10
+00:00:38,700 --> 00:00:43,110
+As you can see here, we have our flipped list and every single element is an object.
+
+11
+00:00:43,320 --> 00:00:47,580
+We have unique ID, some name and parent and first.
+
+12
+00:00:47,580 --> 00:00:51,150
+First of all, ID is important because this is our unique identifier.
+
+13
+00:00:51,420 --> 00:00:57,950
+And secondly, parent data, and it can be either ID or another item, for example, he apparently did
+
+14
+00:00:57,960 --> 00:00:58,320
+one.
+
+15
+00:00:58,500 --> 00:01:00,000
+This is this item.
+
+16
+00:01:00,120 --> 00:01:02,790
+So this object is the parent of this item.
+
+17
+00:01:03,210 --> 00:01:08,520
+And secondly, parent data can be null if this is a root element and it doesn't have a parent.
+
+18
+00:01:08,730 --> 00:01:12,980
+So as you can see here, we have two root elements with a D1 and two.
+
+19
+00:01:13,180 --> 00:01:17,100
+Now we have a D3, which is the child of parent one.
+
+20
+00:01:17,190 --> 00:01:18,670
+So this is the second level.
+
+21
+00:01:18,690 --> 00:01:21,300
+This is why the name his level two item three.
+
+22
+00:01:21,510 --> 00:01:27,360
+So you understand the level in now we have a default, which is apparently three, which actually means
+
+23
+00:01:27,360 --> 00:01:29,670
+this is a child of this element.
+
+24
+00:01:29,940 --> 00:01:34,380
+And actually, this parent a the three is this this is why it's level three item four.
+
+25
+00:01:34,650 --> 00:01:41,040
+And here we have a D5, which is actually a child of Parent 8.2mm, which means this item.
+
+26
+00:01:41,400 --> 00:01:44,400
+And actually, this is how very typical of getting data from the backend.
+
+27
+00:01:44,610 --> 00:01:47,100
+Now we must transform it in such format.
+
+28
+00:01:47,340 --> 00:01:50,580
+So we have a flatter a with just fruit elements.
+
+29
+00:01:50,760 --> 00:01:55,700
+So as you can see here, we have two objects or object, which they do one and object with e.g. two
+
+30
+00:01:55,920 --> 00:02:00,570
+because they are both root elements and their parent is now now inside.
+
+31
+00:02:00,570 --> 00:02:05,430
+We have a new property, children, and this is exactly children which are mapped inside.
+
+32
+00:02:05,700 --> 00:02:12,180
+And here, as you can see, we have a D three and also children inside because actually a D4 is nested
+
+33
+00:02:12,390 --> 00:02:15,780
+inside the three and exactly the same we have here.
+
+34
+00:02:15,990 --> 00:02:20,100
+We have inside the two children and here are five and children.
+
+35
+00:02:20,340 --> 00:02:24,060
+And I admit it here names, because they are not important for understanding.
+
+36
+00:02:24,240 --> 00:02:27,210
+But obviously you can have all additional properties here.
+
+37
+00:02:27,570 --> 00:02:32,670
+And as you can see in the last level, when you don't have any children, then why get in here, children
+
+38
+00:02:32,670 --> 00:02:33,480
+empty array.
+
+39
+00:02:33,870 --> 00:02:37,980
+So our task now is to transform flat list to nested list.
+
+40
+00:02:41,230 --> 00:02:46,300
+And does the author of the said previously, for some people, it is much easier to just try to point
+
+41
+00:02:46,540 --> 00:02:49,390
+how they will solve it and then just code it.
+
+42
+00:02:49,630 --> 00:02:51,440
+This is why let's try to do it now.
+
+43
+00:02:51,670 --> 00:02:54,550
+So first of all, I will write here to do what we are doing.
+
+44
+00:02:54,820 --> 00:02:59,320
+The first point is to get all the elements because this is what we want to render.
+
+45
+00:02:59,530 --> 00:03:02,680
+Let's write it just like this get root elements.
+
+46
+00:03:02,920 --> 00:03:05,440
+Silver must have an array of powerful elements.
+
+47
+00:03:05,710 --> 00:03:11,620
+The second point is to check all children and understand if overlooked elements have children.
+
+48
+00:03:11,770 --> 00:03:13,990
+If no, then we simply return empty.
+
+49
+00:03:14,230 --> 00:03:21,370
+If yes, then we need recursively to find children, and we must do it recursively because we need to
+
+50
+00:03:21,370 --> 00:03:24,730
+check every single element and check if it has children.
+
+51
+00:03:24,970 --> 00:03:31,090
+So we can write here something like this check children if they have children.
+
+52
+00:03:31,300 --> 00:03:37,630
+And now the next point will be, if not, then we just return it with empty children.
+
+53
+00:03:37,900 --> 00:03:44,920
+And number four here is if yes, then we want to go to number two, which actually means we're making
+
+54
+00:03:44,920 --> 00:03:48,640
+number two recursively until we're at the end of our elements.
+
+55
+00:03:48,880 --> 00:03:50,590
+Now let's try to write the code.
+
+56
+00:03:50,600 --> 00:03:54,550
+So first of all, I want to assign it to our nested list.
+
+57
+00:03:54,910 --> 00:03:59,680
+And what I want to do, I want to take our fleet list and find on little elements.
+
+58
+00:03:59,860 --> 00:04:06,280
+And for this, we can just use filter because we want to find all elements where our parent ID is now.
+
+59
+00:04:06,460 --> 00:04:12,520
+In this case, we can simply say that we have item and item dot parent ID equals null.
+
+60
+00:04:12,670 --> 00:04:13,900
+So we're good to go.
+
+61
+00:04:13,930 --> 00:04:16,060
+Let's check the sour time to load in the page.
+
+62
+00:04:16,210 --> 00:04:18,220
+And now we have our nested list.
+
+63
+00:04:18,490 --> 00:04:21,040
+As you can see, we have our array of objects.
+
+64
+00:04:21,160 --> 00:04:25,810
+And here we have a D1 and D2 because their parents are now.
+
+65
+00:04:25,990 --> 00:04:28,470
+This is exactly what we wanted after this.
+
+66
+00:04:28,480 --> 00:04:33,100
+I want just to write that map and inside the function as children.
+
+67
+00:04:33,340 --> 00:04:38,050
+Why I'm doing like this, because actually, this function will be called recursively and it should
+
+68
+00:04:38,060 --> 00:04:43,930
+be completely stateless function, which actually means we must call this function on any item and it
+
+69
+00:04:43,930 --> 00:04:44,680
+must work.
+
+70
+00:04:44,920 --> 00:04:51,040
+This is why I want to create here our add children function and we get in here and item but don't need
+
+71
+00:04:51,040 --> 00:04:53,980
+anything else because here we have our little list on the top.
+
+72
+00:04:54,190 --> 00:04:59,290
+If you don't have it available on the top, then maybe you can get here a second document to flirt list
+
+73
+00:04:59,290 --> 00:05:01,960
+in your code, but it will be in your real project.
+
+74
+00:05:01,970 --> 00:05:04,060
+Here we have access to our fleet list.
+
+75
+00:05:04,300 --> 00:05:09,430
+So what we're doing here, we're looping through our route elements and we're mapping at children,
+
+76
+00:05:09,580 --> 00:05:13,660
+which actually means if we want to add children to every single route element.
+
+77
+00:05:13,900 --> 00:05:16,150
+So first of all, we must find our children.
+
+78
+00:05:16,390 --> 00:05:22,180
+So let's right here, children, and we know that our children is just flips list, which is filtered
+
+79
+00:05:22,360 --> 00:05:25,760
+by parent data where ID equals item dot ID.
+
+80
+00:05:26,260 --> 00:05:27,400
+So let's do this now.
+
+81
+00:05:27,460 --> 00:05:33,490
+We simply take littlest dot filter, and here we have our child, and let's name it, for example,
+
+82
+00:05:33,490 --> 00:05:34,610
+child item.
+
+83
+00:05:34,840 --> 00:05:42,580
+And we want to check child item dot parent ID equals in our case item dot I.D. In this case, we are
+
+84
+00:05:42,580 --> 00:05:44,110
+finding all our children.
+
+85
+00:05:44,260 --> 00:05:46,000
+Let's console.log what we have here.
+
+86
+00:05:46,210 --> 00:05:48,910
+So I'm just writing children Andrew Lloyd in the page.
+
+87
+00:05:49,150 --> 00:05:54,010
+And as you can see here, we've got one single element because this is a child of ours or tellement
+
+88
+00:05:54,010 --> 00:05:54,610
+with a div.
+
+89
+00:05:55,300 --> 00:06:01,210
+And here we have also one more child of root element with parent 8.2mm, which actually means it is
+
+90
+00:06:01,210 --> 00:06:02,260
+working correctly.
+
+91
+00:06:02,320 --> 00:06:05,110
+The next point is to check if we have any children.
+
+92
+00:06:05,260 --> 00:06:06,310
+So here we can write.
+
+93
+00:06:06,310 --> 00:06:13,510
+If our children land bigger than zero, then we must do our recursive magic because we need not only
+
+94
+00:06:13,510 --> 00:06:16,960
+get children of children, but we must do it recursively.
+
+95
+00:06:17,230 --> 00:06:23,980
+What I want to do before I want to create a property led was our to children, and they want to sign
+
+96
+00:06:23,980 --> 00:06:29,740
+here empty because actually, if we're not inside the safe, then we don't need to change anything.
+
+97
+00:06:29,890 --> 00:06:32,200
+We simply need to return to children.
+
+98
+00:06:32,500 --> 00:06:38,470
+And as you can see, I assigned by default empty array here so we can return here, object to sign.
+
+99
+00:06:38,740 --> 00:06:39,760
+And here I am, right?
+
+100
+00:06:39,760 --> 00:06:42,760
+An empty object, then comma item comma.
+
+101
+00:06:42,760 --> 00:06:45,070
+And here is our children next to children.
+
+102
+00:06:45,490 --> 00:06:51,220
+Why I wrote like this because actually, if you will use here, push or just with what you are saying
+
+103
+00:06:51,220 --> 00:06:56,680
+that here are in this two children, then you will mutate the item, which actually means you will change
+
+104
+00:06:56,680 --> 00:07:00,880
+this item inside flirt list because we have an object reference.
+
+105
+00:07:01,060 --> 00:07:02,020
+We don't want this.
+
+106
+00:07:02,020 --> 00:07:03,970
+We simply want to retain your data.
+
+107
+00:07:04,180 --> 00:07:07,090
+This is why I'm using here object to sign with them to object.
+
+108
+00:07:07,360 --> 00:07:13,570
+After this, we're using our item silver copy all property as a file item inside this new object and
+
+109
+00:07:13,570 --> 00:07:17,530
+where sign in here and your property children, which is on their two children.
+
+110
+00:07:17,800 --> 00:07:22,120
+And in this case, we simply have just let nested children empty object.
+
+111
+00:07:22,300 --> 00:07:24,340
+Let's check the time to load in the page.
+
+112
+00:07:24,520 --> 00:07:25,960
+Here is our nested list.
+
+113
+00:07:26,170 --> 00:07:31,510
+And as you can see, we have no children empty array because actually we didn't write any logic for
+
+114
+00:07:31,510 --> 00:07:32,110
+this eve.
+
+115
+00:07:32,110 --> 00:07:38,740
+If this is why we simply return data in such form, it ID name, parent ID, actually all fields and
+
+116
+00:07:38,740 --> 00:07:39,440
+additionally.
+
+117
+00:07:39,560 --> 00:07:44,280
+Children and as you can see, we have here on live with elements, which actually means everything is
+
+118
+00:07:44,280 --> 00:07:48,300
+working correctly and we must just call recursively hear our code.
+
+119
+00:07:48,480 --> 00:07:54,300
+So what we want to do here, we want to look through every single child and call at children function
+
+120
+00:07:54,300 --> 00:07:57,660
+on this child so we can assign higher awareness to children.
+
+121
+00:07:57,900 --> 00:08:00,030
+And this is just our children that map.
+
+122
+00:08:00,180 --> 00:08:02,640
+And we have access to every single child.
+
+123
+00:08:02,850 --> 00:08:05,580
+And we are calling at children with our child.
+
+124
+00:08:05,940 --> 00:08:07,620
+So what is happening in this case?
+
+125
+00:08:07,800 --> 00:08:10,770
+For example, we found the child we're checking here, OK?
+
+126
+00:08:10,800 --> 00:08:12,360
+We have a child and say children.
+
+127
+00:08:12,540 --> 00:08:14,610
+And here we are mapping through our array.
+
+128
+00:08:14,820 --> 00:08:20,580
+And for every single element where Colin at children, most important part that were Colin disfunction
+
+129
+00:08:20,590 --> 00:08:21,330
+recursively.
+
+130
+00:08:21,570 --> 00:08:24,360
+First of all, we called it here inside root element.
+
+131
+00:08:24,600 --> 00:08:27,120
+Now here, inside that children were Colin.
+
+132
+00:08:27,120 --> 00:08:29,520
+It was map and one were calling it here.
+
+133
+00:08:29,520 --> 00:08:35,880
+We're chicken children of this child, which actually means it will go recursively until we don't have
+
+134
+00:08:35,880 --> 00:08:39,540
+any children and we're just not going to this condition.
+
+135
+00:08:39,690 --> 00:08:43,010
+So, for example, in our case, here were Colin at three times.
+
+136
+00:08:43,020 --> 00:08:47,250
+First of all, for you do one, then for the three and then for a default.
+
+137
+00:08:47,460 --> 00:08:49,950
+And this is exactly why we need recursion here.
+
+138
+00:08:50,130 --> 00:08:52,140
+Let's check the Southampton load in the page.
+
+139
+00:08:52,350 --> 00:08:53,760
+Let's check our nested list.
+
+140
+00:08:53,970 --> 00:09:00,250
+And as you can see, we have no children and inside item one, we have just one child with three.
+
+141
+00:09:00,450 --> 00:09:04,710
+And we also have a children's property inside and we have one more child here.
+
+142
+00:09:04,860 --> 00:09:06,390
+Level three, item four.
+
+143
+00:09:06,570 --> 00:09:13,020
+And we have children empty array because actually our recursion ended and we simply got here empty children
+
+144
+00:09:13,020 --> 00:09:14,550
+and we assign them here.
+
+145
+00:09:14,700 --> 00:09:18,230
+So once again, first of all, we must get on our element.
+
+146
+00:09:18,450 --> 00:09:23,910
+Secondly, we must create a function which we can call recursively on any element.
+
+147
+00:09:24,030 --> 00:09:25,950
+And this is our children now.
+
+148
+00:09:25,950 --> 00:09:31,020
+Inside the children were, first of all, trying to find all children of the item and secondly were
+
+149
+00:09:31,020 --> 00:09:34,980
+checking if we need to make recursion for our children if we have any.
+
+150
+00:09:35,130 --> 00:09:37,950
+If yes, then we are Colin at children recursively.
+
+151
+00:09:38,130 --> 00:09:42,720
+If no, we simply make an object to sign and return and here our children.
+
+152
+00:09:42,870 --> 00:09:45,810
+So this is how you typically do it in the real project.

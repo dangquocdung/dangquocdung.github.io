@@ -1,0 +1,163 @@
+1
+00:00:00,180 --> 00:00:04,950
+You might also get another question regarding the selection of JavaScript here.
+
+2
+00:00:04,970 --> 00:00:09,690
+We must create the premise function to be able to use callback function via promise.
+
+3
+00:00:10,590 --> 00:00:15,990
+And actually, just for you to know, previously we had a lot of callback functions because we didn't
+
+4
+00:00:15,990 --> 00:00:16,800
+have promises.
+
+5
+00:00:17,100 --> 00:00:23,370
+Then after some time in JavaScript, we migrated fully to promises and now they're supported in JavaScript
+
+6
+00:00:23,370 --> 00:00:27,570
+by default, which actually means we're not using callbacks that much anymore.
+
+7
+00:00:27,870 --> 00:00:33,390
+And as you can see here, we have a standard callback function where inside word doing some asynchronous
+
+8
+00:00:33,390 --> 00:00:39,120
+code and we must write this function to prime this approach, which actually means, for example, we're
+
+9
+00:00:39,120 --> 00:00:45,480
+using some older library which is based on the callbacks, but the whole code of our project is using
+
+10
+00:00:45,480 --> 00:00:46,110
+premises.
+
+11
+00:00:46,320 --> 00:00:51,510
+This is why it makes a lot of sense to make a wrapper and to use this callback function through the
+
+12
+00:00:51,510 --> 00:00:52,020
+premise.
+
+13
+00:00:55,170 --> 00:01:00,990
+To do this, we must create a theme which is called promise by function, which actually means the same
+
+14
+00:01:00,990 --> 00:01:06,000
+function, but wrapped in promise so we can name it from me sci fi.
+
+15
+00:01:06,210 --> 00:01:07,710
+And this is the typical name in.
+
+16
+00:01:08,340 --> 00:01:09,510
+I think, fun.
+
+17
+00:01:09,840 --> 00:01:13,440
+Just like on the top and here, we don't have any arguments.
+
+18
+00:01:13,770 --> 00:01:16,860
+And inside here we want to call out a sync function.
+
+19
+00:01:17,070 --> 00:01:21,450
+And when we have a callback, then we want to call our callback from the premise.
+
+20
+00:01:21,720 --> 00:01:24,360
+This is where here we must return and you promise.
+
+21
+00:01:24,600 --> 00:01:30,390
+And here inside promise, we have resolve and rechecked, but we will use here on the result because
+
+22
+00:01:30,410 --> 00:01:32,010
+we don't have any error here.
+
+23
+00:01:32,400 --> 00:01:38,430
+Now, inside our promise, we can just call the regular icing function and put the call back inside.
+
+24
+00:01:38,700 --> 00:01:41,460
+And actually, this callback will give us some data back.
+
+25
+00:01:41,670 --> 00:01:47,100
+This is why here I am right in data and we even don't know what data we're talking about now.
+
+26
+00:01:47,100 --> 00:01:53,070
+Inside, we want just to cold resolve and Boston site data from our asynchronous function.
+
+27
+00:01:53,250 --> 00:01:58,230
+In this case, when the synchronous function is done, then our callback will be happening.
+
+28
+00:01:58,470 --> 00:02:03,960
+And here, insert callback, we're getting data from asynchronous function and we're calling in callback
+
+29
+00:02:03,960 --> 00:02:06,720
+resolve for this promise that we created.
+
+30
+00:02:07,050 --> 00:02:10,590
+And most importantly, that this function will return a promise.
+
+31
+00:02:10,920 --> 00:02:12,330
+This is why we can use it now.
+
+32
+00:02:12,330 --> 00:02:13,580
+Like this promise?
+
+33
+00:02:13,590 --> 00:02:17,370
+If I think function, we just call it and it returns as a.
+
+34
+00:02:18,120 --> 00:02:19,500
+This is why we can right here.
+
+35
+00:02:19,500 --> 00:02:24,450
+Then we're getting some result and we can do, for example, console.log result.
+
+36
+00:02:24,810 --> 00:02:31,150
+So we're using this function as a promise, and we've wrapped our async function in promise ify.
+
+37
+00:02:31,230 --> 00:02:32,160
+Let's check this out.
+
+38
+00:02:32,310 --> 00:02:37,740
+I'm deployed in the page and as you can see, we're getting back one after some time because here we
+
+39
+00:02:37,740 --> 00:02:43,140
+have callback with three thousand milliseconds, which actually means we're getting our data after three
+
+40
+00:02:43,140 --> 00:02:45,330
+seconds and this code is working.
+
+41
+00:02:45,480 --> 00:02:51,210
+And now everyone in our application, we can use this callback function in promise of triage.

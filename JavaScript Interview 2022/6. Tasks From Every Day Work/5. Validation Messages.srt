@@ -1,0 +1,279 @@
+1
+00:00:00,090 --> 00:00:05,880
+You might also get a question like this for Vermont beckoned validation message to front and far from
+
+2
+00:00:05,880 --> 00:00:06,030
+it.
+
+3
+00:00:06,390 --> 00:00:11,430
+And actually, this is a real example because sometimes we're getting beckoned validation messages,
+
+4
+00:00:11,730 --> 00:00:12,950
+not in the format.
+
+5
+00:00:12,960 --> 00:00:17,160
+How would a suitable for us in the frontend for our JavaScript farms?
+
+6
+00:00:17,460 --> 00:00:21,180
+This is way here where I get to know about errors in such format.
+
+7
+00:00:21,390 --> 00:00:26,610
+We have here an object whiskey's and every single key is a property from the backend.
+
+8
+00:00:26,790 --> 00:00:31,830
+So our field that we are validating, for example, email and here we have field errors.
+
+9
+00:00:32,040 --> 00:00:33,810
+And this is what is interesting for us.
+
+10
+00:00:34,020 --> 00:00:38,220
+Errors is in the array of objects and inside every single object.
+
+11
+00:00:38,400 --> 00:00:41,340
+We have message property with some message.
+
+12
+00:00:41,550 --> 00:00:44,310
+For example, here we have password with two errors.
+
+13
+00:00:44,550 --> 00:00:46,710
+This is why here is an array with two objects.
+
+14
+00:00:46,950 --> 00:00:52,440
+Here is a message must contain symbols in different keys and must be at least eight symbols lens.
+
+15
+00:00:52,830 --> 00:00:57,540
+So what we want to do in this exercise, we want to convert it to our front and format.
+
+16
+00:00:57,750 --> 00:01:03,290
+And this is just a plain array with strings, and every single string is our key.
+
+17
+00:01:03,300 --> 00:01:09,330
+So our field like email and now we have all our concatenated mistakes like, for example, can be blank.
+
+18
+00:01:09,480 --> 00:01:13,110
+And if we have two of them, then we simply concatenate them with common.
+
+19
+00:01:16,490 --> 00:01:22,070
+So actually, you can solve it in different ways, but I highly recommend to use object energies here.
+
+20
+00:01:22,340 --> 00:01:27,500
+We can simpler right here objects and trees and provide inside our back and errors.
+
+21
+00:01:27,770 --> 00:01:33,310
+And as you can see, we're getting such a nice format like array of rays, and every single array here
+
+22
+00:01:33,320 --> 00:01:36,860
+is first to follow a key and the value is what we had here.
+
+23
+00:01:36,860 --> 00:01:40,580
+So we have a value with errors and inside we have our errors.
+
+24
+00:01:40,820 --> 00:01:46,640
+And this is really comfortable format to work for us because we come through a local map in JavaScript
+
+25
+00:01:46,640 --> 00:01:47,450
+on the object.
+
+26
+00:01:47,690 --> 00:01:52,770
+This is why what we want to do here, we want, first of all, to create some normal property, maybe
+
+27
+00:01:52,780 --> 00:02:00,170
+a human readable, beckoned errors and no one to call here object entries.
+
+28
+00:02:00,470 --> 00:02:03,220
+And we want to provide inside our back and errors.
+
+29
+00:02:03,470 --> 00:02:08,450
+So actually, now we have array of race and we can map here every single value.
+
+30
+00:02:08,720 --> 00:02:10,820
+And you already saw what we are getting here.
+
+31
+00:02:10,880 --> 00:02:14,600
+We get an array with email as a key and some value.
+
+32
+00:02:14,840 --> 00:02:20,360
+And actually, here I want to use directly this structuring to get, first of all, our key and second
+
+33
+00:02:20,360 --> 00:02:21,830
+look, we're getting our value.
+
+34
+00:02:22,010 --> 00:02:25,310
+This is the easiest way how you can use a map on the object.
+
+35
+00:02:25,520 --> 00:02:26,520
+And here we get it.
+
+36
+00:02:26,520 --> 00:02:29,840
+First of all, our field and secondly, value with the errors.
+
+37
+00:02:30,110 --> 00:02:32,510
+This is why we must prepare our errors.
+
+38
+00:02:32,660 --> 00:02:38,960
+In this case, let's name them, for example, field messages, and we must concatenate them so we can
+
+39
+00:02:38,960 --> 00:02:41,330
+write here value dot errors.
+
+40
+00:02:41,360 --> 00:02:43,400
+So we're getting our array of errors.
+
+41
+00:02:43,580 --> 00:02:46,250
+And now here we need to map every single error.
+
+42
+00:02:46,520 --> 00:02:51,620
+So here were Colin Map without error and we want to return error dot message.
+
+43
+00:02:51,860 --> 00:02:53,660
+And as you can see here, this is true.
+
+44
+00:02:53,810 --> 00:02:58,640
+We have here array with objects and every single object contain our message.
+
+45
+00:02:58,940 --> 00:03:01,040
+So here we're just mapping this message.
+
+46
+00:03:01,370 --> 00:03:03,710
+And after this one to concatenate them.
+
+47
+00:03:03,920 --> 00:03:09,530
+So here I will put join comma and space because we want to have a nice, readable string.
+
+48
+00:03:09,860 --> 00:03:14,960
+And after this, we simply need to return our string because we're inside the map here.
+
+49
+00:03:15,170 --> 00:03:18,680
+So I want to use here ActionScript 16 and inside.
+
+50
+00:03:18,680 --> 00:03:20,360
+I want to provide our key.
+
+51
+00:03:20,360 --> 00:03:24,350
+But here the problem is you can see it is always capitalized.
+
+52
+00:03:24,620 --> 00:03:29,420
+So first of all, we must capitalize it, and we already did it in previous videos.
+
+53
+00:03:29,630 --> 00:03:33,020
+This is where here we can name it, capitalize field.
+
+54
+00:03:33,290 --> 00:03:37,310
+And actually, I think feel this better name, Celestron name our key to field.
+
+55
+00:03:37,610 --> 00:03:44,600
+And now here we must call on field first default character at zero in this case, where taking our first
+
+56
+00:03:44,600 --> 00:03:51,470
+element and we want to concatenate it with field dot slides and here where Putin wants a work cut and
+
+57
+00:03:51,470 --> 00:03:55,880
+one symbol in this case, it is our capitalized name of the field.
+
+58
+00:03:56,240 --> 00:03:59,240
+Now here we must provide this capitalized field.
+
+59
+00:03:59,420 --> 00:04:01,100
+And here is important.
+
+60
+00:04:01,250 --> 00:04:06,500
+In other case, we can think that this is a function and after this was simply put, column space.
+
+61
+00:04:06,710 --> 00:04:08,870
+And here are our field messages.
+
+62
+00:04:09,320 --> 00:04:14,060
+So what we are doing here, where may have been through our object entries, were getting directly our
+
+63
+00:04:14,060 --> 00:04:15,110
+field and value.
+
+64
+00:04:15,290 --> 00:04:17,570
+First of all, we are changing our field messages.
+
+65
+00:04:17,720 --> 00:04:23,540
+And secondly, there could be delays in our field and no return is true for every single error.
+
+66
+00:04:23,840 --> 00:04:30,080
+Let's check the sour time to load in our page, and let's check what we have inside human readable errors.
+
+67
+00:04:30,320 --> 00:04:33,890
+And as you can see, this is a nice array in the correct four month.
+
+68
+00:04:34,100 --> 00:04:39,140
+So we have history for every single field and we capitalized the name of every field.
+
+69
+00:04:39,320 --> 00:04:44,780
+And here we joined our errors, which means we're successful to solve this problem and transferring
+
+70
+00:04:44,780 --> 00:04:46,430
+data in the correct format.

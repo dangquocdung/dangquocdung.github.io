@@ -1,0 +1,171 @@
+1
+00:00:00,240 --> 00:00:06,420
+You might also get a task like this right to function, which counts vowels in the string, and it is
+
+2
+00:00:06,420 --> 00:00:10,080
+not always vowels, but something that you must count in the string.
+
+3
+00:00:13,240 --> 00:00:18,700
+And actually, it is not that difficult, because the main idea is that first, we must define something
+
+4
+00:00:18,700 --> 00:00:24,970
+like a range of possible loopholes or possible symbols, and then just try and check every single letter
+
+5
+00:00:25,120 --> 00:00:26,350
+inside our strength.
+
+6
+00:00:26,680 --> 00:00:27,610
+Let's do this now.
+
+7
+00:00:27,850 --> 00:00:33,180
+So first of all, here we want to create a function, find the walls, and we're getting history and
+
+8
+00:00:33,250 --> 00:00:34,090
+as an argument.
+
+9
+00:00:34,450 --> 00:00:37,240
+Now, second live, we must define what our walls.
+
+10
+00:00:37,510 --> 00:00:39,310
+So here we can create walls.
+
+11
+00:00:40,000 --> 00:00:49,180
+And let's define here a e o i and you, and we can solve it with two different ways, either with follow
+
+12
+00:00:49,180 --> 00:00:50,290
+up or with reduce.
+
+13
+00:00:50,440 --> 00:00:52,180
+And actually, both are fine.
+
+14
+00:00:52,420 --> 00:00:57,580
+So here, first of all, I want to create a counter because we want to increase it every single time
+
+15
+00:00:57,580 --> 00:00:59,140
+when we find our wall.
+
+16
+00:00:59,440 --> 00:01:03,610
+Now we need a for loop, so here we can write lead character off.
+
+17
+00:01:03,820 --> 00:01:06,850
+And here will restrain to lower our case.
+
+18
+00:01:06,850 --> 00:01:10,990
+In this case, we're getting access to every single character inside our street.
+
+19
+00:01:11,230 --> 00:01:17,980
+And we can check, OK, if the wealth includes our character, then we want to increase our counter.
+
+20
+00:01:17,980 --> 00:01:19,830
+So here will be count plus plus.
+
+21
+00:01:20,260 --> 00:01:24,910
+And after this for loop, we just must return our account that we created.
+
+22
+00:01:25,150 --> 00:01:27,030
+And here, let's try to find the balls.
+
+23
+00:01:27,220 --> 00:01:28,660
+And we have some strain.
+
+24
+00:01:28,930 --> 00:01:33,760
+As you can see here, we're getting three vowels because we have here e three times.
+
+25
+00:01:33,970 --> 00:01:39,070
+And actually, I would say that this code is OK, but we can write it better with reduced.
+
+26
+00:01:39,370 --> 00:01:40,730
+This is why I want to comment.
+
+27
+00:01:40,730 --> 00:01:44,140
+Told this let code and follow up and directly here.
+
+28
+00:01:44,140 --> 00:01:45,280
+Return as a deuce.
+
+29
+00:01:45,490 --> 00:01:48,970
+So here, first of all, we want to convert our string to lowercase.
+
+30
+00:01:49,180 --> 00:01:52,030
+So here we can just write string to lowercase.
+
+31
+00:01:52,240 --> 00:01:55,240
+And after this, we want to split it in characters.
+
+32
+00:01:55,450 --> 00:01:58,140
+This is where here will be split empty string.
+
+33
+00:01:58,360 --> 00:02:03,400
+Now we want to call here, reduce and get an excess, first of all, to our accumulator.
+
+34
+00:02:03,550 --> 00:02:05,920
+And secondly, to every single character.
+
+35
+00:02:06,250 --> 00:02:10,720
+And after this function, we want to define our count and it will be zero.
+
+36
+00:02:11,110 --> 00:02:17,080
+Now, inside our reduce, we want to do exactly the same logic, but can return here that if our vowels
+
+37
+00:02:17,080 --> 00:02:22,330
+array includes character that we're checking, then we want to increase our count.
+
+38
+00:02:22,510 --> 00:02:25,720
+So here we're increasing our accumulator with +1.
+
+39
+00:02:25,930 --> 00:02:29,620
+In that case, we don't increase it and just return accumulator.
+
+40
+00:02:29,920 --> 00:02:32,020
+Let's check the small time relied in the page.
+
+41
+00:02:32,200 --> 00:02:34,900
+Here is the same string and we're getting three.
+
+42
+00:02:35,080 --> 00:02:39,430
+And actually, this code is better because first of all, we can read it line by line.
+
+43
+00:02:39,550 --> 00:02:42,220
+And secondly, it is fully pure and functional.

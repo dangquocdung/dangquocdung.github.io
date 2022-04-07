@@ -1,0 +1,295 @@
+1
+00:00:00,210 --> 00:00:05,970
+You might also get a task like this creative function to replace parameters in your realm.
+
+2
+00:00:06,180 --> 00:00:12,420
+And actually, this is a real world task because here we have an initial euro like it is generated in
+
+3
+00:00:12,420 --> 00:00:15,120
+all rounders for all frontend frameworks.
+
+4
+00:00:15,390 --> 00:00:22,170
+And in this case, we have like initial euro less both SLAs and here Colin Powell's posted slash common
+
+5
+00:00:22,170 --> 00:00:29,100
+slash column Commentated, which means this two parameters with Collins will be replaced by ads at some
+
+6
+00:00:29,100 --> 00:00:29,850
+point later.
+
+7
+00:00:30,060 --> 00:00:35,820
+And actually, we must try to function replace params in the URL where we can throw inside the URL with
+
+8
+00:00:35,820 --> 00:00:38,970
+such structure and our array of replacements.
+
+9
+00:00:39,240 --> 00:00:45,450
+And as you can see inside, every single object we must provide from and tool, for example, from Paul's
+
+10
+00:00:45,450 --> 00:00:51,960
+2D means that we must replace Colin posted with a do and here commentator with a three.
+
+11
+00:00:52,230 --> 00:00:54,540
+And of course, this function must be generic.
+
+12
+00:00:54,690 --> 00:00:59,400
+It is not only for posts and comments, but any replacements inside the URL.
+
+13
+00:01:02,800 --> 00:01:08,050
+And actually, before we will start, Solomon, I want to show you one more thing how you can think
+
+14
+00:01:08,080 --> 00:01:09,520
+about solving problems.
+
+15
+00:01:09,760 --> 00:01:15,250
+For example, you can write something like To-Do list and in this case were trying to think in steps
+
+16
+00:01:15,400 --> 00:01:17,230
+regarding what we want to implement.
+
+17
+00:01:17,500 --> 00:01:19,780
+For example, what will be the first step here?
+
+18
+00:01:20,050 --> 00:01:25,210
+As you see, we have an array of our replacements, which actually means we have a function of with
+
+19
+00:01:25,210 --> 00:01:25,960
+two arguments.
+
+20
+00:01:26,170 --> 00:01:31,680
+And actually, we want to move through every single replacement and to play this replacement to our
+
+21
+00:01:31,810 --> 00:01:32,260
+as well.
+
+22
+00:01:32,470 --> 00:01:36,610
+So actually, here we can write go through replacements.
+
+23
+00:01:37,450 --> 00:01:43,270
+And the second point will be maybe replace parts of each.
+
+24
+00:01:43,570 --> 00:01:47,620
+The replacements and the last thing will be here, return in your scene.
+
+25
+00:01:47,950 --> 00:01:53,530
+And this list in this case might sound like an obvious thing, but it can help if you write something
+
+26
+00:01:53,530 --> 00:02:00,220
+like this to implement more complex logic and actually directly want to implement a correct solution.
+
+27
+00:02:00,430 --> 00:02:03,530
+And we can use reviews for this because it's huge.
+
+28
+00:02:03,550 --> 00:02:04,600
+Our code best.
+
+29
+00:02:04,780 --> 00:02:10,180
+But I also want to show you the single problem that you might don't actually hear but want to create
+
+30
+00:02:10,180 --> 00:02:12,730
+our function, replace programs in general.
+
+31
+00:02:12,910 --> 00:02:16,630
+And we're getting here, you as well and our list of replacements.
+
+32
+00:02:16,780 --> 00:02:20,800
+And actually, what we want to do here is reduce for our replacements.
+
+33
+00:02:21,040 --> 00:02:22,990
+So replacements door to reduce.
+
+34
+00:02:23,170 --> 00:02:27,610
+And here we have a function with accumulator and each of replacement.
+
+35
+00:02:27,820 --> 00:02:33,970
+And this initial value we have here all year round because this is what we want to change now here inside
+
+36
+00:02:33,970 --> 00:02:36,970
+the function, we must return updated strain.
+
+37
+00:02:37,120 --> 00:02:41,200
+And for this, we can use a plain JavaScript function, which is called replace.
+
+38
+00:02:41,530 --> 00:02:43,480
+And actually, here you might write it.
+
+39
+00:02:43,480 --> 00:02:44,290
+Run like this.
+
+40
+00:02:44,470 --> 00:02:46,420
+You can think, OK, I have a URL.
+
+41
+00:02:46,600 --> 00:02:47,800
+We can simply right here.
+
+42
+00:02:47,800 --> 00:02:50,290
+Your cell equals your cell to replace.
+
+43
+00:02:50,590 --> 00:02:51,320
+And here we are.
+
+44
+00:02:51,430 --> 00:02:55,720
+Place and first a full column plus replacement not from.
+
+45
+00:02:55,870 --> 00:02:58,710
+And we're changing it to a replacement DOD tool.
+
+46
+00:02:58,780 --> 00:02:59,350
+This is it.
+
+47
+00:02:59,590 --> 00:03:02,320
+And after this, we want to return our URL.
+
+48
+00:03:02,710 --> 00:03:05,230
+And actually, this code looks kind of correct.
+
+49
+00:03:05,320 --> 00:03:11,590
+And now I want to move our initial URL and results here to the bottom and right console.log.
+
+50
+00:03:11,800 --> 00:03:12,970
+Result yourself.
+
+51
+00:03:13,180 --> 00:03:14,530
+And let's check what we have.
+
+52
+00:03:14,830 --> 00:03:20,920
+AMD allowed in the page and we'll get an exact list less post slash one slash common slash three, which
+
+53
+00:03:20,920 --> 00:03:24,760
+actually means this logic was reduced, is working correctly so well.
+
+54
+00:03:24,760 --> 00:03:26,530
+We've been through every single replacement.
+
+55
+00:03:26,890 --> 00:03:31,110
+Here we updated our euro and here return it and all looks good.
+
+56
+00:03:31,120 --> 00:03:33,450
+But actually, you have a huge problem.
+
+57
+00:03:33,640 --> 00:03:39,190
+As you can see, my accumulator variable is not highlighted, which actually means we're not using here
+
+58
+00:03:39,190 --> 00:03:42,710
+reduced correctly and we're not using accumulator at all.
+
+59
+00:03:43,000 --> 00:03:49,570
+What we're using, we're using this URL from params and we directly mutate this hotel every single time.
+
+60
+00:03:49,780 --> 00:03:51,550
+And actually, this is completely wrong.
+
+61
+00:03:51,760 --> 00:03:54,460
+First of all, because we should not mutate our programs.
+
+62
+00:03:54,700 --> 00:04:00,910
+And secondly, the most important, but we're using here reduce like a for loop because actually, we
+
+63
+00:04:00,910 --> 00:04:06,640
+simply mutate our variable from outside in the loop and we're not using our accumulator.
+
+64
+00:04:06,940 --> 00:04:13,000
+Actually, the correct code here is not here to replace, but simply return accumulator replace.
+
+65
+00:04:13,210 --> 00:04:18,700
+Because as you can see, we're provided your role here as an initial value and we should not use URL
+
+66
+00:04:18,700 --> 00:04:19,570
+here inside.
+
+67
+00:04:19,780 --> 00:04:21,640
+We don't want to change our URL.
+
+68
+00:04:21,820 --> 00:04:26,770
+We want every single time to update our accumulator and return in your accumulator.
+
+69
+00:04:27,010 --> 00:04:31,570
+And as you can see, this code is working in exactly the same, but this is completely different.
+
+70
+00:04:31,780 --> 00:04:37,090
+Previously, if you would write code like this, this is completely wrong on the interview because you
+
+71
+00:04:37,090 --> 00:04:39,010
+are not using reproduce, like reduce.
+
+72
+00:04:39,130 --> 00:04:42,340
+But just like for loop, the same goes with map.
+
+73
+00:04:42,490 --> 00:04:46,120
+If you are using the map just to look through things, you are doing it itron.
+
+74
+00:04:46,270 --> 00:04:49,780
+With Map, you need to transform your array and return it back.

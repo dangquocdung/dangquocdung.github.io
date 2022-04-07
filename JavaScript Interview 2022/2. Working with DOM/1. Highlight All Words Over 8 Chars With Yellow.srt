@@ -1,0 +1,235 @@
+1
+00:00:00,420 --> 00:00:06,180
+You might also get some questions regarding how JavaScript is working with Dom, for example, here
+
+2
+00:00:06,190 --> 00:00:13,290
+we must highlight all of the words over eight characters long in the paragraph text with yellow background.
+
+3
+00:00:13,620 --> 00:00:20,100
+And as you can see here, I have indexes HTML and we have our pedigree and we have our head in paragraph
+
+4
+00:00:20,310 --> 00:00:22,230
+and we have quite a lot of text here.
+
+5
+00:00:22,500 --> 00:00:27,420
+And if you want to try it yourself, I will link the source code in the description box below.
+
+6
+00:00:27,540 --> 00:00:29,820
+So you should not type this whole text.
+
+7
+00:00:33,090 --> 00:00:37,860
+So this is how tact is looking now, how we can implement this specific task.
+
+8
+00:00:38,160 --> 00:00:40,500
+First of all, we must find our paragraph.
+
+9
+00:00:40,680 --> 00:00:43,890
+And this is really easy that we have just a single paragraph.
+
+10
+00:00:44,130 --> 00:00:50,760
+So here we can say that we find in paragraph and here this document or query selector, and here is
+
+11
+00:00:50,760 --> 00:00:51,120
+P.
+
+12
+00:00:51,480 --> 00:00:57,050
+And as you can see, I used here quite select and this is super important if you will try to use get
+
+13
+00:00:57,060 --> 00:00:59,520
+element by eight or get 11 by class.
+
+14
+00:00:59,760 --> 00:01:04,410
+This is not the best approach, and it shows that you didn't work with Dom too much.
+
+15
+00:01:04,650 --> 00:01:08,640
+This is why you always must use query selector or quota selector.
+
+16
+00:01:08,660 --> 00:01:14,070
+Oh, if you want to get a list of your elements, in our case, we get just a single element.
+
+17
+00:01:14,100 --> 00:01:17,730
+This is why we simply right here and we're getting our paragraph.
+
+18
+00:01:17,940 --> 00:01:23,850
+We could also write here a dollar sign at the beginning, just like in Jake Versatile and for example,
+
+19
+00:01:23,850 --> 00:01:29,820
+I prefer to do it too easily distinguished by the name the difference between just elements and dom
+
+20
+00:01:29,820 --> 00:01:30,390
+elements.
+
+21
+00:01:30,660 --> 00:01:33,240
+But for now, we will keep it just like a paragraph.
+
+22
+00:01:33,600 --> 00:01:34,860
+But we want to do now.
+
+23
+00:01:34,890 --> 00:01:37,950
+We want to change our content so our inertia to mount.
+
+24
+00:01:38,220 --> 00:01:42,170
+This is where we can write paragraph dot in the STEM equals.
+
+25
+00:01:42,420 --> 00:01:46,290
+And we want, first of all, to read paragraph dot in a stem cell.
+
+26
+00:01:46,500 --> 00:01:50,760
+And as you can see, this is how our content inside in this cell is looking like.
+
+27
+00:01:50,910 --> 00:01:56,730
+So this is just a plain string, and now we can work with it, just like with normal JavaScript string.
+
+28
+00:01:57,120 --> 00:02:01,350
+So what we want to do now here, we want, first of all, to split it with space.
+
+29
+00:02:01,590 --> 00:02:04,320
+In this case, we are getting an array of our words.
+
+30
+00:02:04,530 --> 00:02:07,830
+And now we can use Map to work with every single word.
+
+31
+00:02:08,190 --> 00:02:14,550
+So actually, here we are getting word and inside we want to check if a word is longer than eight symbols
+
+32
+00:02:14,670 --> 00:02:16,400
+so we can simply return here.
+
+33
+00:02:16,410 --> 00:02:19,830
+Word dot land bigger than eight symbols.
+
+34
+00:02:20,130 --> 00:02:22,410
+Then here we want to write ternary operator.
+
+35
+00:02:22,590 --> 00:02:27,750
+And if we're bigger than eight symbols, then we want to wrap it in yellow, which actually means we
+
+36
+00:02:27,750 --> 00:02:30,210
+want to write another Dom node inside.
+
+37
+00:02:30,510 --> 00:02:37,740
+This is where here I will create a string div with style inside and inside style by writing background
+
+38
+00:02:37,740 --> 00:02:38,310
+color.
+
+39
+00:02:38,820 --> 00:02:40,080
+For example, yellow.
+
+40
+00:02:40,290 --> 00:02:43,830
+Here we must close our div and actually div is bad.
+
+41
+00:02:43,980 --> 00:02:47,730
+We must use his pen because this will be an inland element.
+
+42
+00:02:48,150 --> 00:02:52,830
+And inside this pen, we're just writing a word that was there previously.
+
+43
+00:02:53,220 --> 00:02:55,690
+So in this case were written and you don't know.
+
+44
+00:02:55,920 --> 00:02:59,910
+And if we didn't change a word then was simpler to turn this word back.
+
+45
+00:03:00,300 --> 00:03:05,430
+As you can see, in this case, first of all, we take our string inside in this HTML was blighted by
+
+46
+00:03:05,430 --> 00:03:10,110
+words with space where maybe in every single word and we're checking the length.
+
+47
+00:03:10,350 --> 00:03:14,670
+In this case, I'm returning your dumb node or I am returning the word in self.
+
+48
+00:03:14,910 --> 00:03:18,660
+And after we're finished with our map, we must change everything back.
+
+49
+00:03:18,930 --> 00:03:22,830
+This is why here we're joining with space, just like we did previously.
+
+50
+00:03:22,860 --> 00:03:24,270
+Let's check what we're getting.
+
+51
+00:03:24,570 --> 00:03:26,190
+I'm reloading here, the page.
+
+52
+00:03:26,550 --> 00:03:32,130
+And as you can see, all our words which are longer than eight symbols, will be highlighted with yellow,
+
+53
+00:03:32,520 --> 00:03:36,150
+which means actually in a few lines, we can solve this task.
+
+54
+00:03:36,420 --> 00:03:38,970
+And you can get different tasks regarding Dom.
+
+55
+00:03:39,180 --> 00:03:42,330
+So what you need to know is how to get elements from Dom.
+
+56
+00:03:42,480 --> 00:03:44,010
+How to remove them from Dom.
+
+57
+00:03:44,130 --> 00:03:45,270
+How to update them.
+
+58
+00:03:45,390 --> 00:03:50,430
+And actually how to transform Dom elements directly to JavaScript strings, for example.
+
+59
+00:03:50,580 --> 00:03:52,080
+So you can work with them.

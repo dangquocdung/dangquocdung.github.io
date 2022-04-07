@@ -1,0 +1,47 @@
+1
+00:00:00,510 --> 00:00:06,000
+You successfully finished my course regarding preparing to JavaScript interview, and I think that you
+
+2
+00:00:06,000 --> 00:00:07,860
+are awesome if you finished it.
+
+3
+00:00:08,100 --> 00:00:14,520
+Together, we implemented 59 JavaScript interview questions and actually a lot of them were not easy.
+
+4
+00:00:14,670 --> 00:00:17,700
+If you didn't try it yourself, but just follow the loan.
+
+5
+00:00:17,850 --> 00:00:19,120
+You can still do that.
+
+6
+00:00:19,320 --> 00:00:25,440
+You can just randomly pick some video and try to implement it yourself, even if you saw it once, it
+
+7
+00:00:25,440 --> 00:00:27,510
+makes a lot of sense to try and do it.
+
+8
+00:00:27,630 --> 00:00:32,460
+Also, I just want to remind you to not be depressed if you failed the interview.
+
+9
+00:00:32,610 --> 00:00:35,850
+It will come with time and you will for sure, find your job.
+
+10
+00:00:36,060 --> 00:00:41,370
+You just need to gather more knowledge, understand what questions you have been asked in the interviews,
+
+11
+00:00:41,580 --> 00:00:43,290
+and prepare yourself better.
+
+12
+00:00:43,650 --> 00:00:47,280
+I hope that you learned a lot and they will see you in my next course.

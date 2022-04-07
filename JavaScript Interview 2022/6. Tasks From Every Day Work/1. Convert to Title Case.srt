@@ -1,0 +1,363 @@
+1
+00:00:00,270 --> 00:00:06,570
+You might also get a task to convert your story into a title case, and actually it may be tricky.
+
+2
+00:00:06,720 --> 00:00:10,470
+This is why it is really good that he never got provided test cases.
+
+3
+00:00:10,800 --> 00:00:16,260
+So actually, we must build a function title case, and when we're providing insight, I'm a little
+
+4
+00:00:16,260 --> 00:00:16,830
+teapot.
+
+5
+00:00:17,100 --> 00:00:20,500
+We should return string and it should be capitalized.
+
+6
+00:00:20,520 --> 00:00:23,640
+And as you can see, every single word here is capitalized.
+
+7
+00:00:23,850 --> 00:00:26,430
+Not only the first word it, and this is important.
+
+8
+00:00:26,760 --> 00:00:31,440
+Also, it doesn't matter how we provide our string, it must be capitalized correctly.
+
+9
+00:00:31,770 --> 00:00:33,510
+So let's build dysfunction now.
+
+10
+00:00:36,780 --> 00:00:39,420
+And actually, again, we have two possibilities here.
+
+11
+00:00:39,450 --> 00:00:43,260
+We can use for loop over can use native JavaScript methods.
+
+12
+00:00:43,590 --> 00:00:45,990
+So first of all, illustrated by using follow up.
+
+13
+00:00:46,140 --> 00:00:50,730
+So here work great entitled case method and we're getting string as an argument.
+
+14
+00:00:51,060 --> 00:00:53,640
+And first of all, we want to create energy.
+
+15
+00:00:53,790 --> 00:01:00,240
+So we have every single character here so we can right here that our stream equals stream to lowercase
+
+16
+00:01:00,390 --> 00:01:03,120
+split and here will be one space.
+
+17
+00:01:03,300 --> 00:01:06,720
+So actually, here we are writing array inside string.
+
+18
+00:01:06,960 --> 00:01:11,910
+And actually, I am writing code like this because I want to show you how you should not write your
+
+19
+00:01:11,910 --> 00:01:12,300
+coat.
+
+20
+00:01:12,540 --> 00:01:17,700
+And it's not just about logic here that we're using for loop, but regarding what you are doing.
+
+21
+00:01:17,970 --> 00:01:23,160
+As you can see, first of all, the bad practice here is to use the same argument like we have here
+
+22
+00:01:23,760 --> 00:01:28,200
+without our argument inside, which means, first of all, we might modified.
+
+23
+00:01:28,350 --> 00:01:33,750
+Yes, it's not the case with the string, but it will be like this with the race object because when
+
+24
+00:01:33,750 --> 00:01:35,130
+we're defining a reference.
+
+25
+00:01:35,460 --> 00:01:37,410
+Secondly, here we're getting back in the.
+
+26
+00:01:38,070 --> 00:01:41,850
+But here we're writing it in so string, which makes it confusing.
+
+27
+00:01:42,030 --> 00:01:47,640
+And both these things you must not do in your code or in interview, because with this, you are showing
+
+28
+00:01:47,640 --> 00:01:49,170
+that you are right in that code.
+
+29
+00:01:49,410 --> 00:01:54,390
+So much better approach here will be to create additional property array or whatever you want.
+
+30
+00:01:54,660 --> 00:01:59,010
+And here we're getting three to lowercase split and we're totally fine.
+
+31
+00:01:59,430 --> 00:02:01,280
+After this, we must write for a loop.
+
+32
+00:02:01,290 --> 00:02:06,060
+So here we can just write plain native loop, which I also don't advise.
+
+33
+00:02:06,330 --> 00:02:07,260
+So here we can write.
+
+34
+00:02:07,350 --> 00:02:12,980
+Our eye equals zero I less than three in length and here I plus.
+
+35
+00:02:13,230 --> 00:02:15,810
+And of course, here is not strain, but our array.
+
+36
+00:02:15,960 --> 00:02:20,300
+So here inside now we can mutate every single element so we can right here.
+
+37
+00:02:20,320 --> 00:02:21,870
+Every eye equals.
+
+38
+00:02:22,080 --> 00:02:26,490
+And here we have the same element dot character at zero.
+
+39
+00:02:26,640 --> 00:02:30,720
+And actually what it does, it takes the first element of our string.
+
+40
+00:02:30,720 --> 00:02:34,020
+In our case, every single element of our array is a string.
+
+41
+00:02:34,230 --> 00:02:40,560
+And here we're getting the first letter so we can capitalize it and was this way right into uppercase,
+
+42
+00:02:40,650 --> 00:02:43,230
+which is also a native method inside JavaScript.
+
+43
+00:02:43,290 --> 00:02:47,880
+And here we can write array eye dot slice one.
+
+44
+00:02:48,180 --> 00:02:52,830
+And in this case, we're getting all our elements of the string except of the first letter.
+
+45
+00:02:53,100 --> 00:02:54,000
+This is what we want.
+
+46
+00:02:54,000 --> 00:02:58,020
+We want to capitalize the first letter and then just take all the letters.
+
+47
+00:02:58,170 --> 00:03:01,030
+And after this, we can simply join our array.
+
+48
+00:03:01,050 --> 00:03:05,940
+So we're right here, return array join and we're joined in and by space.
+
+49
+00:03:06,300 --> 00:03:07,350
+Now we can write here.
+
+50
+00:03:07,350 --> 00:03:12,420
+Console.log were Colin here title case and were provided inside our string.
+
+51
+00:03:12,660 --> 00:03:14,880
+I'm a little teapot.
+
+52
+00:03:15,180 --> 00:03:16,310
+Let's check if it's working.
+
+53
+00:03:16,320 --> 00:03:21,660
+I'm deployed in the page and we're getting I'm a little teapot, which actually looks fine and we solved
+
+54
+00:03:21,660 --> 00:03:22,330
+the task.
+
+55
+00:03:22,380 --> 00:03:24,870
+But first of all, we just hibernate before.
+
+56
+00:03:24,990 --> 00:03:30,030
+And as I previously said, it's not the best approach if, well, living through every single element
+
+57
+00:03:30,030 --> 00:03:30,690
+of the array.
+
+58
+00:03:30,840 --> 00:03:35,070
+At least you must use for reach for rain and not native fauna.
+
+59
+00:03:35,080 --> 00:03:36,510
+Then your code will be better.
+
+60
+00:03:36,630 --> 00:03:42,210
+Second thing that they don't like here is that we are overriding every single element of our right,
+
+61
+00:03:42,390 --> 00:03:46,980
+which actually means we're not creating the tree, but we're overriding the previous one.
+
+62
+00:03:47,190 --> 00:03:49,230
+And it is also not the best approach.
+
+63
+00:03:49,560 --> 00:03:55,560
+This is why let's write this whole code just by using plain JavaScript methods, because actually here
+
+64
+00:03:55,560 --> 00:03:57,660
+we don't even need for a loop at all.
+
+65
+00:03:57,990 --> 00:04:02,640
+So what I want to do here, I want to take our string and I want to convert it to lowercase.
+
+66
+00:04:02,670 --> 00:04:03,900
+This was totally fine.
+
+67
+00:04:04,200 --> 00:04:06,570
+After this, we want to split it with space.
+
+68
+00:04:06,600 --> 00:04:08,080
+This was also totally fine.
+
+69
+00:04:08,370 --> 00:04:12,960
+But after this, we can use map because essentially what we are doing here is a map.
+
+70
+00:04:13,200 --> 00:04:16,620
+We want to change every single element inside our rate.
+
+71
+00:04:16,740 --> 00:04:20,130
+This is where I am Colin Map, and we're getting our board.
+
+72
+00:04:20,220 --> 00:04:25,230
+And actually, as you can see, it is more clear now because we're using property world and not some
+
+73
+00:04:25,230 --> 00:04:28,440
+eye or array where we don't know what we're talking about.
+
+74
+00:04:28,680 --> 00:04:34,290
+And here we want to do exactly the same word dot character at zero.
+
+75
+00:04:34,380 --> 00:04:36,390
+So we're getting the first element here.
+
+76
+00:04:36,390 --> 00:04:42,830
+We're using two upper keys and here we're using plus and we're taking all other letters with four dots
+
+77
+00:04:42,840 --> 00:04:43,320
+lies.
+
+78
+00:04:43,350 --> 00:04:44,460
+And here is one.
+
+79
+00:04:44,910 --> 00:04:47,760
+And as you can see, this code is essentially the same.
+
+80
+00:04:47,910 --> 00:04:53,460
+We didn't change it, but it is much more efficient, easier to read, and it shows that you are more
+
+81
+00:04:53,460 --> 00:04:58,530
+advanced developer because here we are not using for loop, but map, which is not that difficult.
+
+82
+00:04:58,800 --> 00:05:02,700
+And here we are, just returning for every single word in your word.
+
+83
+00:05:03,060 --> 00:05:09,120
+And it is important here to mention that character, ed and slice are not mutating functions, which
+
+84
+00:05:09,120 --> 00:05:12,870
+means we're getting new strain and we didn't mutate old strain.
+
+85
+00:05:12,990 --> 00:05:18,750
+Let's check this out Amber Alert in this page, and we're getting our array with capitalized strings,
+
+86
+00:05:19,020 --> 00:05:22,140
+which means I forgot at the end to make our giant.
+
+87
+00:05:22,170 --> 00:05:25,650
+So here we can simply call our Joan with space inside.
+
+88
+00:05:25,680 --> 00:05:28,800
+Let's check this out, and we're getting exactly the same string.
+
+89
+00:05:28,980 --> 00:05:34,230
+So I highly recommend you unintuitive to what's your name and to check that your data types are matched
+
+90
+00:05:34,230 --> 00:05:35,010
+with your names.
+
+91
+00:05:35,310 --> 00:05:38,220
+And make your code easier to read if it is possible.

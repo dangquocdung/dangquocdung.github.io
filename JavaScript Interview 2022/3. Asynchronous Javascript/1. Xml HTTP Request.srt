@@ -1,0 +1,199 @@
+1
+00:00:00,240 --> 00:00:06,690
+You might get an interview, the question, right, an example of fetching data from Italy was similar
+
+2
+00:00:06,690 --> 00:00:07,650
+to DP request.
+
+3
+00:00:07,830 --> 00:00:10,380
+And actually, this is a super old question.
+
+4
+00:00:10,530 --> 00:00:14,340
+And normally people should not ask this question nowadays on interviews.
+
+5
+00:00:14,580 --> 00:00:20,280
+But still, I'm hearing this question really a lot because some people still want to know how we solved
+
+6
+00:00:20,280 --> 00:00:23,340
+our and problems 10 or 15 years ago.
+
+7
+00:00:26,480 --> 00:00:31,640
+In the modern projects, you will never, ever use extreme electricity you request natively.
+
+8
+00:00:31,880 --> 00:00:37,460
+This is why it doesn't make any sense to ask this question, but we must learn how to answer it.
+
+9
+00:00:37,730 --> 00:00:40,550
+This is why let's write an example how it is working.
+
+10
+00:00:40,730 --> 00:00:43,760
+So first of all, we must create our our request.
+
+11
+00:00:44,090 --> 00:00:47,960
+So this is why we're calling you example issue type request.
+
+12
+00:00:48,080 --> 00:00:54,810
+Now we have an instance of our simplicity request and we can say what method of a one percent and on
+
+13
+00:00:54,810 --> 00:00:55,600
+Batgerel.
+
+14
+00:00:55,880 --> 00:00:58,400
+This is where we are right an exceed chair open.
+
+15
+00:00:58,580 --> 00:01:00,750
+And as you can see here, we have two parameters.
+
+16
+00:01:00,770 --> 00:01:05,420
+First of all, its method here we want to write Ghent because we're making against request.
+
+17
+00:01:05,630 --> 00:01:10,820
+And here is our EPA URL and they will paste here and the power yourself from GitHub.
+
+18
+00:01:10,820 --> 00:01:14,330
+Com to fetch all repositories of this specific user.
+
+19
+00:01:14,810 --> 00:01:21,230
+After this, we're right in each hard dot send and groundbreakers, but it is not all but also must
+
+20
+00:01:21,230 --> 00:01:24,920
+specify what will happen on success and on error.
+
+21
+00:01:25,100 --> 00:01:28,460
+And for this, we're writing Exige Dot Onlythe.
+
+22
+00:01:28,700 --> 00:01:32,660
+And here we must assign a function and inside this function.
+
+23
+00:01:32,660 --> 00:01:36,140
+First of all, you want to check what status we're getting back.
+
+24
+00:01:36,320 --> 00:01:37,730
+So we right here, you fix.
+
+25
+00:01:37,730 --> 00:01:44,900
+Each hard dot status doesn't equal 200, which means it is not successful then for one to console some
+
+26
+00:01:44,900 --> 00:01:45,260
+error.
+
+27
+00:01:45,500 --> 00:01:53,120
+So I want to write here, for example, aero glass and maybe our status glass and here exceed chart
+
+28
+00:01:53,170 --> 00:01:54,160
+status text.
+
+29
+00:01:54,500 --> 00:01:57,800
+In this case, we can directly see what problem we have.
+
+30
+00:01:58,010 --> 00:01:58,730
+In the case.
+
+31
+00:01:58,730 --> 00:01:59,900
+We're getting success.
+
+32
+00:01:59,900 --> 00:02:02,990
+So here we will write console.log success.
+
+33
+00:02:03,170 --> 00:02:06,820
+And after this, we want to read our Excel chart daughter response.
+
+34
+00:02:07,030 --> 00:02:13,030
+But inside we have our answer, and we also want to check for the error inside the request.
+
+35
+00:02:13,070 --> 00:02:18,950
+So here we can try to search hard dot on Arrow and just to remind you everything is lowercase and we
+
+36
+00:02:19,040 --> 00:02:20,480
+sign here a function.
+
+37
+00:02:20,660 --> 00:02:21,950
+And inside we can write.
+
+38
+00:02:21,950 --> 00:02:25,850
+For example, console.log excel chart request failed.
+
+39
+00:02:26,090 --> 00:02:29,210
+So this is how you typically define the search function.
+
+40
+00:02:29,420 --> 00:02:32,690
+First of all, we create an instance of similar request.
+
+41
+00:02:32,990 --> 00:02:35,960
+Then we make an open with our method and yourself.
+
+42
+00:02:36,230 --> 00:02:42,620
+Then we write get send and then we have Unltod function and on there a function to handle both incorrect
+
+43
+00:02:42,620 --> 00:02:45,080
+statuses when there was a request.
+
+44
+00:02:45,380 --> 00:02:46,780
+Now let's check if it's working.
+
+45
+00:02:46,790 --> 00:02:52,670
+I am jump into browser and relied on the page and as you can see here, we getting our response and
+
+46
+00:02:52,670 --> 00:02:56,150
+we're getting our console.log success also in our network.
+
+47
+00:02:56,330 --> 00:03:00,320
+You can see that we have a request wrappers and this is the actual request.
+
+48
+00:03:00,500 --> 00:03:02,570
+And as you can see, this is our preview.
+
+49
+00:03:02,870 --> 00:03:08,360
+So this is our response from the backend, and this means that we successfully implemented our fetch
+
+50
+00:03:08,360 --> 00:03:11,210
+request by using the simplicity of the request.

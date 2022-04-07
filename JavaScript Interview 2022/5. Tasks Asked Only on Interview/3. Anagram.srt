@@ -1,0 +1,239 @@
+1
+00:00:00,300 --> 00:00:04,260
+One more question that I hear often is try to function with checks.
+
+2
+00:00:04,470 --> 00:00:06,240
+This strain is an anagram.
+
+3
+00:00:06,390 --> 00:00:09,270
+And actually, this stuff is super similar to a palindrome.
+
+4
+00:00:09,570 --> 00:00:14,790
+As you can see here, anagrams are words that have the same characters in the same quantity, which
+
+5
+00:00:14,790 --> 00:00:17,040
+actually means two strains and ingredients.
+
+6
+00:00:17,220 --> 00:00:20,460
+If we can rearrange strains and get the other.
+
+7
+00:00:20,580 --> 00:00:22,740
+And here are some examples of anagrams.
+
+8
+00:00:22,920 --> 00:00:25,410
+For example, listen and silent and so on.
+
+9
+00:00:28,740 --> 00:00:30,900
+So now let's throw the function is ending.
+
+10
+00:00:31,200 --> 00:00:36,990
+So here we have is anagram, and we know that we're getting here two strains that we want to compare.
+
+11
+00:00:37,230 --> 00:00:39,750
+So let's name it's three in one and stream two.
+
+12
+00:00:39,900 --> 00:00:44,220
+So what we want to check here is that this two strains have the same letters.
+
+13
+00:00:44,400 --> 00:00:47,730
+But in order to check this, we must just sort our strings.
+
+14
+00:00:47,910 --> 00:00:51,300
+In this case, we can simply compare the strains by equality.
+
+15
+00:00:51,630 --> 00:00:56,640
+But first of all, I would like to check here at length because if we have different lands in these
+
+16
+00:00:56,640 --> 00:00:58,470
+two strains, then it won't work.
+
+17
+00:00:58,830 --> 00:01:04,440
+This is why here, if the length of our first strain does not equal the length of our second strain,
+
+18
+00:01:04,650 --> 00:01:08,130
+then we just return false and we don't check anything.
+
+19
+00:01:08,400 --> 00:01:13,560
+And of course, here should be banned and not equal because we want to check that they are not equal.
+
+20
+00:01:13,740 --> 00:01:18,930
+The second thing that we want to do is convert it to lower case because actually we can have different
+
+21
+00:01:18,930 --> 00:01:21,330
+case, but the strains are still valid.
+
+22
+00:01:21,630 --> 00:01:24,060
+This is why, let's name it, a lower strain.
+
+23
+00:01:24,060 --> 00:01:24,450
+One.
+
+24
+00:01:24,600 --> 00:01:30,540
+And here with simpler called string one to lower case and we have to lowercase directly and javascript.
+
+25
+00:01:30,780 --> 00:01:35,460
+And here let's name lowest string two and we can worsts into two lowercase.
+
+26
+00:01:35,880 --> 00:01:39,540
+Now what we want to check, we want to check if this the strings are equal.
+
+27
+00:01:39,720 --> 00:01:43,530
+In this case, we must return false because they are not ending crumbs.
+
+28
+00:01:43,770 --> 00:01:45,270
+This is why here I will write.
+
+29
+00:01:45,270 --> 00:01:50,040
+If lowest in one equals lowest three in two, then this is false.
+
+30
+00:01:50,040 --> 00:01:51,720
+And this is not an anagram.
+
+31
+00:01:52,020 --> 00:01:54,510
+And the last one, we must write our logic.
+
+32
+00:01:54,660 --> 00:02:00,870
+And what I want to do, I want simpler to convert our strings to arrive in a certain way and merge it
+
+33
+00:02:00,870 --> 00:02:02,220
+directly back in string.
+
+34
+00:02:02,490 --> 00:02:06,630
+So for this, we can write, for example, sorted string one.
+
+35
+00:02:06,900 --> 00:02:10,050
+And here we will write lower string one dot split.
+
+36
+00:02:10,230 --> 00:02:12,630
+And here we want to split just by letters.
+
+37
+00:02:12,810 --> 00:02:15,960
+And here I am, just calling sort without any arguments.
+
+38
+00:02:16,140 --> 00:02:18,420
+So it will be sorted in some way.
+
+39
+00:02:18,540 --> 00:02:20,690
+And after this, we want to get a Strindberg.
+
+40
+00:02:20,700 --> 00:02:23,820
+This is by head join will get us back a string.
+
+41
+00:02:24,030 --> 00:02:26,730
+Now I want to do exactly the same on the second string.
+
+42
+00:02:26,940 --> 00:02:33,240
+And here now we can compare them because in this case, we sorted all our letters in the same direction.
+
+43
+00:02:33,540 --> 00:02:39,240
+And now here I can simply write return sorted string one equals sorted string two.
+
+44
+00:02:39,480 --> 00:02:44,970
+In this case, we're comparing two strings which were sorted, and we already know that it is an acronym.
+
+45
+00:02:45,240 --> 00:02:50,970
+If they are equal, let's check this out and jump into browser and where writing is, anagram.
+
+46
+00:02:51,240 --> 00:02:54,060
+And here we just provide in full and borrowing.
+
+47
+00:02:54,840 --> 00:02:58,200
+And as you can see, it is false because these are two different strings.
+
+48
+00:02:58,290 --> 00:03:01,380
+But let's now try was listen and silent, for example.
+
+49
+00:03:01,590 --> 00:03:03,770
+So here I am, right in lesson.
+
+50
+00:03:04,170 --> 00:03:06,780
+And on the right, I am right and silent.
+
+51
+00:03:07,170 --> 00:03:08,820
+And actually, where I get in here, true.
+
+52
+00:03:08,820 --> 00:03:09,930
+And it is working.
+
+53
+00:03:10,050 --> 00:03:15,000
+So what we are doing here, first of all, we are checking if length is the same word, come in here.
+
+54
+00:03:15,180 --> 00:03:17,070
+We have two strings lowercase.
+
+55
+00:03:17,070 --> 00:03:18,150
+So we're not here.
+
+56
+00:03:18,360 --> 00:03:24,240
+And now we're just sorting this two strings, which were converted to our arrays and then we're converting
+
+57
+00:03:24,240 --> 00:03:25,260
+them back to strings.
+
+58
+00:03:25,500 --> 00:03:32,130
+In this case, we're getting something like e-file and SD, but it is totally fine because we want to
+
+59
+00:03:32,130 --> 00:03:33,240
+just compare them.
+
+60
+00:03:33,450 --> 00:03:36,420
+And this is how your writing function to compare anagrams.

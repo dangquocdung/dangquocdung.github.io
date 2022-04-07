@@ -1,0 +1,531 @@
+1
+00:00:00,360 --> 00:00:05,890
+You might also get a question regarding equality or comparison inside JavaScript.
+
+2
+00:00:06,120 --> 00:00:10,860
+And as you can see here, we have a question designed this low comparison function.
+
+3
+00:00:14,150 --> 00:00:20,420
+And for this, you must know the difference of JavaScript comparison, which is native seller comparison
+
+4
+00:00:20,420 --> 00:00:21,740
+and deep comparison.
+
+5
+00:00:21,920 --> 00:00:25,770
+So in, say, JavaScript, we can simply write one equals two.
+
+6
+00:00:25,790 --> 00:00:26,780
+We're getting false.
+
+7
+00:00:26,960 --> 00:00:28,760
+One equals one is true.
+
+8
+00:00:28,970 --> 00:00:31,490
+This is working because we're comparing primitives.
+
+9
+00:00:31,730 --> 00:00:35,090
+But if we will compare here, a equals one.
+
+10
+00:00:35,300 --> 00:00:36,620
+And here is an object.
+
+11
+00:00:36,620 --> 00:00:37,640
+A equals one.
+
+12
+00:00:37,650 --> 00:00:38,660
+But getting false.
+
+13
+00:00:38,930 --> 00:00:39,580
+Why is that?
+
+14
+00:00:39,590 --> 00:00:45,470
+Because we can't compare objects like this in JavaScript because they're referencing different objects
+
+15
+00:00:45,650 --> 00:00:46,840
+inside the memory.
+
+16
+00:00:46,850 --> 00:00:51,830
+And you have exactly the same problem with real empty array does not equal empty, right?
+
+17
+00:00:52,070 --> 00:00:57,260
+And yes, we can understand why it is working like this, but it is not comfortable because normally
+
+18
+00:00:57,260 --> 00:01:03,800
+developers want to compare arrays and objects by values and not like reference to the object and the
+
+19
+00:01:03,800 --> 00:01:04,250
+memory.
+
+20
+00:01:04,670 --> 00:01:08,330
+This is why we have shallow comparison and dip comparison functions.
+
+21
+00:01:08,660 --> 00:01:14,990
+So the idea is that shallow comparison is faster than deep comparison, but it will fix problems with
+
+22
+00:01:14,990 --> 00:01:16,850
+comparing objects or race.
+
+23
+00:01:17,030 --> 00:01:24,020
+It will fix only not nested arrays or objects, which actually means if we will be a comparison, compare
+
+24
+00:01:24,020 --> 00:01:24,530
+a.
+
+25
+00:01:24,560 --> 00:01:27,920
+And here we have an object with view one and here be one.
+
+26
+00:01:27,920 --> 00:01:31,760
+We will still get an answer, even with seller comparison function.
+
+27
+00:01:32,000 --> 00:01:37,820
+And this is completely normal because in this case, we want to compare every single value nested.
+
+28
+00:01:37,940 --> 00:01:43,880
+And then we must use this comparison and dip comparison is extremely slow because we are checking every
+
+29
+00:01:43,880 --> 00:01:47,120
+single value, but it will for also give you a true answer.
+
+30
+00:01:47,300 --> 00:01:53,240
+So in this video, we must write a shallow comparison function, which means we want to fix comparison
+
+31
+00:01:53,240 --> 00:01:58,160
+of race and objects, but we must not compare nested arrays and objects.
+
+32
+00:01:58,400 --> 00:02:00,590
+This is how shallow comparison is working.
+
+33
+00:02:00,770 --> 00:02:06,490
+And actually, here I have an additional function type off, which will help us tremendously in building
+
+34
+00:02:06,500 --> 00:02:07,490
+celo comparison.
+
+35
+00:02:07,730 --> 00:02:12,830
+And as you can see in browser, we can simply just type off on different type of data.
+
+36
+00:02:13,040 --> 00:02:17,870
+For example, for no, we're getting string number four string of this to get in the stream.
+
+37
+00:02:18,080 --> 00:02:23,720
+And here we can write an object and then we get an object, which actually means it is really nice to
+
+38
+00:02:23,720 --> 00:02:26,270
+get the type of variable as a string.
+
+39
+00:02:26,630 --> 00:02:31,190
+And for us, the most interesting part is this object prototype to strain called input.
+
+40
+00:02:31,460 --> 00:02:36,470
+And as you can see in input, we are writing, for example, one and we get an object number.
+
+41
+00:02:36,710 --> 00:02:41,750
+And actually, this regular expression here will simply remove object and we will get this.
+
+42
+00:02:41,750 --> 00:02:44,850
+But with no, this is how this function is working.
+
+43
+00:02:44,900 --> 00:02:51,150
+So here I want to create our shallow compare function and we must provide here to arguments.
+
+44
+00:02:51,150 --> 00:02:53,450
+So we have source and target.
+
+45
+00:02:53,630 --> 00:02:57,290
+And these are two things that we want to compare, for example, two variables.
+
+46
+00:02:57,680 --> 00:03:03,350
+And first of all, we want to compare a data type because if we have a different data type, then we
+
+47
+00:03:03,350 --> 00:03:06,740
+should not do anything and it means that they're not equal.
+
+48
+00:03:06,770 --> 00:03:14,510
+This is where we can write Eve type of source does not equal type of, but then here we can simply return
+
+49
+00:03:14,510 --> 00:03:14,930
+false.
+
+50
+00:03:15,230 --> 00:03:16,820
+This is why it is super performant.
+
+51
+00:03:16,820 --> 00:03:21,530
+We don't compare anything with simpler, get a type, compare them and wear out.
+
+52
+00:03:21,710 --> 00:03:24,740
+After this, we must write logic for our primitives.
+
+53
+00:03:24,920 --> 00:03:28,700
+And here we can simply use plain native JavaScript comparison.
+
+54
+00:03:28,880 --> 00:03:29,900
+So I am right in here.
+
+55
+00:03:29,900 --> 00:03:36,530
+If source equals with three equals Typekit, then here we are just returning, which actually means
+
+56
+00:03:36,530 --> 00:03:42,900
+this single line will compare all primitives and now we just need to build cases for our objects and
+
+57
+00:03:42,900 --> 00:03:43,400
+the race.
+
+58
+00:03:43,640 --> 00:03:45,620
+First of all, let's cover our arrays.
+
+59
+00:03:45,860 --> 00:03:52,900
+And here we want to check type of our source equals array and then we want to apply this logic.
+
+60
+00:03:52,910 --> 00:03:54,510
+And you might ask, OK, but why?
+
+61
+00:03:54,510 --> 00:03:56,870
+Why just chicken sauce and not a turtle?
+
+62
+00:03:57,020 --> 00:04:02,840
+Because actually, here on the top already knows that both source and target are of the same type.
+
+63
+00:04:02,990 --> 00:04:05,510
+In other case, we're already out of the function.
+
+64
+00:04:05,540 --> 00:04:10,310
+So here we know that source and target are both arrays, and now we want to compare them.
+
+65
+00:04:10,550 --> 00:04:13,220
+But actually, we can make some performance improvement.
+
+66
+00:04:13,460 --> 00:04:16,520
+So here we can compare just a length of two arrays.
+
+67
+00:04:16,730 --> 00:04:21,290
+And if they are different, then we should not compare anything because they're not equal.
+
+68
+00:04:21,470 --> 00:04:27,800
+So here I can write Eve source length does not equal our Typekit length.
+
+69
+00:04:28,070 --> 00:04:29,100
+Then we're old.
+
+70
+00:04:29,120 --> 00:04:30,890
+So here simply return false.
+
+71
+00:04:31,190 --> 00:04:37,280
+Now we want to compare this to arrays, and the easiest way to do it is to use every software, check
+
+72
+00:04:37,280 --> 00:04:40,460
+in every single element inside an array and compare it.
+
+73
+00:04:40,670 --> 00:04:43,970
+So here I want to write return source every.
+
+74
+00:04:44,090 --> 00:04:46,730
+So we're checking every single element of the source.
+
+75
+00:04:46,970 --> 00:04:49,840
+And here we have access to element and index.
+
+76
+00:04:49,850 --> 00:04:54,600
+And what we can right here is our element equals Typekit index.
+
+77
+00:04:55,130 --> 00:05:00,560
+In this case, we are comparing every single element of our source with every single element of the
+
+78
+00:05:00,560 --> 00:05:01,020
+strategy.
+
+79
+00:05:01,370 --> 00:05:07,790
+But as you can see here, we're using native JavaScript comparison, which means it will work for primitives,
+
+80
+00:05:07,970 --> 00:05:10,910
+but it won't work, for example, for objects or race.
+
+81
+00:05:11,210 --> 00:05:12,200
+How does it look like?
+
+82
+00:05:12,260 --> 00:05:18,260
+Let's reload the page and right here, our function, sell or compare, and we can provide now Ray with
+
+83
+00:05:18,260 --> 00:05:18,860
+primitives.
+
+84
+00:05:19,040 --> 00:05:24,080
+So here we have one and one and we are getting through, which actually means our function is working
+
+85
+00:05:24,080 --> 00:05:29,120
+correctly because a native JavaScript, you can't compare one and one, it will be false.
+
+86
+00:05:29,300 --> 00:05:31,340
+And our function is working correctly.
+
+87
+00:05:31,460 --> 00:05:34,400
+Now we must try the similar code for our object.
+
+88
+00:05:34,460 --> 00:05:39,830
+This is why here we can write eve type of source equals object.
+
+89
+00:05:40,100 --> 00:05:42,110
+Then we want to apply our logic.
+
+90
+00:05:42,260 --> 00:05:44,490
+And again, I want to improve performance.
+
+91
+00:05:44,510 --> 00:05:50,120
+This is why here, first of all, we can check, for example, object keys and compare the length of
+
+92
+00:05:50,120 --> 00:05:50,720
+the keys.
+
+93
+00:05:50,960 --> 00:05:54,500
+If the length is different than this, objects are for sure different.
+
+94
+00:05:54,590 --> 00:05:57,110
+So here we can write object dot keys.
+
+95
+00:05:57,350 --> 00:06:00,330
+Here we have sirs and we are comparing the length.
+
+96
+00:06:00,380 --> 00:06:04,370
+So here length does not equal our object keys.
+
+97
+00:06:04,520 --> 00:06:06,950
+And here we have our target dot length.
+
+98
+00:06:07,220 --> 00:06:11,810
+In this case, we can simply return false and we should not do any comparison.
+
+99
+00:06:12,020 --> 00:06:14,750
+And actually, here now we need to compare objects.
+
+100
+00:06:14,760 --> 00:06:17,040
+So for this, I will also use every.
+
+101
+00:06:17,090 --> 00:06:23,870
+So here I want to return objects to keys and them getting in the way of strings of keys of our object.
+
+102
+00:06:24,020 --> 00:06:25,970
+And here we are providing our source.
+
+103
+00:06:26,210 --> 00:06:31,490
+After this, we can use every and here, as in every single element, we getting our key.
+
+104
+00:06:31,730 --> 00:06:34,190
+And now we can compare source key.
+
+105
+00:06:34,200 --> 00:06:37,790
+So we're getting the value and we compare here Typekit key.
+
+106
+00:06:38,030 --> 00:06:41,600
+In this case, we are comparing every single value of our object.
+
+107
+00:06:41,780 --> 00:06:47,480
+But as you can see with plain JavaScript comparison, which means it will work for primitives, but
+
+108
+00:06:47,480 --> 00:06:49,730
+it won't work for deep nested elements.
+
+109
+00:06:50,030 --> 00:06:50,920
+Let's check this out.
+
+110
+00:06:50,930 --> 00:06:52,100
+I will rely on the page.
+
+111
+00:06:52,280 --> 00:06:53,870
+Here is our shallow compare.
+
+112
+00:06:54,050 --> 00:06:58,970
+But in this case, we want to compare object a one and object to one.
+
+113
+00:06:59,240 --> 00:07:03,350
+And as you can see here, I have some typos, so here is not source.
+
+114
+00:07:03,650 --> 00:07:04,740
+Let's change this.
+
+115
+00:07:05,030 --> 00:07:08,570
+Now, as you can see, it is working and we can compare our objects.
+
+116
+00:07:08,750 --> 00:07:11,840
+And actually, now I want one more comparison for dates.
+
+117
+00:07:12,050 --> 00:07:13,730
+And this is extremely easy to do.
+
+118
+00:07:13,940 --> 00:07:18,140
+So here we can try a type of source equal state.
+
+119
+00:07:18,440 --> 00:07:24,140
+Then we want to compare just two numbers because actually, we can compare every date to milliseconds
+
+120
+00:07:24,290 --> 00:07:26,840
+and compare numbers is extremely efficient.
+
+121
+00:07:27,110 --> 00:07:29,030
+This is why here we can write returns.
+
+122
+00:07:29,030 --> 00:07:30,890
+Source Don't get time.
+
+123
+00:07:31,160 --> 00:07:34,860
+This will get milliseconds equals Typekit dot.
+
+124
+00:07:34,880 --> 00:07:35,630
+Get time.
+
+125
+00:07:36,580 --> 00:07:40,510
+And in this case, we're simply comparing to numbers, and this is totally fine.
+
+126
+00:07:40,810 --> 00:07:43,810
+So this is how we're building a comparison function.
+
+127
+00:07:43,990 --> 00:07:47,980
+And actually, this is how I want to see a comparison by default in JavaScript.
+
+128
+00:07:48,100 --> 00:07:49,930
+But unfortunately, we don't have it.
+
+129
+00:07:50,140 --> 00:07:56,380
+This is why we must build this function on our own or use it from some library like RAM de la Dash or
+
+130
+00:07:56,380 --> 00:07:57,580
+just npm package.
+
+131
+00:07:57,760 --> 00:08:03,250
+And if you're answering such a question about Trello comparison, you must say that it is super performant
+
+132
+00:08:03,430 --> 00:08:08,920
+in comparison to deep comparison, but it can't compare nested elements, which is totally fine.
+
+133
+00:08:09,070 --> 00:08:11,890
+And you just need to know for what case you're using it.

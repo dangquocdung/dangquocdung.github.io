@@ -1,0 +1,99 @@
+1
+00:00:00,150 --> 00:00:05,970
+One more popular question that I'm hearing a lot is Blues write a function to check the palindrome because
+
+2
+00:00:05,970 --> 00:00:08,760
+actually this is what programmers are doing every single day.
+
+3
+00:00:08,880 --> 00:00:12,240
+They are checking palindromes, but whatever we can solve it.
+
+4
+00:00:15,720 --> 00:00:21,090
+So actually, if you don't know what palindrome is, this is a string which is the same from the beginning
+
+5
+00:00:21,090 --> 00:00:21,960
+and from the end.
+
+6
+00:00:22,170 --> 00:00:25,410
+For example, if you have full string, it's not a palindrome.
+
+7
+00:00:25,590 --> 00:00:31,290
+But if you have, for example, full of full string, it is a palindrome because it's the same string
+
+8
+00:00:31,290 --> 00:00:33,120
+from the start and from the end.
+
+9
+00:00:33,450 --> 00:00:34,620
+So let's ride this now.
+
+10
+00:00:34,740 --> 00:00:36,570
+And actually, it is really easy.
+
+11
+00:00:36,750 --> 00:00:40,560
+So what we want to do here, we want to create a function is palindrome.
+
+12
+00:00:40,680 --> 00:00:45,900
+And what we want to do, we want to solve it wisely and actually doesn't make any sense to split it
+
+13
+00:00:45,900 --> 00:00:48,750
+by letters and check every single letter and so on.
+
+14
+00:00:48,930 --> 00:00:51,850
+You can simply reverse a string and compare it.
+
+15
+00:00:51,900 --> 00:00:57,750
+This is why here we can write that our string equals and we can compare it with String Dot Split.
+
+16
+00:00:57,930 --> 00:01:00,060
+And here we just provide an empty string.
+
+17
+00:01:00,150 --> 00:01:01,740
+So we split it by letters.
+
+18
+00:01:01,920 --> 00:01:03,690
+Now we just make reverse.
+
+19
+00:01:04,110 --> 00:01:10,020
+So we're reversing our array and then we'd join in it again, which actually means better, worse this
+
+20
+00:01:10,020 --> 00:01:10,470
+world.
+
+21
+00:01:10,650 --> 00:01:12,840
+And we're comparing two same words.
+
+22
+00:01:12,990 --> 00:01:16,020
+In this case, we will get the same string if they are equal.
+
+23
+00:01:16,140 --> 00:01:21,750
+Let's check this out here where writing is palindrome and we are providing insightful and we're getting
+
+24
+00:01:21,750 --> 00:01:22,170
+false.
+
+25
+00:01:22,410 --> 00:01:27,510
+But if we will write full of fun, then we're getting through and the task is solved.

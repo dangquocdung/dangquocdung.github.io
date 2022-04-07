@@ -1,0 +1,171 @@
+1
+00:00:00,300 --> 00:00:03,690
+In previous video, visual to function cello comparison.
+
+2
+00:00:03,900 --> 00:00:08,760
+But you can also get the question, OK, but how we can write a function for deep comparison.
+
+3
+00:00:09,030 --> 00:00:11,250
+This is what we want to do in this video.
+
+4
+00:00:14,560 --> 00:00:20,350
+And actually, as you can see, I didn't remove any code I have here, typeof and cello compare.
+
+5
+00:00:20,470 --> 00:00:24,880
+And they want to copy, paste it fully and compare later with dip comparison.
+
+6
+00:00:25,240 --> 00:00:30,040
+This is why, as you can see, I copied pasted the whole function and they just want to rename it to
+
+7
+00:00:30,040 --> 00:00:31,000
+deep compare.
+
+8
+00:00:31,300 --> 00:00:36,580
+And actually, the code will be 90 percent similar because first of all, we want to check for data
+
+9
+00:00:36,580 --> 00:00:42,850
+type and it has stayed the same and that the and we will compare date and source and target for primitives
+
+10
+00:00:43,000 --> 00:00:44,140
+in the same way.
+
+11
+00:00:44,380 --> 00:00:50,830
+So actually, we must just change comparison of our arrays and objects and actually even the code inside
+
+12
+00:00:50,830 --> 00:00:52,090
+will be almost the same.
+
+13
+00:00:52,090 --> 00:00:54,310
+So first of all, for race where check in length.
+
+14
+00:00:54,550 --> 00:00:56,110
+And here we have every.
+
+15
+00:00:56,410 --> 00:01:01,720
+But here we must remove our comparison of element because it is native comparison.
+
+16
+00:01:01,930 --> 00:01:05,830
+But here we want recursively to check every single element.
+
+17
+00:01:06,040 --> 00:01:08,350
+This is why here we can simplify deep compare.
+
+18
+00:01:08,560 --> 00:01:14,770
+And we're throwing inside our element comma Typekit index in this case, what we're doing.
+
+19
+00:01:14,920 --> 00:01:20,530
+Well, Colin did compare again and actually here it might be that we have an object then were common
+
+20
+00:01:20,530 --> 00:01:27,010
+recursively and so deep compare and we will compare the subject and we're doing it again and again until
+
+21
+00:01:27,010 --> 00:01:29,710
+we compare the whole object or the whole array.
+
+22
+00:01:29,920 --> 00:01:36,010
+And it doesn't matter how deep this object is or how deep this race, which actually means this is not
+
+23
+00:01:36,010 --> 00:01:36,640
+performant.
+
+24
+00:01:36,820 --> 00:01:40,660
+This is really slow, but it will give you that on the correct answer.
+
+25
+00:01:40,780 --> 00:01:45,850
+When you are working with nested data and exactly the same, we must do now with our objects.
+
+26
+00:01:46,030 --> 00:01:48,700
+So here we can leave our comparison whiskey's.
+
+27
+00:01:48,880 --> 00:01:50,020
+This is totally fine.
+
+28
+00:01:50,380 --> 00:01:51,820
+Here we have our every.
+
+29
+00:01:51,910 --> 00:01:56,410
+But we must remove this comparison and call deep compare instead.
+
+30
+00:01:56,710 --> 00:02:01,150
+And we are passing inside our source key and here touch it key.
+
+31
+00:02:01,390 --> 00:02:05,830
+In this case, we are comparing two values of our target and our source.
+
+32
+00:02:06,010 --> 00:02:08,500
+And we also do it with dip comparison.
+
+33
+00:02:08,650 --> 00:02:14,230
+And this is actually it were fully transformed our shallow comparison function in deep comparison.
+
+34
+00:02:14,500 --> 00:02:15,850
+Let's check this out now.
+
+35
+00:02:15,970 --> 00:02:19,970
+I will reload the page here first or compare a 181.
+
+36
+00:02:20,140 --> 00:02:25,540
+It is true, but actually here inside shallow compare if I will throw a big one.
+
+37
+00:02:25,540 --> 00:02:32,700
+So we have a nested object in here, a b one, it will return false, which actually means shallow compared
+
+38
+00:02:32,710 --> 00:02:34,570
+can't work with nested data.
+
+39
+00:02:34,810 --> 00:02:40,510
+But here we are calling our deep compare and we're getting through because deep compare is the recursive
+
+40
+00:02:40,660 --> 00:02:45,580
+and it will compare any nested correctly in exactly the same we have for race.
+
+41
+00:02:45,850 --> 00:02:50,560
+For example, if we have a real phrase, let's say a ray with a one.
+
+42
+00:02:50,800 --> 00:02:57,220
+And here we have array and array one inside, as you can see where and true, and we can compare arrays
+
+43
+00:02:57,220 --> 00:02:58,060
+of any level.

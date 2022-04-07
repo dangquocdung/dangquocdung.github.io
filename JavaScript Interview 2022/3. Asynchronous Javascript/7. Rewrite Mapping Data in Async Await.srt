@@ -1,0 +1,223 @@
+1
+00:00:00,180 --> 00:00:04,680
+The next a synchronous question in JavaScript will be, for sure, a sink of eight.
+
+2
+00:00:05,070 --> 00:00:11,610
+And here actually one must read the previous exercise like mapping users with two premises in async
+
+3
+00:00:11,610 --> 00:00:12,660
+await function.
+
+4
+00:00:12,960 --> 00:00:18,990
+As you can see here, we have our users user statuses and two functions get users and get user premises.
+
+5
+00:00:19,260 --> 00:00:24,030
+And actually, I commented out our previous code so we can copy parts of it.
+
+6
+00:00:27,280 --> 00:00:30,910
+And the first thing that we must do here is create additional function.
+
+7
+00:00:30,940 --> 00:00:31,660
+Why is that?
+
+8
+00:00:31,840 --> 00:00:37,810
+Because you are not allowed to write this in Kuwait directly in the root part of your JavaScript file.
+
+9
+00:00:38,110 --> 00:00:43,720
+This is why here, first of all, we must create something like get mapped users, maybe because we
+
+10
+00:00:43,720 --> 00:00:46,000
+want to make it in the synchronous function.
+
+11
+00:00:46,090 --> 00:00:52,270
+This is why here we're using our async keyword and here we are creating our function, and this assumed
+
+12
+00:00:52,270 --> 00:00:55,280
+keyword allows us to use a wait inside.
+
+13
+00:00:55,690 --> 00:00:59,590
+But we want to do number one to get our users and user statuses.
+
+14
+00:00:59,800 --> 00:01:01,190
+So here I can simplify it.
+
+15
+00:01:01,540 --> 00:01:03,120
+Users, don't forget this debate.
+
+16
+00:01:03,280 --> 00:01:05,500
+And here we just try and get users.
+
+17
+00:01:05,830 --> 00:01:11,620
+And if you forget here, wait, then here won't get our users, but you will get here a promise.
+
+18
+00:01:11,830 --> 00:01:13,460
+And this is not what we want.
+
+19
+00:01:13,480 --> 00:01:15,400
+We want to resolve our promise.
+
+20
+00:01:15,790 --> 00:01:18,370
+The next line here will be user statuses.
+
+21
+00:01:18,580 --> 00:01:22,090
+And here we want to get our get user statuses.
+
+22
+00:01:22,240 --> 00:01:28,060
+And obviously, as you can see, this code is much, much easier to read because we don't have any then
+
+23
+00:01:28,060 --> 00:01:28,940
+we don't have promised.
+
+24
+00:01:28,940 --> 00:01:34,780
+So it looks like it is simple asynchronous code because the lines are executed one by one.
+
+25
+00:01:34,930 --> 00:01:40,300
+And after this extra loop of want to copy paste our mapping and put it here because we won't change
+
+26
+00:01:40,300 --> 00:01:45,610
+it, and it doesn't make any sense to create additional function because inside this function, we have
+
+27
+00:01:45,610 --> 00:01:46,660
+just two lines.
+
+28
+00:01:46,930 --> 00:01:49,840
+This is why here we can write const mapped users.
+
+29
+00:01:50,110 --> 00:01:55,900
+And here were signed and users that map and will make in exactly the same stuff like we did in previous
+
+30
+00:01:55,900 --> 00:01:56,290
+video.
+
+31
+00:01:56,500 --> 00:02:00,010
+So after this headline, we already have our map data.
+
+32
+00:02:00,160 --> 00:02:03,100
+So here we can write console.log map to users.
+
+33
+00:02:03,340 --> 00:02:05,650
+And here we can check our mapped users.
+
+34
+00:02:05,770 --> 00:02:09,460
+We also must call somewhere our get mapped users function.
+
+35
+00:02:09,610 --> 00:02:14,770
+And if we don't need to write here, wait or something because we simply call in the synchronous function.
+
+36
+00:02:15,040 --> 00:02:16,540
+Now I will reload this page.
+
+37
+00:02:16,690 --> 00:02:18,610
+As you can see, we're getting mapped users.
+
+38
+00:02:18,760 --> 00:02:25,030
+And this is our response, which actually means this code is working correctly and this code is looking
+
+39
+00:02:25,030 --> 00:02:27,700
+super readable because we use here, as in Kuwait.
+
+40
+00:02:27,940 --> 00:02:29,410
+But this is not enough.
+
+41
+00:02:29,420 --> 00:02:32,050
+We always want to prep our write code.
+
+42
+00:02:32,290 --> 00:02:33,230
+We strike.
+
+43
+00:02:33,490 --> 00:02:34,150
+Why is that?
+
+44
+00:02:34,150 --> 00:02:36,130
+Because of here, we will get some error.
+
+45
+00:02:36,310 --> 00:02:37,810
+Then we will never see it.
+
+46
+00:02:37,990 --> 00:02:40,060
+We will have an error and code promised.
+
+47
+00:02:40,360 --> 00:02:43,360
+This is where here we want at the beginning to write try.
+
+48
+00:02:43,690 --> 00:02:47,200
+And here at the end, after our console.log, we want to close it.
+
+49
+00:02:47,350 --> 00:02:48,760
+And right here, OK?
+
+50
+00:02:48,940 --> 00:02:54,250
+And here we are getting our error and inside our case, we want to write something like console.log
+
+51
+00:02:54,490 --> 00:02:57,100
+Azure and here is Arrow that we can get.
+
+52
+00:02:57,310 --> 00:02:57,970
+In this case.
+
+53
+00:02:57,970 --> 00:03:03,670
+We're on the safe side and we know if some asynchronous code is not working here of getting some errors,
+
+54
+00:03:03,940 --> 00:03:06,700
+we will then throw an arrow here inside the cage.
+
+55
+00:03:07,000 --> 00:03:07,930
+Let's check this out.
+
+56
+00:03:07,930 --> 00:03:14,080
+Our code is still working and we successfully use this in Kuwait to write our promises with it.

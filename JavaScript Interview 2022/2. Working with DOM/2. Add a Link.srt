@@ -1,0 +1,95 @@
+1
+00:00:00,150 --> 00:00:06,240
+Another dumb task that you can get is at the link back to the source of the text after the paragraph
+
+2
+00:00:06,240 --> 00:00:10,140
+tech, and actually I have exactly the same issue Timberlake previously.
+
+3
+00:00:10,380 --> 00:00:14,280
+But at the end, we must provide a link to our source.
+
+4
+00:00:17,570 --> 00:00:18,980
+So how can we solve this?
+
+5
+00:00:19,190 --> 00:00:24,620
+First of all, we must create an Udham element, and in our case, it will be a link, then we will
+
+6
+00:00:24,620 --> 00:00:25,480
+provide insight.
+
+7
+00:00:26,120 --> 00:00:29,120
+And then we will just spend it at the end of our Dom.
+
+8
+00:00:29,420 --> 00:00:31,850
+So first of all, let's create a link for this.
+
+9
+00:00:31,850 --> 00:00:38,150
+We can use document to create element, and inside we must provide what Dom Element will want to create.
+
+10
+00:00:38,360 --> 00:00:40,100
+In our case, it is a name.
+
+11
+00:00:40,400 --> 00:00:43,880
+After this, we want inside link to assign our craft.
+
+12
+00:00:44,120 --> 00:00:46,340
+So we simply write Link Graph equals.
+
+13
+00:00:46,520 --> 00:00:48,800
+And in our case, I will copy it from here.
+
+14
+00:00:49,040 --> 00:00:52,340
+It will be asked for ipsum dot com.
+
+15
+00:00:52,490 --> 00:00:57,230
+And we also must provide insight and in a text, which will be a content of our link.
+
+16
+00:00:57,500 --> 00:01:07,310
+This is why Link Dot in the text and here were signing text generated from lorem ipsum.
+
+17
+00:01:07,880 --> 00:01:09,890
+So our dom element is ready now.
+
+18
+00:01:09,890 --> 00:01:16,310
+We simply need to put it at the end of our dom so we can write here Document Dot, Pointy Dot UPenn
+
+19
+00:01:16,310 --> 00:01:16,910
+child.
+
+20
+00:01:17,060 --> 00:01:19,910
+And here we just provide an Iron Dome element.
+
+21
+00:01:20,210 --> 00:01:23,030
+In this case, it will appear at the end of our body.
+
+22
+00:01:23,060 --> 00:01:24,020
+Let's check this out.
+
+23
+00:01:24,230 --> 00:01:29,780
+I am reloading the page, and now at the end, we have text generated from lorem ipsum and this is the
+
+24
+00:01:29,780 --> 00:01:32,120
+link and it is going on the correct page.

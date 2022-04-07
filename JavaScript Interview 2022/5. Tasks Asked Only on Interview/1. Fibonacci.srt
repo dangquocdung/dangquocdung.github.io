@@ -1,0 +1,195 @@
+1
+00:00:00,120 --> 00:00:05,430
+Now we're coming to some really hilarious questions, because this stuff you will never use in your
+
+2
+00:00:05,430 --> 00:00:09,300
+everyday life like a programmer, but you must know how to solve it.
+
+3
+00:00:09,540 --> 00:00:15,360
+And the first one here, which is my favorite design, the function which returns a Fibonacci sequence
+
+4
+00:00:15,360 --> 00:00:21,570
+value and they didn't write the function to get the Fibonacci value in the last 12 years, which actually
+
+5
+00:00:21,570 --> 00:00:23,100
+means it is not that needed.
+
+6
+00:00:23,370 --> 00:00:27,420
+But I am constantly hear this question again and again on the interview.
+
+7
+00:00:27,690 --> 00:00:33,450
+And actually, I think that it is totally fine to ask the interviewer, OK, I don't know, a formula
+
+8
+00:00:33,450 --> 00:00:34,260
+for Fibonacci.
+
+9
+00:00:34,470 --> 00:00:37,110
+Can you please say it and then they can code it?
+
+10
+00:00:37,110 --> 00:00:38,130
+It's not a problem.
+
+11
+00:00:38,340 --> 00:00:41,190
+And this is totally fine, because you should not know by heart.
+
+12
+00:00:41,400 --> 00:00:42,930
+All mathematical formulas.
+
+13
+00:00:43,200 --> 00:00:43,890
+This is what here.
+
+14
+00:00:43,920 --> 00:00:47,850
+Actually, you can get something like this as a result for your question.
+
+15
+00:00:47,880 --> 00:00:54,120
+So here you can see that Fibonacci sequence is an integer sequence where the first two terms is zero
+
+16
+00:00:54,120 --> 00:00:59,280
+and one after the next term is defined as a sum of previous two terms.
+
+17
+00:00:59,700 --> 00:01:06,420
+And the else term is the sum of and minus one and and minus two, which actually means this is a typical
+
+18
+00:01:06,420 --> 00:01:10,200
+start of the sequence we have here zero, one, one and two.
+
+19
+00:01:10,320 --> 00:01:15,570
+And as you can see here, we can sum, for example, one and one, and we get into here with some one
+
+20
+00:01:15,570 --> 00:01:18,000
+and two and we get them three and so on and so on.
+
+21
+00:01:21,260 --> 00:01:27,020
+So how we can solve this, we must provide in our function a Fibonacci sequence value, which actually
+
+22
+00:01:27,020 --> 00:01:29,360
+means the index in this sequence.
+
+23
+00:01:29,480 --> 00:01:34,310
+For example, if we will provide seven as an argument, then we must get here 21.
+
+24
+00:01:34,520 --> 00:01:38,750
+Because actually we will sum up eight and 13 and we're getting 21.
+
+25
+00:01:38,990 --> 00:01:45,020
+Now let's call this exercise and actually he'll be able to use recursion because if you want to calculate
+
+26
+00:01:45,020 --> 00:01:45,950
+its recursive loop.
+
+27
+00:01:46,130 --> 00:01:51,290
+So here we can create a Fibonacci function and we get here and which is our index.
+
+28
+00:01:51,470 --> 00:01:56,930
+And here, first of all, we must check if it is less than two, because in this case, our logic won't
+
+29
+00:01:56,930 --> 00:01:59,420
+work because here we have zero and one.
+
+30
+00:01:59,660 --> 00:02:05,180
+This is we have a master, OK, if and less than two, then he'll want to return one.
+
+31
+00:02:05,540 --> 00:02:08,000
+In other cases, we must apply our logic.
+
+32
+00:02:08,180 --> 00:02:10,610
+And here we simplify return Fibonacci.
+
+33
+00:02:10,790 --> 00:02:16,220
+And here we are passing and minus two, which actually means we calculate this function recursively.
+
+34
+00:02:16,430 --> 00:02:22,760
+And every single recursive call of Fibonacci will call it again and again until we will come to this
+
+35
+00:02:22,760 --> 00:02:23,570
+first condition.
+
+36
+00:02:23,900 --> 00:02:29,150
+So here we have Fibonacci and minus two plus Fibonacci and minus one.
+
+37
+00:02:29,450 --> 00:02:32,090
+And actually, this is a whole code that you must trade.
+
+38
+00:02:32,330 --> 00:02:33,250
+Let's check this out.
+
+39
+00:02:33,260 --> 00:02:37,490
+I will just jump in the console and right here, Fibonacci seven.
+
+40
+00:02:37,730 --> 00:02:42,200
+And as you can see, we're getting 21, which actually means our code is working.
+
+41
+00:02:42,470 --> 00:02:44,600
+But here are some important stuff to remember.
+
+42
+00:02:44,810 --> 00:02:51,320
+As a programmer, you must know how to convert mathematical formulas or some logic in JavaScript functions
+
+43
+00:02:51,320 --> 00:02:57,590
+or functions in any other language, but it's totally fine to not know beyond all mathematical formulas.
+
+44
+00:02:57,800 --> 00:03:00,380
+This is why you should not afraid to ask about them.
+
+45
+00:03:00,590 --> 00:03:03,680
+And secondly, I think it is totally fine to ask in return.
+
+46
+00:03:03,770 --> 00:03:08,840
+OK, I can't feel the code it, but are you using this stuff every single day in your project?
+
+47
+00:03:09,050 --> 00:03:10,770
+And probably you will get an answer.
+
+48
+00:03:10,790 --> 00:03:11,240
+No.
+
+49
+00:03:11,660 --> 00:03:15,800
+This is why actually, it doesn't make any sense to ask this stuff in the first place.

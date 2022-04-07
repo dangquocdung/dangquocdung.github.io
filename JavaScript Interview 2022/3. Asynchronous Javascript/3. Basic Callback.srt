@@ -1,0 +1,187 @@
+1
+00:00:00,390 --> 00:00:05,970
+You might get another question regarding the Sinclair's jealous group, for example, right in the synchronous
+
+2
+00:00:05,970 --> 00:00:10,620
+function of which executes Colbeck after finishing, it's a synchronous task.
+
+3
+00:00:14,040 --> 00:00:19,710
+And actually, if you don't know in JavaScript, where using callbacks quite a lot and previously before
+
+4
+00:00:19,710 --> 00:00:23,550
+promises and disintegrate, we used callback for fetch and data.
+
+5
+00:00:23,640 --> 00:00:28,230
+Also even now, callback is quite popular way to work inside the application.
+
+6
+00:00:28,500 --> 00:00:33,600
+So actually, first of all, we want to write some function which will make some asynchronous code.
+
+7
+00:00:33,810 --> 00:00:39,750
+And the easiest way to simulate in JavaScript asynchronous code is by using set timeout because, for
+
+8
+00:00:39,750 --> 00:00:43,560
+example, were fetching some data from the backend and it takes time.
+
+9
+00:00:43,950 --> 00:00:48,830
+This is why I want to create here a sink function, and they just name it as a fan.
+
+10
+00:00:49,050 --> 00:00:54,600
+And here we want to get our callback as a parameter and actually callback is just a function.
+
+11
+00:00:54,810 --> 00:01:00,150
+But the most important part is that the synchronous function doesn't know what callback is.
+
+12
+00:01:00,360 --> 00:01:03,540
+It can be whatever because we're calling it from outside.
+
+13
+00:01:03,750 --> 00:01:09,330
+Now inside we are doing some asynchronous code, for example, would fetch data from a page or in our
+
+14
+00:01:09,330 --> 00:01:12,450
+case, here we're using set timeout to simulate this.
+
+15
+00:01:12,720 --> 00:01:15,420
+And we have set timeout, for example, for two seconds.
+
+16
+00:01:15,600 --> 00:01:18,480
+And then at the end, we want to call our callback.
+
+17
+00:01:18,720 --> 00:01:24,470
+This is why we simply call this function or sometimes with the data as the result of our API.
+
+18
+00:01:24,480 --> 00:01:24,840
+Maybe.
+
+19
+00:01:25,050 --> 00:01:26,940
+So here we can write code back done.
+
+20
+00:01:26,940 --> 00:01:27,690
+And this is it.
+
+21
+00:01:27,990 --> 00:01:30,030
+Our asynchronous function is ready.
+
+22
+00:01:30,310 --> 00:01:32,100
+Now how are using this function?
+
+23
+00:01:32,280 --> 00:01:38,070
+We just tried to sync function and we are providing our callback and said this is a function which will
+
+24
+00:01:38,070 --> 00:01:39,900
+be executed inside at the end.
+
+25
+00:01:40,290 --> 00:01:44,640
+This is why here we can see that we are getting the function with the argument message.
+
+26
+00:01:44,930 --> 00:01:47,790
+This is what we are getting back from our async function.
+
+27
+00:01:48,030 --> 00:01:52,860
+In here we can write console.log, callback and here comma message.
+
+28
+00:01:53,160 --> 00:01:54,570
+And let's check if it's working.
+
+29
+00:01:54,630 --> 00:01:55,830
+I'm reloading the page.
+
+30
+00:01:56,040 --> 00:02:00,540
+And as you can see, we don't hear anything now after two seconds were getting called back done.
+
+31
+00:02:00,810 --> 00:02:05,160
+This is exactly how callbacks are working and this is exactly what we implemented.
+
+32
+00:02:05,400 --> 00:02:10,340
+So we have in the synchronous function, which executes callback after finishing, it's a synchronous
+
+33
+00:02:10,380 --> 00:02:10,740
+task.
+
+34
+00:02:10,920 --> 00:02:14,580
+And the second question that you might get here, what problem callback solve.
+
+35
+00:02:17,800 --> 00:02:19,960
+And actually, there are two important points.
+
+36
+00:02:19,990 --> 00:02:25,900
+First of all, Colback, allow us to make some assume control staff and wait for the result because
+
+37
+00:02:25,900 --> 00:02:28,720
+actually here we're just providing the function from outside.
+
+38
+00:02:28,930 --> 00:02:31,900
+And it will be called later and not immediately.
+
+39
+00:02:32,140 --> 00:02:34,060
+This is the main purpose of the callback.
+
+40
+00:02:34,240 --> 00:02:38,680
+And secondly, it's important to remember that inside our asynchronous function of we don't know what
+
+41
+00:02:38,680 --> 00:02:39,430
+this callback.
+
+42
+00:02:39,700 --> 00:02:42,100
+This is why we can build shareable things.
+
+43
+00:02:42,340 --> 00:02:45,010
+This callback can do whatever in different cases.
+
+44
+00:02:45,220 --> 00:02:50,590
+For example, on the one page, we want to fetch data and maybe render this data, and on another page,
+
+45
+00:02:50,770 --> 00:02:56,440
+we want to fetch this data and calculate the total number of posts or something like this, which actually
+
+46
+00:02:56,440 --> 00:02:58,510
+means callback is a generic function.
+
+47
+00:02:58,540 --> 00:03:04,510
+This is why we can easily share our asynchronous function without specific implementation of our callback.

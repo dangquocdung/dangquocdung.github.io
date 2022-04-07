@@ -1,0 +1,239 @@
+1
+00:00:00,120 --> 00:00:03,100
+You might also get a question about memorization.
+
+2
+00:00:03,360 --> 00:00:09,300
+And here's your case consumer must design the memorization function, which adds 10 to provide value
+
+3
+00:00:09,480 --> 00:00:12,840
+and take it from cash if it was already calculated.
+
+4
+00:00:16,210 --> 00:00:22,600
+And if you don't know what term memorization in JavaScript means, it means that vacation values to
+
+5
+00:00:22,600 --> 00:00:27,760
+avoid making the same operation again, which actually means, for example, would want to subtract
+
+6
+00:00:27,760 --> 00:00:28,510
+two numbers.
+
+7
+00:00:28,780 --> 00:00:34,840
+And if we did it previously and we already know the answer, then we must just return this answer and
+
+8
+00:00:34,840 --> 00:00:36,160
+not calculate it again.
+
+9
+00:00:36,490 --> 00:00:41,740
+Obviously, it doesn't make sense to make it with subtract or some, but it makes a lot of sense when
+
+10
+00:00:41,740 --> 00:00:43,570
+we have some difficult calculations.
+
+11
+00:00:43,900 --> 00:00:47,710
+This is where Hillary must build an example of memorization function.
+
+12
+00:00:47,890 --> 00:00:49,780
+And actually, it's not that difficult.
+
+13
+00:00:49,960 --> 00:00:57,190
+So here I want to create a function, memorize ad and then say this function of a don't need any arguments,
+
+14
+00:00:57,190 --> 00:00:59,350
+but we want to create a cache inside.
+
+15
+00:00:59,620 --> 00:01:03,610
+This is why here I will create cache property and this is just an object.
+
+16
+00:01:03,940 --> 00:01:09,760
+Now here I want to return in your function, and you can see that this is a closure because actually
+
+17
+00:01:09,760 --> 00:01:12,730
+we can start on with some variables when we have a closure.
+
+18
+00:01:13,030 --> 00:01:16,090
+This is why here I will return the function with value.
+
+19
+00:01:16,360 --> 00:01:18,820
+And now here is how we're using it outside.
+
+20
+00:01:19,060 --> 00:01:23,770
+So here we want to create new add function and we just call him lies.
+
+21
+00:01:24,400 --> 00:01:28,060
+So in this case, new add is a function and we can use it.
+
+22
+00:01:28,270 --> 00:01:31,330
+This is why here we can write new add, for example.
+
+23
+00:01:31,330 --> 00:01:38,510
+Nine And this is our value and in this case will be output 19 calculated by 19.
+
+24
+00:01:38,560 --> 00:01:43,930
+Because actually, as you can see in our future, it must add 10 to our provided value.
+
+25
+00:01:44,080 --> 00:01:47,320
+So we're throwing inside nine and we're getting back nine 10.
+
+26
+00:01:47,590 --> 00:01:53,980
+But actually, when we calling you add with nine again, the output will be also 19, but it should
+
+27
+00:01:53,980 --> 00:01:55,140
+be taken from cat.
+
+28
+00:01:55,330 --> 00:01:57,130
+It should not be calculated again.
+
+29
+00:01:57,250 --> 00:01:59,740
+And this is exactly what memorization is doing.
+
+30
+00:02:00,040 --> 00:02:03,160
+So now we just need to implement this memorization logic.
+
+31
+00:02:03,280 --> 00:02:06,910
+So here we can write if we have a value in cash.
+
+32
+00:02:07,090 --> 00:02:12,070
+So we're checking if we have such value inside our object, then we want to just return it.
+
+33
+00:02:12,280 --> 00:02:15,820
+And here I want to write console.log so you can see that it is minimized.
+
+34
+00:02:16,120 --> 00:02:19,060
+So here will be fetching from cash.
+
+35
+00:02:19,300 --> 00:02:22,760
+And after this, I want to write return cash.
+
+36
+00:02:22,900 --> 00:02:24,280
+And here is our value.
+
+37
+00:02:24,520 --> 00:02:27,040
+So as you can see, we don't do any calculations here.
+
+38
+00:02:27,220 --> 00:02:31,330
+We simply return our value and we also have else in here.
+
+39
+00:02:31,330 --> 00:02:32,620
+We have calculations.
+
+40
+00:02:32,890 --> 00:02:36,100
+So we're right in here calculating results.
+
+41
+00:02:36,340 --> 00:02:38,620
+And after this, we must really calculate it.
+
+42
+00:02:38,620 --> 00:02:44,380
+So let's create here a value, for example, result and we want to put higher value plus 10.
+
+43
+00:02:44,680 --> 00:02:48,340
+And after this, we must put it in cash before we return it.
+
+44
+00:02:48,520 --> 00:02:49,840
+In this case were stolen.
+
+45
+00:02:49,840 --> 00:02:51,640
+Our result for the next right.
+
+46
+00:02:51,910 --> 00:02:59,410
+This is why here we can write cash value equals result in this case, where I sign in cash for our number
+
+47
+00:02:59,410 --> 00:02:59,920
+nine.
+
+48
+00:03:00,130 --> 00:03:02,180
+In this case, win win next time right here.
+
+49
+00:03:02,210 --> 00:03:04,780
+Nine, Then we're getting the value from cash.
+
+50
+00:03:05,140 --> 00:03:07,960
+And after this, we can simply return our result.
+
+51
+00:03:08,200 --> 00:03:10,810
+And this is just the value that we calculated here.
+
+52
+00:03:11,170 --> 00:03:12,140
+Let's check this out.
+
+53
+00:03:12,160 --> 00:03:15,940
+I'm reloading the page as you can see where I get and calculating results.
+
+54
+00:03:16,150 --> 00:03:22,150
+This is our first try here and calculated 19, which actually means we really calculated something.
+
+55
+00:03:22,450 --> 00:03:28,630
+But the second time this call we have fetching from cast nine 10, which actually means we didn't calculate
+
+56
+00:03:28,630 --> 00:03:31,570
+this time this number, but we took it from cash.
+
+57
+00:03:31,810 --> 00:03:34,510
+And this is how you typically implement memorization.
+
+58
+00:03:34,660 --> 00:03:37,660
+You can get different tasks, but the idea is the same.
+
+59
+00:03:37,870 --> 00:03:43,600
+You have some cash, you have a closure and you must deliver the value from the cash and put it in the
+
+60
+00:03:43,600 --> 00:03:45,190
+cash on the first calculation.

@@ -1,0 +1,435 @@
+1
+00:00:00,120 --> 00:00:06,030
+You might get another difficult task of mapping data with promises, as you can see here, we have such
+
+2
+00:00:06,040 --> 00:00:06,500
+feature.
+
+3
+00:00:06,750 --> 00:00:13,740
+You have two functions which returned premises mobile data from users and user statuses to get array
+
+4
+00:00:13,740 --> 00:00:16,560
+of users with a name and detective.
+
+5
+00:00:16,950 --> 00:00:21,120
+And as you can see here, we have 130 users with ID and name.
+
+6
+00:00:21,330 --> 00:00:25,990
+And we have a secondary user statuses with ITI and executive properties.
+
+7
+00:00:26,280 --> 00:00:32,580
+And actually, this is exactly the same like here, and this is exactly the data that we need to map.
+
+8
+00:00:32,790 --> 00:00:36,660
+So we need to get an array with the ID name and is active.
+
+9
+00:00:36,840 --> 00:00:40,110
+But the main point is that this data are not available for us.
+
+10
+00:00:40,290 --> 00:00:45,030
+They are only available here inside, get users and get user statuses.
+
+11
+00:00:45,240 --> 00:00:50,550
+So we have two functions which are promises, and typically you will fetch this data from the EPA.
+
+12
+00:00:50,880 --> 00:00:51,930
+This is a way to get.
+
+13
+00:00:51,930 --> 00:00:54,450
+Users will return for a promise.
+
+14
+00:00:54,660 --> 00:00:58,070
+This is why we are resolving an array of phone users here and here.
+
+15
+00:00:58,110 --> 00:01:04,230
+The same with user statuses, which actually means we have to promise we must resolve them and combine.
+
+16
+00:01:07,440 --> 00:01:10,170
+And there are different ways how we can solve this task.
+
+17
+00:01:10,290 --> 00:01:14,610
+The most beginner approach here is to fetch first promise and then the next one.
+
+18
+00:01:14,820 --> 00:01:17,850
+Let's try this now so we can right here get users.
+
+19
+00:01:18,060 --> 00:01:19,860
+And this gives us back a promise.
+
+20
+00:01:19,870 --> 00:01:24,380
+This is where here we can right then and we're getting our users back now.
+
+21
+00:01:24,390 --> 00:01:29,580
+After this, we want to fetch our get user statuses so he'll work, call and get user statuses.
+
+22
+00:01:29,820 --> 00:01:34,230
+And we'll also use them here and we're getting back our user statuses.
+
+23
+00:01:34,560 --> 00:01:39,000
+And now inside this function, we have access to user statuses and users.
+
+24
+00:01:39,150 --> 00:01:45,630
+Because here we will get only after resolving both of them, but not in parallel, but one by one.
+
+25
+00:01:46,020 --> 00:01:52,290
+And what we can do here, we can map users so we can create, for example, mapped users, and we need
+
+26
+00:01:52,290 --> 00:01:54,390
+to look through our users with map.
+
+27
+00:01:54,630 --> 00:02:00,540
+We have access to every single user and now we need to find this is active property because this is
+
+28
+00:02:00,540 --> 00:02:02,820
+exactly what we want to put in our array.
+
+29
+00:02:03,150 --> 00:02:06,270
+This is why here we can write Konst is active.
+
+30
+00:02:06,570 --> 00:02:10,480
+And here we want to find inside user statuses our status.
+
+31
+00:02:10,500 --> 00:02:13,770
+This is where shall we write and find user status?
+
+32
+00:02:13,980 --> 00:02:16,350
+And here we need to check user status.
+
+33
+00:02:16,350 --> 00:02:19,300
+Dot I.D. equals our user I.D..
+
+34
+00:02:19,800 --> 00:02:24,660
+But this will return fast user status and we must, right at the end, is active.
+
+35
+00:02:24,870 --> 00:02:27,870
+In this case, we will get on this specific property.
+
+36
+00:02:27,900 --> 00:02:32,520
+Now, after we got our executive, we want to put it inside every single object.
+
+37
+00:02:32,670 --> 00:02:33,840
+But we won't use here.
+
+38
+00:02:33,840 --> 00:02:35,970
+Push because you remember Bush's bet.
+
+39
+00:02:36,180 --> 00:02:38,060
+This is why we will simply retention.
+
+40
+00:02:38,070 --> 00:02:39,950
+You object and we are spreading here.
+
+41
+00:02:40,010 --> 00:02:46,710
+All fields of our user class is active property in this case, where Putin is active property in every
+
+42
+00:02:46,710 --> 00:02:47,460
+single use.
+
+43
+00:02:47,880 --> 00:02:53,940
+And after this, we can just console look our map to users here, and they are available for us inside
+
+44
+00:02:53,940 --> 00:02:54,810
+our application.
+
+45
+00:02:55,290 --> 00:02:59,010
+Let's check the salt overload in the page and we're getting our matthewson.
+
+46
+00:02:59,250 --> 00:03:04,980
+And as you can see, this is in array with three objects I name and detective, which actually means
+
+47
+00:03:04,980 --> 00:03:06,960
+we successfully solved this task.
+
+48
+00:03:07,260 --> 00:03:09,600
+But there are quite a lot of problems in this code.
+
+49
+00:03:09,900 --> 00:03:15,840
+First of all, we have two different premises and they are not dependent on each other, which means
+
+50
+00:03:15,840 --> 00:03:20,970
+it doesn't make any sense to wait for first premise and only then make a second premise.
+
+51
+00:03:21,120 --> 00:03:23,370
+We actually must do them in parallel.
+
+52
+00:03:23,490 --> 00:03:25,350
+In either case, it is too slow.
+
+53
+00:03:25,500 --> 00:03:30,130
+So I want to write here that this is solution one and they want to comment.
+
+54
+00:03:30,150 --> 00:03:31,290
+Our a solution.
+
+55
+00:03:31,530 --> 00:03:36,260
+Now let's try the second solution, and for the second solution, we can use promise.
+
+56
+00:03:36,270 --> 00:03:38,270
+Oh, if you don't know what this premise.
+
+57
+00:03:38,270 --> 00:03:42,900
+So this is exactly what is helping us to do several promises in parallel.
+
+58
+00:03:43,170 --> 00:03:48,600
+We can right here promise dot all and we must pass array of premises in sight.
+
+59
+00:03:48,810 --> 00:03:55,060
+So here we have an array and we can right here get users and then karma get user statuses.
+
+60
+00:03:55,380 --> 00:04:01,320
+In this case, we're throwing inside premise solar array with our two premises and after promise at
+
+61
+00:04:01,320 --> 00:04:08,070
+the end we can just right then and here we will get our result as in the rate, but it's not very comfortable
+
+62
+00:04:08,070 --> 00:04:09,300
+to work with the REIKIA here.
+
+63
+00:04:09,480 --> 00:04:14,250
+This is why we can directly the structure here, our array to our two properties.
+
+64
+00:04:14,520 --> 00:04:16,530
+And here we are, getting our users in.
+
+65
+00:04:16,530 --> 00:04:18,720
+Here we are getting our user statuses.
+
+66
+00:04:19,020 --> 00:04:23,070
+And after this, we can do our logic, which we did here with Matthewson.
+
+67
+00:04:23,220 --> 00:04:29,580
+This is why I will cook this code with Mat users and just put it inside here because it will stay exactly
+
+68
+00:04:29,580 --> 00:04:30,090
+the same.
+
+69
+00:04:30,390 --> 00:04:35,970
+So here we have access to our user and our user statuses, and we're mapping them and console.log in
+
+70
+00:04:35,970 --> 00:04:36,390
+it here.
+
+71
+00:04:36,420 --> 00:04:37,350
+Let's check this out.
+
+72
+00:04:37,590 --> 00:04:41,250
+I am reloading the page and will get in exactly the same response back.
+
+73
+00:04:41,550 --> 00:04:42,690
+The main point is here.
+
+74
+00:04:42,690 --> 00:04:48,870
+We just promise all, and this is much better because in this case, we're making this request in parallel.
+
+75
+00:04:49,110 --> 00:04:54,360
+Also, as you can see, the solution to we don't have this bad Neston was then and then, and here we
+
+76
+00:04:54,360 --> 00:04:55,800
+have just a single then.
+
+77
+00:04:56,040 --> 00:05:01,890
+And this is obviously better because we want to avoid this deeply nested code, but we can make this
+
+78
+00:05:01,890 --> 00:05:03,130
+code even better.
+
+79
+00:05:03,300 --> 00:05:08,970
+As you can see, we have this map to users and we actually can remove this code outside of our then
+
+80
+00:05:09,210 --> 00:05:10,710
+just to make it more readable.
+
+81
+00:05:10,920 --> 00:05:16,740
+So here we can create additional function before, for example, map users and we know that we're getting
+
+82
+00:05:16,740 --> 00:05:19,470
+here, our users end user statuses.
+
+83
+00:05:19,680 --> 00:05:26,100
+And actually, this is completely pure function, which will just map our users so I can card this code
+
+84
+00:05:26,280 --> 00:05:27,810
+and put it here inside.
+
+85
+00:05:28,140 --> 00:05:29,760
+And here we don't need our const.
+
+86
+00:05:29,760 --> 00:05:32,130
+We can directly return our map.
+
+87
+00:05:32,460 --> 00:05:36,330
+And actually, this code will be exactly the same like we used it previously.
+
+88
+00:05:36,660 --> 00:05:43,140
+And now what we can do here, we can just create mapped users and here were sign in map users and we're
+
+89
+00:05:43,140 --> 00:05:46,110
+passing inside our users and user statuses.
+
+90
+00:05:46,410 --> 00:05:51,180
+And as you can see now, this code is even better to read because here we have simpler premise.
+
+91
+00:05:51,180 --> 00:05:56,130
+So then we're mapping our users with additional function and work on slug in them.
+
+92
+00:05:56,370 --> 00:05:57,320
+Let's check this out.
+
+93
+00:05:57,330 --> 00:06:02,400
+As you can see, we have exactly the same response and actually we can improve this function even a
+
+94
+00:06:02,400 --> 00:06:05,790
+little bit more, as you can see where mapping users inside.
+
+95
+00:06:05,960 --> 00:06:06,470
+What then?
+
+96
+00:06:06,740 --> 00:06:13,670
+But actually, we can chain our fence, which actually means here may be woven directly to return our
+
+97
+00:06:13,670 --> 00:06:14,540
+map to users.
+
+98
+00:06:14,690 --> 00:06:18,710
+So our first then we'll just map the users and return them here.
+
+99
+00:06:18,860 --> 00:06:23,930
+And after this, we can write one more then and here we will have our mapped users.
+
+100
+00:06:24,140 --> 00:06:25,890
+And here we want to work with them.
+
+101
+00:06:25,910 --> 00:06:26,840
+So here I will.
+
+102
+00:06:26,840 --> 00:06:34,280
+Console.log our mapped users in this case were split two different then mapping of the users and working
+
+103
+00:06:34,280 --> 00:06:35,180
+with success.
+
+104
+00:06:35,360 --> 00:06:41,030
+And actually here with simpler console.log our users, which means this is our success and we can even
+
+105
+00:06:41,030 --> 00:06:44,350
+remove a return from here and ride this as a single lane.
+
+106
+00:06:44,550 --> 00:06:46,820
+In this case, it will be even more readable.
+
+107
+00:06:46,970 --> 00:06:50,480
+So I would say that this code is as dry as possible.
+
+108
+00:06:50,660 --> 00:06:55,940
+This is why if you want to show that you are an advanced developer, you must write your code and try
+
+109
+00:06:55,940 --> 00:06:58,490
+to improve it as many times as possible.
